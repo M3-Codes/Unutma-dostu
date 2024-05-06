@@ -1,0 +1,4 @@
+#Mon May 06 12:17:58 TRT 2024
+base.0=C\:\\Users\\bayan\\Documents\\flutter projet\\unutma_dostu\\Unutma-Dostu\\view_page\\arayuz_goster\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
