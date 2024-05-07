@@ -2,11 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:insert_page/color_picker.dart';
 import 'image_info.dart';
 import 'text_field.dart';
+import 'color_picker.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: SingleChildScrollView( // Wrap Column with SingleChildScrollView
+        body: SingleChildScrollView(
+          // Wrap Column with SingleChildScrollView
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -62,6 +67,22 @@ class MyApp extends StatelessWidget {
               const TextFieldWidget(
                 title: 'Yer',
                 hintText: 'Yeri Yazınız...',
+              ),
+              const SizedBox(height: 10),
+             Row(
+                children: [
+                  const TextFieldWidget(
+                    title: 'Etiket',
+                    hintText: 'Etiketi Yazınız...',
+                  ),
+                  ColorPickers(
+                    title: 'Renk',
+                    onTap: () {
+                      openColorPicker(context);
+                    },
+                    color: const Color(0xFF00FFF0),
+                  ),
+                ],
               ),
             ],
           ),

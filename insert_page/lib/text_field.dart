@@ -20,7 +20,7 @@ class TextFieldWidget extends StatelessWidget {
             title,
             style: GoogleFonts.rubik(
               textStyle: const TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 color: Colors.black,
               ),
             ),
