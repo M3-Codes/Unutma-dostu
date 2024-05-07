@@ -6,6 +6,8 @@ import 'package:view_page/design/daydate.dart';
 import 'package:view_page/design/labelcolor.dart';
 import 'package:view_page/design/readingboxes.dart';
 
+import 'package:view_page/design/readingboxes.dart';
+
 void main() {
   runApp(const MyApp());
 }
