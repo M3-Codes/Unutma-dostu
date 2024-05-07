@@ -69,20 +69,16 @@ class MyApp extends StatelessWidget {
                 hintText: 'Yeri Yazınız...',
               ),
               const SizedBox(height: 10),
-             Row(
-                children: [
-                  const TextFieldWidget(
-                    title: 'Etiket',
-                    hintText: 'Etiketi Yazınız...',
-                  ),
-                  ColorPickers(
-                    title: 'Renk',
-                    onTap: () {
-                      openColorPicker(context);
-                    },
-                    color: const Color(0xFF00FFF0),
-                  ),
-                ],
+              const TextFieldWidget(
+                title: 'Etiket',
+                hintText: 'Etiketi Yazınız...',
+              ),
+              ColorPickers(
+                title: 'Renk',
+                onTap: () {
+                  openColorPicker(context);
+                },
+                color: const Color(0xFF00FFF0),
               ),
             ],
           ),
