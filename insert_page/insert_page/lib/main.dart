@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                   color: const Color(0xFF00FFF0),
                 ),
                 _buildImageInfo(
-                  title: 'Yer Eki   ',
+                  title: 'Yer Eki',
                   onTap: () => print("Yer imgesi Butonu şuan çalışmamakta"),
                   color: const Color(0xFFF6FA32),
                 ),
