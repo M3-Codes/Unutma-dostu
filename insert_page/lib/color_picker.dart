@@ -1,5 +1,4 @@
-import 'dart:math';
-
+ 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'; // Import for ColorPicker
 import 'package:google_fonts/google_fonts.dart';
@@ -89,6 +88,7 @@ void openColorPicker(BuildContext context) {
         content: SingleChildScrollView(
           child: ColorPickerWidget(
             onColorSelected: (Color selectedColor) { 
+              // ignore: avoid_print
               print('Selected color: $selectedColor'); // Placeholder for now
             },
           ),
