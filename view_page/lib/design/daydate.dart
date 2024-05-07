@@ -14,7 +14,8 @@ class DayDate extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
         child: Row(children: [
-          const Textfont("Tarih  "),
+          const Icon(Icons.calendar_month),
+          const Textfont("Tarih "),
           const SizedBox(
             width: 10,
           ),

@@ -14,6 +14,7 @@ class AgainTime extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
         child: Row(children: [
+          const Icon(Icons.alarm),
           const Textfont("Tekrar"),
           const SizedBox(
             width: 10,

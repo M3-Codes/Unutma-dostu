@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:view_page/design/textfont.dart';
 
+// ignore: camel_case_types
 class readingboxes extends StatelessWidget {
   final String title;
   final String hintText;

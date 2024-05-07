@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:view_page/design/Imagesbutton.dart';
+import 'package:view_page/design/addbar.dart';
 import 'package:view_page/design/againtime.dart';
 import 'package:view_page/design/daydate.dart';
 import 'package:view_page/design/labelcolor.dart';
@@ -16,21 +17,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Column(
           children: <Widget>[
-            AppBar(
-              title: const TitleTextFont("Araba Anahtari"),
-            ),
+            const addbar("Araba Anahatri"),
             Masafe_H(),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Imagesbutton("Ürün eki"),
+                Imagesbutton("Ürün eki", "lib/image/Araba_Anahtarı 1.jpg"),
                 SizedBox(
                   width: 25,
                 ),
-                Imagesbutton("Yer eki")
+                Imagesbutton("Yer eki", "lib/image/Araba_Anahtarı 2.jpg")
               ],
             ),
             Masafe_H(),

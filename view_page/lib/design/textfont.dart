@@ -32,7 +32,7 @@ class TitleTextFont extends StatelessWidget {
         style: GoogleFonts.rubik(
           textStyle: const TextStyle(
             fontSize: 30,
-            color: Color(0xFFC1007F),
+            color: Color.fromARGB(255, 244, 239, 242),
           ),
         ),
       ),

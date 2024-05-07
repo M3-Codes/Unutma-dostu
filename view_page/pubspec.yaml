@@ -31,3 +31,5 @@ flutter:
   uses-material-design: true
   assets:
   - images/m3code.jpg
+  - lib/image/Araba_Anahtarı 1.jpg
+  - lib/image/Araba_Anahtarı 2.jpg
