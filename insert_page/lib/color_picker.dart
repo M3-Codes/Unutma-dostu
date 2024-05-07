@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'; // Import for ColorPicker
 import 'package:google_fonts/google_fonts.dart';
@@ -5,27 +7,28 @@ import 'package:google_fonts/google_fonts.dart';
 class ColorPickerWidget extends StatelessWidget {
   final ValueChanged<Color> onColorSelected;
 
-  const ColorPickerWidget({required this.onColorSelected});
+  const ColorPickerWidget({super.key, required this.onColorSelected});
 
   @override
   Widget build(BuildContext context) {
-    Color _currentColor = Colors.black; // Initial color value
+    Color currentColor = Colors.black; // Initial color value
 
     return ColorPicker( // Use ColorPicker directly from the package
-      pickerColor: _currentColor,
+      pickerColor: currentColor,
       onColorChanged: (Color color) {
-        _currentColor = color;
+        currentColor = color;
         onColorSelected(color);
       },
       colorPickerWidth: 300.0,
       pickerAreaHeightPercent: 0.7,
       enableAlpha: true,
       displayThumbColor: true,
+      // ignore: deprecated_member_use
       showLabel: true,
       paletteType: PaletteType.hsv,
       pickerAreaBorderRadius: const BorderRadius.only(
-        topLeft: const Radius.circular(2.0),
-        topRight: const Radius.circular(2.0),
+        topLeft: Radius.circular(2.0),
+        topRight: Radius.circular(2.0),
       ),
     );
   }
@@ -36,7 +39,7 @@ class ColorPickers extends StatelessWidget {
   final VoidCallback onTap;
   final Color color;
 
-  const ColorPickers({
+  const ColorPickers({super.key, 
     required this.title,
     required this.onTap,
     required this.color,
@@ -66,9 +69,9 @@ class ColorPickers extends StatelessWidget {
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(11),
-                border: Border.all(color: Colors.black, width: 1),
+                border: Border.all(color: const Color.fromARGB(255, 255, 255, 255), width: 1),
               ),
-              child: const Icon(Icons.colorize, color: Colors.black),
+              child: const Icon(Icons.colorize, color: Color(0xFFFFFFFF)),
             ),
           ),
         ],
@@ -82,12 +85,10 @@ void openColorPicker(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Renk Seç'),
+        title: const Text('Renk Seç'),
         content: SingleChildScrollView(
           child: ColorPickerWidget(
-            onColorSelected: (Color selectedColor) {
-              // Update the color and rebuild the widget
-              // (You'll need to manage state if ColorPickers is part of a stateful widget)
+            onColorSelected: (Color selectedColor) { 
               print('Selected color: $selectedColor'); // Placeholder for now
             },
           ),
@@ -97,7 +98,7 @@ void openColorPicker(BuildContext context) {
             onPressed: () {
               Navigator.of(context).pop(); // Close the dialog
             },
-            child: Text('Tamam'),
+            child: const Text('Tamam'),
           ),
         ],
       );

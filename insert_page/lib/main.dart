@@ -5,15 +5,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:insert_page/color_picker.dart';
 import 'image_info.dart';
 import 'text_field.dart';
-import 'color_picker.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,17 +70,24 @@ class MyApp extends StatelessWidget {
                 hintText: 'Yeri Yazınız...',
               ),
               const SizedBox(height: 10),
-              const TextFieldWidget(
-                title: 'Etiket',
-                hintText: 'Etiketi Yazınız...',
-              ),
-              ColorPickers(
-                title: 'Renk',
-                onTap: () {
-                  openColorPicker(context);
-                },
-                color: const Color(0xFF00FFF0),
-              ),
+              Row(
+                children: [
+                  const Flexible(
+                    flex: 3, 
+                    child: TextFieldWidget(
+                      title: 'Etiket',
+                      hintText: '#.................',
+                    ),
+                  ), 
+                  ColorPickers(
+                    title: 'Renk',
+                    onTap: () {
+                      openColorPicker(context);
+                    },
+                    color: const Color(0xFF000000),
+                  ),
+                ],
+              )
             ],
           ),
         ),
