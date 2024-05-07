@@ -76,14 +76,13 @@ class ColorPickers extends StatelessWidget {
     );
   }
 }
-
 void openColorPicker(BuildContext context) {
   // Show the color picker dialog or widget here
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Pick a Color'),
+        title: Text('Renk Seç'),
         content: SingleChildScrollView(
           child: ColorPickerWidget(
             onColorSelected: (Color selectedColor) {
@@ -93,6 +92,14 @@ void openColorPicker(BuildContext context) {
             },
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Close the dialog
+            },
+            child: Text('Tamam'),
+          ),
+        ],
       );
     },
   );
