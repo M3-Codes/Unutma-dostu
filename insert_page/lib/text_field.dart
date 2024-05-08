@@ -5,7 +5,8 @@ class TextFieldWidget extends StatelessWidget {
   final String title;
   final String hintText;
 
-  const TextFieldWidget({super.key, 
+  const TextFieldWidget({
+    super.key,
     required this.title,
     required this.hintText,
   });
@@ -24,8 +25,7 @@ class TextFieldWidget extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-          ),  
-
+          ),
           const SizedBox(width: 20),
           Expanded(
             child: TextField(

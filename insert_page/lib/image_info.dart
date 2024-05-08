@@ -6,7 +6,8 @@ class ImageInfos extends StatelessWidget {
   final VoidCallback onTap;
   final Color color;
 
-  const ImageInfos({super.key, 
+  const ImageInfos({
+    super.key,
     required this.title,
     required this.onTap,
     required this.color,
@@ -27,7 +28,7 @@ class ImageInfos extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 10),
           GestureDetector(
             onTap: onTap,
             child: Container(

@@ -1,4 +1,5 @@
- 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'; // Import for ColorPicker
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,8 @@ class ColorPickerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color currentColor = Colors.black; // Initial color value
 
-    return ColorPicker( // Use ColorPicker directly from the package
+    return ColorPicker(
+      // Use ColorPicker directly from the package
       pickerColor: currentColor,
       onColorChanged: (Color color) {
         currentColor = color;
@@ -38,7 +40,8 @@ class ColorPickers extends StatelessWidget {
   final VoidCallback onTap;
   final Color color;
 
-  const ColorPickers({super.key, 
+  const ColorPickers({
+    super.key,
     required this.title,
     required this.onTap,
     required this.color,
@@ -68,7 +71,8 @@ class ColorPickers extends StatelessWidget {
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(11),
-                border: Border.all(color: const Color.fromARGB(255, 255, 255, 255), width: 1),
+                border: Border.all(
+                    color: const Color.fromARGB(255, 255, 255, 255), width: 1),
               ),
               child: const Icon(Icons.colorize, color: Color(0xFFFFFFFF)),
             ),
@@ -78,6 +82,7 @@ class ColorPickers extends StatelessWidget {
     );
   }
 }
+
 void openColorPicker(BuildContext context) {
   // Show the color picker dialog or widget here
   showDialog(
@@ -87,9 +92,9 @@ void openColorPicker(BuildContext context) {
         title: const Text('Renk Seç'),
         content: SingleChildScrollView(
           child: ColorPickerWidget(
-            onColorSelected: (Color selectedColor) { 
+            onColorSelected: (Color selectedColor) {
               // ignore: avoid_print
-              print('Selected color: $selectedColor'); // Placeholder for now
+              log('Selected color: $selectedColor'); // Placeholder for now
             },
           ),
         ),

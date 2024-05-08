@@ -1,8 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:insert_page/color_picker.dart';
+import 'package:insert_page/color_pick.dart';
 import 'image_info.dart';
 import 'text_field.dart';
 
@@ -46,7 +45,6 @@ class MyApp extends StatelessWidget {
                     onTap: () => log("Ürün imgesi Butonu şuan çalışmamakta"),
                     color: const Color(0xFF00FFF0),
                   ),
-                  const SizedBox(width: 10),
                   ImageInfos(
                     title: 'Yer Eki',
                     onTap: () => log("Yer imgesi Butonu şuan çalışmamakta"),
@@ -73,19 +71,25 @@ class MyApp extends StatelessWidget {
               Row(
                 children: [
                   const Flexible(
-                    flex: 3, 
+                    flex: 3,
                     child: TextFieldWidget(
                       title: 'Etiket',
                       hintText: '#.................',
                     ),
-                  ), 
-                  ColorPickers(
-                    title: 'Renk',
-                    onTap: () {
-                      openColorPicker(context);
-                    },
-                    color: const Color(0xFF000000),
                   ),
+                  Text(
+                    "Renk  ",
+                    style: GoogleFonts.rubik(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  const ColorButton(),
+                  const SizedBox(
+                    width: 35,
+                  )
                 ],
               )
             ],
