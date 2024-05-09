@@ -18,40 +18,42 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            const addbar("Araba Anahatri"),
-            Masafe_H(),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Imagesbutton("Ürün eki", "lib/image/Araba_Anahtarı 1.jpg"),
-                SizedBox(
-                  width: 25,
-                ),
-                Imagesbutton("Yer eki", "lib/image/Araba_Anahtarı 2.jpg")
-              ],
-            ),
-            Masafe_H(),
-            const SizedBox(
-              width: 10,
-            ),
-            const readingboxes("Araba Anahatrı", "Ürün Adı"),
-            const readingboxes("Opel Araba Anahatarı", "Açıklama"),
-            const readingboxes("kapı Aarksı Askılık", "Yer           "),
-            const labelColor("#CarKey"),
-            const AgainTime("01", "00", "40"),
-            const DayDate("02", "01", "2001"),
-            Masafe_H(),
-            Container(
-              alignment: Alignment.bottomCenter,
+        body: Stack(children: [
+          Column(
+            children: [
+              const addbar("Araba Anahatri"),
+              Masafe_H(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Imagesbutton("Ürün eki", "lib/image/Araba_Anahtarı 1.jpg"),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Imagesbutton("Yer eki", "lib/image/Araba_Anahtarı 2.jpg")
+                ],
+              ),
+              Masafe_H(),
+              const SizedBox(
+                width: 10,
+              ),
+              const readingboxes("Araba Anahatrı", "Ürün Adı"),
+              const readingboxes("Opel Araba Anahatarı", "Açıklama"),
+              const readingboxes("kapı Aarksı Askılık", "Yer           "),
+              const labelColor("#CarKey"),
+              const AgainTime("01", "00", "40"),
+              const DayDate("02", "01", "2001"),
+              //Masafe_H(),
+            ],
+          ),
+          Positioned(
+              bottom: 25,
               child: Image.asset(
                 "images/m3code.jpg",
-                width: 250,
-              ),
-            )
-          ],
-        ),
+                width: 390,
+                height: 65,
+              ))
+        ]),
       ),
     );
   }
