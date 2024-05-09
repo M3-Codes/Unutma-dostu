@@ -10,7 +10,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  bool _hpass = true;
+  bool _hpass = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +36,7 @@ class _SignupState extends State<Signup> {
                   height: 150,
                   decoration: BoxDecoration(
                       color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(25)),
+                      borderRadius: BorderRadius.circular(24)),
                   child: Image.asset(
                     "images/Logo.png",
                   ))),
@@ -52,8 +52,8 @@ class _SignupState extends State<Signup> {
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30))),
+                            topLeft: Radius.circular(23),
+                            topRight: Radius.circular(23))),
                   )),
             ],
           ),
