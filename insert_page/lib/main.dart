@@ -103,7 +103,7 @@ class MyApp extends StatelessWidget {
                 children: [
                   const SizedBox(width: 35),
                   RepeatTime(
-                    title: 'Tekrar',
+                    title: 'Tekrar  ',
                     onTap: () {
                       hour++;
                       print('Hour: $hour');
@@ -118,8 +118,7 @@ class MyApp extends StatelessWidget {
                   ),
                   RepeatTime(
                     title: "",
-                    onTap: () {
-                      second++;
+                    onTap: () { 
                       print('Second: $second');
                     },
                   ),

@@ -39,11 +39,11 @@ class _RepeatTimeState extends State<RepeatTime> {
               ),
             ),
           ),
-          const SizedBox(width: 30),
+          const SizedBox(width: 20),
           GestureDetector(
             onTap: widget.onTap,
             child: Container(
-              width: 58,
+              width: 60,
               height: 48,
               decoration: BoxDecoration(
                 color: const Color(0x00FFFFFF), // Buradaki renk sabit
