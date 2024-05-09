@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:insert_page/color_pick.dart';
+import 'package:insert_page/repeat_time.dart';
 import 'image_info.dart';
 import 'text_field.dart';
 
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int hour = 0;
+    int minute = 0;
+    int second = 0;
     return MaterialApp(
       home: Scaffold(
         body: SingleChildScrollView(
@@ -91,7 +95,36 @@ class MyApp extends StatelessWidget {
                     width: 35,
                   )
                 ],
-              )
+              ),
+              const SizedBox(height: 10),
+              Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                
+                children: [
+                  const SizedBox(width: 35),
+                  RepeatTime(
+                    title: 'Tekrar',
+                    onTap: () {
+                      hour++;
+                      print('Hour: $hour');
+                    },
+                  ),
+                  RepeatTime(
+                    title: "",
+                    onTap: () {
+                      minute++;
+                      print('Minute: $minute');
+                    },
+                  ),
+                  RepeatTime(
+                    title: "",
+                    onTap: () {
+                      second++;
+                      print('Second: $second');
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),
