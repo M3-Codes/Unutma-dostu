@@ -34,14 +34,14 @@ class Welcome extends StatelessWidget {
                   text: const TextSpan(
                     children: [
                       TextSpan(
-                          text: 'Welcome Back!\n',
+                          text: 'Hoşgeldiniz!\n',
                           style: TextStyle(
                             fontSize: 45.0,
                             fontWeight: FontWeight.w600,
                           )),
                       TextSpan(
                           text:
-                              '\nEnter personal details to your employee account',
+                              '\nKişisel bilgileri çalışan hesabınıza girin',
                           style: TextStyle(
                             fontSize: 20,
                             // height: 0,
