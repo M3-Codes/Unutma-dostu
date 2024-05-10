@@ -13,7 +13,7 @@ class _ColorButtonState extends State<ColorButton> {
   Color _buttonColor = Colors.grey;
 
   void _changeColor() {
-    Color selectedColor = Colors.pink;
+    Color selectedColor = const Color.fromARGB(255, 3, 0, 1);
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -51,10 +51,10 @@ class _ColorButtonState extends State<ColorButton> {
       onPressed: _changeColor,
       style: ElevatedButton.styleFrom(
           backgroundColor: _buttonColor,
-          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 0.0),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: const BorderSide(color: Colors.black87, width: 3))),
+              side: const BorderSide(color: Colors.black87, width: 1))),
       child: const Icon(Icons.colorize, color: Color(0xFFFFFFFF)),
     );
   }

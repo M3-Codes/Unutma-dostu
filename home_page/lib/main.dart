@@ -16,49 +16,49 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
+body: Column(
           children: <Widget>[
             const addbar("Admin"),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),
             Masafe_B(),
             const divider(),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),
             Masafe_B(),
             const divider(),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),
@@ -68,14 +68,13 @@ class MyApp extends StatelessWidget {
             const addbutton(),
             Masafe_H(),
             Container(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.bottomCenter, 
               child: Image.asset(
                 "images/m3code.jpg",
-                width: 250,
-              ),
-            )
-          ],
-        ),
+                width: 390,
+                height: 65,
+              ))
+        ]),
       ),
     );
   }
