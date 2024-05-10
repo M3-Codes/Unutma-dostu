@@ -20,45 +20,45 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             const addbar("Admin"),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),
             Masafe_B(),
             const divider(),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),
             Masafe_B(),
             const divider(),
             Masafe_H(),
-            Row(
+            const Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 45,
                 ),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
-                const SizedBox(width: 30),
+                SizedBox(width: 30),
                 ImageSwitcher(),
               ],
             ),

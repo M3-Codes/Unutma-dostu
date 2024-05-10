@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,10 +8,10 @@ class RepeatTime extends StatefulWidget {
   final VoidCallback onTap;
 
   const RepeatTime({
-    Key? key,
+    super.key,
     required this.title,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   _RepeatTimeState createState() => _RepeatTimeState();
@@ -21,7 +23,7 @@ class _RepeatTimeState extends State<RepeatTime> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: '00');
+    _controller = TextEditingController(text: '00',);
   }
 
   @override

@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:insert_page/use_calendar.dart';
 import 'package:insert_page/color_pick.dart';
 import 'package:insert_page/repeat_time.dart';
 import 'image_info.dart';
@@ -17,13 +19,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int hour = 0;
-    int minute = 0;
-    int second = 0;
     return MaterialApp(
       home: Scaffold(
         body: SingleChildScrollView(
-          // Wrap Column with SingleChildScrollView
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -99,18 +97,40 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 10),
               Row(
                 // mainAxisAlignment: MainAxisAlignment.center,
-                
+
                 children: [
                   const SizedBox(width: 35),
                   RepeatTime(
-                    title: 'Tekrar  ', onTap: () {  }, 
-                    
+                    title: 'Tekrar  ',
+                    onTap: () {},
                   ),
                   RepeatTime(
-                    title: "   :", onTap: () {  }, 
+                    title: "   :",
+                    onTap: () {},
                   ),
                   RepeatTime(
-                    title: "   :", onTap: () {  },
+                    title: "   :",
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  const SizedBox(width: 35),
+                  Text(
+                    "Tarih",
+                    style: GoogleFonts.rubik(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 30),
+                  const Flexible(
+                    flex: 14,
+                    child: DateButton(),
                   ),
                 ],
               ),
