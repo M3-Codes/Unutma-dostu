@@ -13,6 +13,10 @@ class addbar extends StatelessWidget {
     return AppBar(
       backgroundColor: const Color(0xFFC1007F),
       title: const TitleTextFont("Araba Anahtari"),
+      leading: BackButton(
+        color: Colors.white,
+        onPressed: () => log("Tamam"),
+      ),
       actions: [
         PopupMenuButton(
           iconColor: Colors.white,
