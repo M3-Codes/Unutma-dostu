@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-<<<<<<< HEAD
-        body: Column(
+body: Column(
           children: <Widget>[
             const addbar("Admin"),
             Masafe_H(),
@@ -69,64 +68,7 @@ class MyApp extends StatelessWidget {
             const addbutton(),
             Masafe_H(),
             Container(
-              alignment: Alignment.bottomCenter,
-=======
-        body: Stack(children: [
-          Column(
-            children: <Widget>[
-              const addbar("Admin"),
-              Masafe_H(),
-              const Row(
-                children: [
-                  SizedBox(
-                    width: 45,
-                  ),
-                  ImageSwitcher(0),
-                  SizedBox(width: 30),
-                  ImageSwitcher(1),
-                  SizedBox(width: 30),
-                  ImageSwitcher(2),
-                ],
-              ),
-              Masafe_B(),
-              const divider(),
-              Masafe_H(),
-              const Row(
-                children: [
-                  SizedBox(
-                    width: 45,
-                  ),
-                  ImageSwitcher(3),
-                  SizedBox(width: 30),
-                  ImageSwitcher(4),
-                  SizedBox(width: 30),
-                  ImageSwitcher(5),
-                ],
-              ),
-              Masafe_B(),
-              const divider(),
-              Masafe_H(),
-              const Row(
-                children: [
-                  SizedBox(
-                    width: 45,
-                  ),
-                  ImageSwitcher(6),
-                  SizedBox(width: 30),
-                  ImageSwitcher(7),
-                  SizedBox(width: 30),
-                  ImageSwitcher(8),
-                ],
-              ),
-              Masafe_B(),
-              const divider(),
-              Masafe_H(),
-              const addbutton(),
-            ],
-          ),
-          Positioned(
-              bottom: 25,
->>>>>>> 7ca3451dbaa060a62d52db2a7198da6bb57e74c6
+              alignment: Alignment.bottomCenter, 
               child: Image.asset(
                 "images/m3code.jpg",
                 width: 390,
