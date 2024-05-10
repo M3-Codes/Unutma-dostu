@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "228351451143",
+    "project_id": "unutma-dostu",
+    "storage_bucket": "unutma-dostu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228351451143:android:005fac979bcc6074d6caa2",
+        "android_client_info": {
+          "package_name": "com.example.welcome_signup_login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBS_VQxiulicCKC-SZ7X2EQ3DyrDjsS-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

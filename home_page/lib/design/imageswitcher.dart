@@ -1,10 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 List<bool> list = [true, false, true, false, true, true, false, true, false];
 
-class ImageSwitcher extends StatefulWidget {
-  final int index;
-  const ImageSwitcher(this.index, {super.key});
+class ImageSwitcher extends StatefulWidget { 
+  const ImageSwitcher({super.key});
+  
+  get index => null; 
 
   @override
   _ImageSwitcherState createState() => _ImageSwitcherState();
