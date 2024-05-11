@@ -36,7 +36,7 @@ class ViewPage extends StatelessWidget {
             const readingboxes("kapı Aarksı Askılık", "Yer           "),
             const labelColor("#CarKey"),
             const AgainTime("01", "00", "40"),
-            const DayDate("02", "01", "2023"),
+            const DayDate("02", "01", "2022"),
             //Masafe_H(),
           ],
         ),
