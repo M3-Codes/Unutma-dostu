@@ -16,59 +16,58 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-body: Column(
-          children: <Widget>[
-            const addbar("Admin"),
-            Masafe_H(),
-            const Row(
-              children: [
-                SizedBox(
-                  width: 45,
-                ),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-              ],
-            ),
-            Masafe_B(),
-            const divider(),
-            Masafe_H(),
-            const Row(
-              children: [
-                SizedBox(
-                  width: 45,
-                ),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-              ],
-            ),
-            Masafe_B(),
-            const divider(),
-            Masafe_H(),
-            const Row(
-              children: [
-                SizedBox(
-                  width: 45,
-                ),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-                SizedBox(width: 30),
-                ImageSwitcher(),
-              ],
-            ),
-            Masafe_B(),
-            const divider(),
-            Masafe_H(),
-            const addbutton(),
-            Masafe_H(),
-            Container(
-              alignment: Alignment.bottomCenter, 
+        body: Column(children: <Widget>[
+          const addbar("Admin"),
+          Masafe_H(),
+          const Row(
+            children: [
+              SizedBox(
+                width: 45,
+              ),
+              ImageSwitcher(1),
+              SizedBox(width: 30),
+              ImageSwitcher(2),
+              SizedBox(width: 30),
+              ImageSwitcher(3),
+            ],
+          ),
+          Masafe_B(),
+          const divider(),
+          Masafe_H(),
+          const Row(
+            children: [
+              SizedBox(
+                width: 45,
+              ),
+              ImageSwitcher(4),
+              SizedBox(width: 30),
+              ImageSwitcher(5),
+              SizedBox(width: 30),
+              ImageSwitcher(6),
+            ],
+          ),
+          Masafe_B(),
+          const divider(),
+          Masafe_H(),
+          const Row(
+            children: [
+              SizedBox(
+                width: 45,
+              ),
+              ImageSwitcher(7),
+              SizedBox(width: 30),
+              ImageSwitcher(8),
+              SizedBox(width: 30),
+              ImageSwitcher(9),
+            ],
+          ),
+          Masafe_B(),
+          const divider(),
+          Masafe_H(),
+          const addbutton(),
+          Masafe_H(),
+          Container(
+              alignment: Alignment.bottomCenter,
               child: Image.asset(
                 "images/m3code.jpg",
                 width: 390,
