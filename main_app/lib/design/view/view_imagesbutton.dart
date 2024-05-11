@@ -21,22 +21,22 @@ class Imagesbutton extends StatelessWidget {
       child: Textfont(text),
     );
   }
-}
 
-void _showImage(BuildContext context, String imagePath, String text) {
-  showDialog(
-    context: context,
-    builder: (_) => AlertDialog(
-      title: Text(text),
-      content: Image.asset(imagePath), // Use the imagePath parameter
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text('close'),
-        ),
-      ],
-    ),
-  );
+  void _showImage(BuildContext context, String imagePath, String text) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text(text),
+        content: Image.asset(imagePath), // Use the imagePath parameter
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('close'),
+          ),
+        ],
+      ),
+    );
+  }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SignupButton extends StatelessWidget {
-  const SignupButton({
+class SLButton extends StatelessWidget {
+  final String text;
+  const SLButton(
+    this.text, {
     super.key,
   });
 
@@ -17,10 +19,10 @@ class SignupButton extends StatelessWidget {
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
       ),
-      child: const Text(
-        "SignUp",
-        style:
-            TextStyle(fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
+      child: Text(
+        text,
+        style: const TextStyle(
+            fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)),
       ),
     );
   }

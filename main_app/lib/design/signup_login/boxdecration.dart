@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignUpBoxdecration extends StatelessWidget {
-  const SignUpBoxdecration({
+class SLBoxdecration extends StatelessWidget {
+  const SLBoxdecration({
     super.key,
   });
 

@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import '../design/logo.dart';
+import '../design/signup_login/boxdecration.dart';
+import '../design/signup_login/button.dart';
+import '../design/signup_login/gradinet.dart';
+import '../design/signup_login/inkwell.dart';
+import '../design/signup_login/login_divider.dart';
+import '../design/signup_login/login_forgetpass.dart';
+import '../design/signup_login/login_googleButton.dart';
+import '../design/signup_login/passwrodbox.dart';
+import '../design/signup_login/textbox.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -8,7 +18,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool _hpass = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,168 +25,43 @@ class _LoginState extends State<Login> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Color(0xFFc10080),
-              Color(0xFF000000),
-              Color(0xFF000000)
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-          ),
-          Positioned(
-              top: 70,
-              child: Container(
-                  alignment: Alignment.center,
-                  width: 300,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(24)),
-                  child: Image.asset(
-                    "images/Logo.png",
-                  ))),
-          Column(
+          const SLGradient(),
+          const Logo(),
+          const Column(
             children: [
-              const Expanded(
+              Expanded(
                 flex: 1,
                 child: SizedBox(),
               ),
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(23),
-                            topRight: Radius.circular(23))),
-                  )),
+              SLBoxdecration(),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 345,
             child: Column(
               children: [
                 SizedBox(height: 320),
-                TextFormField(
-                  //keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 10), //*** */
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: "Email",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: Color(0xFF4F3145))),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: Color(0xFF4F3145))),
-                    prefixIcon: Icon(Icons.email),
-                  ),
-                ),
+                SLTextbox("Email", Icons.email),
                 SizedBox(height: 20),
-                TextFormField(
-                  obscureText: _hpass,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 10), //*** */
-                      filled: true,
-                      fillColor: Colors.white,
-                      labelText: "Password",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(color: Color(0xFF4F3145))),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(color: Color(0xFF4F3145))),
-                      prefixIcon: Icon(Icons.lock),
-                      suffixIcon: togglePassword()),
-                ),
-                Container(
-                    margin: EdgeInsets.only(top: 10),
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Forget Password ?",
-                      style: TextStyle(fontSize: 16),
-                    )),
+                SLPasswordbox(),
+                LoginForgetPass(),
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 97, 4, 66)),
-                    padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 144, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15))),
-                  ),
-                  child: Text(
-                    " Login ",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: const Color.fromARGB(255, 255, 255, 255)),
-                  ),
-                ),
+                SLButton(" Login "),
                 SizedBox(height: 20),
                 SizedBox(
                   width: 330,
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child:
-                              Divider(thickness: 1, color: Color(0xFFc10080))),
-                      Text(
-                        " Or Login With ",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFFc10080)),
-                      ),
-                      Expanded(
-                          child:
-                              Divider(thickness: 1, color: Color(0xFFc10080))),
-                    ],
-                  ),
+                  child: LoginDivider(),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 97, 4, 66)),
-                    padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 155, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15))),
-                  ),
-                  child: Image.asset("images/google.png", width: 30),
-                ),
+                LoginGoogleButton(),
                 SizedBox(
                   height: 20,
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/signup');
-                  },
-                  child: Center(
-                    child: Text.rich(TextSpan(children: [
-                      TextSpan(
-                          text: "Don't Have An Account ? ",
-                          style: TextStyle(fontSize: 16)),
-                      TextSpan(
-                          text: "Sign Up",
-                          style: TextStyle(
-                              color: Color(0xFFc10080),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
-                    ])),
-                  ),
-                )
+                SLInkwell("signup", "Don't Have An Account ? ", "Sign Up")
               ],
             ),
           ),
@@ -191,15 +75,5 @@ class _LoginState extends State<Login> {
         ],
       ),
     );
-  }
-
-  Widget togglePassword() {
-    return IconButton(
-        onPressed: () {
-          setState(() {
-            _hpass = !_hpass;
-          });
-        },
-        icon: _hpass ? Icon(Icons.visibility_off) : Icon(Icons.visibility));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignupGradient extends StatelessWidget {
-  const SignupGradient({
+class SLGradient extends StatelessWidget {
+  const SLGradient({
     super.key,
   });
 

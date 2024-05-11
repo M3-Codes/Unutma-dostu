@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SignupPasswordbox extends StatefulWidget {
-  const SignupPasswordbox({
+class SLPasswordbox extends StatefulWidget {
+  const SLPasswordbox({
     super.key,
   });
 
   @override
-  State<SignupPasswordbox> createState() => _SignupPasswordboxState();
+  State<SLPasswordbox> createState() => _SLPasswordboxState();
 }
 
-class _SignupPasswordboxState extends State<SignupPasswordbox> {
+class _SLPasswordboxState extends State<SLPasswordbox> {
   bool _hpass = false;
   @override
   Widget build(BuildContext context) {

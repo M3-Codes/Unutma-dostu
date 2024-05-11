@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SignupTextbox extends StatelessWidget {
+class SLTextbox extends StatelessWidget {
   final String text;
   final IconData icon;
-  const SignupTextbox(
+  const SLTextbox(
     this.text,
     this.icon, {
     super.key,

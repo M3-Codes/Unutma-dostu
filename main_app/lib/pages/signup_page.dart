@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../design/signup/signup_boxdecration.dart';
-import '../design/signup/signup_button.dart';
-import '../design/signup/signup_gradinet.dart';
-import '../design/signup/signup_inkwell.dart';
-import '../design/signup/signup_passwrodbox.dart';
-import '../design/signup/singup_logo.dart';
-import '../design/signup/singup_textbox.dart';
+import '../design/logo.dart';
+import '../design/signup_login/boxdecration.dart';
+import '../design/signup_login/button.dart';
+import '../design/signup_login/gradinet.dart';
+import '../design/signup_login/inkwell.dart';
+import '../design/signup_login/passwrodbox.dart';
+
+import '../design/signup_login/textbox.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
@@ -17,15 +18,15 @@ class Signup extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          const SignupGradient(),
-          const SignupLogo(),
+          const SLGradient(),
+          const Logo(),
           const Column(
             children: [
               Expanded(
                 flex: 1,
                 child: SizedBox(),
               ),
-              SignUpBoxdecration(),
+              SLBoxdecration(),
             ],
           ),
           const SizedBox(
@@ -33,19 +34,19 @@ class Signup extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 320),
-                SignupTextbox("Username", Icons.person),
+                SLTextbox("Username", Icons.person),
                 SizedBox(height: 20),
-                SignupTextbox("Email", Icons.email),
+                SLTextbox("Email", Icons.email),
                 SizedBox(height: 20),
-                SignupPasswordbox(),
+                SLPasswordbox(),
                 SizedBox(
                   height: 50,
                 ),
-                SignupButton(),
+                SLButton("SignUp"),
                 SizedBox(
                   height: 20,
                 ),
-                SingupInkwell()
+                SLInkwell("login", "Already Have An Account ? ", "Login")
               ],
             ),
           ),
