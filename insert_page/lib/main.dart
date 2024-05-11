@@ -21,9 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: 
-        // Stack(
-        //   children: [
+        body: Stack(
+          children: [
             SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +46,8 @@ class MyApp extends StatelessWidget {
                     children: [
                       ImageInfos(
                         title: 'Ürün Eki',
-                        onTap: () => log("Ürün imgesi Butonu şuan çalışmamakta"),
+                        onTap: () =>
+                            log("Ürün imgesi Butonu şuan çalışmamakta"),
                         color: const Color(0xFF00FFF0),
                       ),
                       ImageInfos(
@@ -138,16 +138,16 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-        //     Positioned(
-        //       bottom: 25,
-        //       child: Image.asset(
-        //         "images/m3code.jpg",
-        //         width: 250,
-        //         height: 65,
-        //       ),
-        //     ),
-        //   ],
-        // ),
+            Positioned(
+              bottom: 25,
+              child: Image.asset(
+                "images/m3code.jpg",
+                width: 250,
+                height: 65,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
