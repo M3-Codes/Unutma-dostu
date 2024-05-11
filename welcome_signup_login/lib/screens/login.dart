@@ -4,10 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:welcome_signup_login/components/BG_2.dart';
-import 'package:welcome_signup_login/components/BG_3.dart';
+import 'package:welcome_signup_login/components/BG_sl.dart';
+import 'package:welcome_signup_login/components/BG_text.dart';
 import 'package:welcome_signup_login/components/buttonauth.dart';
 import 'package:welcome_signup_login/components/changepage.dart';
+import 'package:welcome_signup_login/components/divider_login.dart';
+import 'package:welcome_signup_login/components/forgetpass.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
 import 'package:welcome_signup_login/components/logo_UD.dart';
 import 'package:welcome_signup_login/components/textform.dart';
@@ -30,9 +32,9 @@ class _LoginState extends State<Login> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          BG_2(),
+          BG_sl(),
           Logo_UD(),
-          BG_3(),
+          BG_text(),
           SizedBox(
             width: 345,
             child: Column(
@@ -42,13 +44,7 @@ class _LoginState extends State<Login> {
                     hinttext: "Email", ccontroller: email, icon: Icons.email),
                 SizedBox(height: 20),
                 TextForm_Password(ccontroller: password),
-                Container(
-                    margin: EdgeInsets.only(top: 10),
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Forget Password ?",
-                      style: TextStyle(fontSize: 16),
-                    )),
+                forgetpass(),
                 SizedBox(height: 20),
                 ButtonAtuh(
                   title: " Login ",
@@ -58,24 +54,7 @@ class _LoginState extends State<Login> {
                   onPressed: () {},
                 ),
                 SizedBox(height: 20),
-                SizedBox(
-                  width: 330,
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child:
-                              Divider(thickness: 1, color: Color(0xFFc10080))),
-                      Text(
-                        " Or Login With ",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFFc10080)),
-                      ),
-                      Expanded(
-                          child:
-                              Divider(thickness: 1, color: Color(0xFFc10080))),
-                    ],
-                  ),
-                ),
+                Divider_login(),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {},
@@ -97,9 +76,7 @@ class _LoginState extends State<Login> {
               ],
             ),
           ),
-          Logo_M3_CODE_1(
-            path: "images/yslogo.png",
-          )
+          Logo_M3_CODE_1(path: "images/yslogo.png")
         ],
       ),
     );

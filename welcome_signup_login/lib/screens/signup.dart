@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:welcome_signup_login/components/BG_2.dart';
-import 'package:welcome_signup_login/components/BG_3.dart';
+import 'package:welcome_signup_login/components/BG_sl.dart';
+import 'package:welcome_signup_login/components/BG_text.dart';
 import 'package:welcome_signup_login/components/buttonauth.dart';
 import 'package:welcome_signup_login/components/changepage.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
@@ -28,9 +28,9 @@ class _SignupState extends State<Signup> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          BG_2(),
+          BG_sl(),
           Logo_UD(),
-          BG_3(),
+          BG_text(),
           SizedBox(
             width: 345,
             child: Column(

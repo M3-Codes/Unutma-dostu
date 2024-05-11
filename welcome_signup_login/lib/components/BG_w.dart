@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BG_2 extends StatelessWidget {
-  const BG_2({super.key});
+class BG_w extends StatelessWidget {
+  const BG_w({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class BG_2 extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [Color(0xFFc10080), Color(0xFF000000), Color(0xFF000000)],
+              colors: [Color(0xFFc10080), Color(0xFF000000)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter)),
     );
