@@ -96,7 +96,9 @@ class _LoginState extends State<Login> {
               ],
             ),
           ),
-          Logo_M3_CODE_1()
+          Logo_M3_CODE_1(
+            path: "images/yslogo.png",
+          )
         ],
       ),
     );

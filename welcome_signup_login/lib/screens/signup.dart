@@ -21,7 +21,6 @@ class _SignupState extends State<Signup> {
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  bool _hpass = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +57,9 @@ class _SignupState extends State<Signup> {
               ],
             ),
           ),
-          Logo_M3_CODE_1()
+          Logo_M3_CODE_1(
+            path: "images/yslogo.png",
+          )
         ],
       ),
     );
