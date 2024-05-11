@@ -38,7 +38,8 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 SizedBox(height: 320),
-                TextForm(hinttext: "Email", ccontroller: email),
+                TextForm(
+                    hinttext: "Email", ccontroller: email, icon: Icons.email),
                 SizedBox(height: 20),
                 TextForm_Password(ccontroller: password),
                 Container(

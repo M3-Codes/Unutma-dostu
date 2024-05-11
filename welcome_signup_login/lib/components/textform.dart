@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 class TextForm extends StatelessWidget {
   final String hinttext;
   final TextEditingController ccontroller;
+  final IconData icon;
   const TextForm(
-      {super.key, required this.hinttext, required this.ccontroller});
+      {super.key,
+      required this.hinttext,
+      required this.ccontroller,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class TextForm extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(color: Color(0xFF4F3145))),
-        prefixIcon: Icon(Icons.email),
+        prefixIcon: Icon(icon),
       ),
     );
   }

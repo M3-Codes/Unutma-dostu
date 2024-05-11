@@ -74,9 +74,7 @@ class Welcome extends StatelessWidget {
               ),
             ],
           ),
-          Logo_M3_CODE_1(
-            path: "images/ylogo.png",
-          )
+          Logo_M3_CODE_1(path: "images/ylogo.png")
         ],
       ),
     );

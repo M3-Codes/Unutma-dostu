@@ -36,9 +36,13 @@ class _SignupState extends State<Signup> {
             child: Column(
               children: [
                 SizedBox(height: 320),
-                TextForm(hinttext: "Username", ccontroller: username),
+                TextForm(
+                    hinttext: "Username",
+                    ccontroller: username,
+                    icon: Icons.person),
                 SizedBox(height: 20),
-                TextForm(hinttext: "Email", ccontroller: email),
+                TextForm(
+                    hinttext: "Email", ccontroller: email, icon: Icons.email),
                 SizedBox(height: 20),
                 TextForm_Password(ccontroller: password),
                 SizedBox(height: 50),
