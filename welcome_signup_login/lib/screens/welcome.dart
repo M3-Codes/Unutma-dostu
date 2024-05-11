@@ -39,8 +39,7 @@ class Welcome extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           )),
                       TextSpan(
-                          text:
-                              '\nKişisel bilgileri çalışan hesabınıza girin',
+                          text: '\nKişisel bilgileri çalışan hesabınıza girin',
                           style: TextStyle(
                             fontSize: 20,
                             // height: 0,
@@ -85,22 +84,7 @@ class Welcome extends StatelessWidget {
               SizedBox(
                 height: 22,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signup');
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 130, vertical: 10)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-                ),
-                child: Text(
-                  "SignUp",
-                  style: TextStyle(fontSize: 20, color: Colors.grey[850]),
-                ),
-              ),
+              button(),
             ],
           ),
           Positioned(
@@ -111,6 +95,32 @@ class Welcome extends StatelessWidget {
                 height: 65,
               ))
         ],
+      ),
+    );
+  }
+}
+
+class button extends StatelessWidget {
+  const button({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/signup');
+      },
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
+        padding: MaterialStateProperty.all(
+            EdgeInsets.symmetric(horizontal: 130, vertical: 10)),
+        shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+      ),
+      child: Text(
+        "SignUp",
+        style: TextStyle(fontSize: 20, color: Colors.grey[850]),
       ),
     );
   }
