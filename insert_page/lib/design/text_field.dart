@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:insert_page/design/textfont.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String title;
@@ -17,15 +18,7 @@ class TextFieldWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       child: Row(
         children: [
-          Text(
-            title,
-            style: GoogleFonts.rubik(
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
+          text_it(title, 20),
           const SizedBox(width: 20),
           Expanded(
             child: TextField(

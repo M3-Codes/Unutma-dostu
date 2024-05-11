@@ -1,18 +1,22 @@
+// ignore_for_file: camel_case_types
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:insert_page/design/use_calendar.dart';
 import 'package:insert_page/design/color_pick.dart';
 import 'package:insert_page/design/repeat_time.dart';
 import 'design/image_info.dart';
 import 'design/text_field.dart';
+import 'design/camera_open.dart';
+import 'design/textfont.dart';
+
 
 void main() {
   runApp(const MaterialApp(
     home: MyApp(),
   ));
 }
+
+CameraOpen op = CameraOpen();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,25 +25,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: 
-        // Stack(
-        //   children: [
+        body: Stack(
+          children: [
             SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 30.0),
                     child: Center(
-                      child: Text(
-                        "Yeni Ürün",
-                        style: GoogleFonts.rubik(
-                          textStyle: const TextStyle(
-                            fontSize: 30,
-                            color: Color(0xFFC1007F),
-                          ),
-                        ),
-                      ),
+                      child: text_it("Yeni Ürün", 30),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -47,12 +42,15 @@ class MyApp extends StatelessWidget {
                     children: [
                       ImageInfos(
                         title: 'Ürün Eki',
-                        onTap: () => log("Ürün imgesi Butonu şuan çalışmamakta"),
+                        onTap: () =>
+                            log("Ürün imgesi Butonu şuan çalışmamakta"),
                         color: const Color(0xFF00FFF0),
                       ),
                       ImageInfos(
                         title: 'Yer Eki',
-                        onTap: () => log("Yer imgesi Butonu şuan çalışmamakta"),
+                        onTap: () {
+                          op.openit();
+                        },
                         color: const Color(0xFFF6FA32),
                       ),
                     ],
@@ -73,26 +71,18 @@ class MyApp extends StatelessWidget {
                     hintText: 'Yeri Yazınız...',
                   ),
                   const SizedBox(height: 10),
-                  Row(
+                  const Row(
                     children: [
-                      const Flexible(
+                      Flexible(
                         flex: 3,
                         child: TextFieldWidget(
                           title: 'Etiket',
                           hintText: '#.................',
                         ),
                       ),
-                      Text(
-                        "Renk  ",
-                        style: GoogleFonts.rubik(
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      const ColorButton(),
-                      const SizedBox(
+                      text_it("Renk  ", 20),
+                      ColorButton(),
+                      SizedBox(
                         width: 35,
                       )
                     ],
@@ -116,20 +106,12 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  Row(
+                  const Row(
                     children: [
-                      const SizedBox(width: 35),
-                      Text(
-                        "Tarih",
-                        style: GoogleFonts.rubik(
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 30),
-                      const Flexible(
+                      SizedBox(width: 35),
+                      text_it("Tarih", 20),
+                      SizedBox(width: 30),
+                      Flexible(
                         flex: 14,
                         child: DateButton(),
                       ),
@@ -138,16 +120,16 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-        //     Positioned(
-        //       bottom: 25,
-        //       child: Image.asset(
-        //         "images/m3code.jpg",
-        //         width: 250,
-        //         height: 65,
-        //       ),
-        //     ),
-        //   ],
-        // ),
+            // Positioned(
+            //   bottom: -40,
+            //   child: Image.asset(
+            //     "images/m3code.jpg",
+            //     width: 250,
+            //     height: 65,
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
   }
