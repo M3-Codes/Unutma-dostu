@@ -7,6 +7,8 @@ List<bool> list = [true, false, true, false, true, true, false, true, false];
 class ImageSwitcher extends StatefulWidget { 
   const ImageSwitcher({super.key});
   
+  get index => null;
+  
 
   @override
   _ImageSwitcherState createState() => _ImageSwitcherState();
