@@ -9,7 +9,6 @@ import 'design/text_field.dart';
 import 'design/camera_open.dart';
 import 'design/textfont.dart';
 
-
 void main() {
   runApp(const MaterialApp(
     home: MyApp(),
