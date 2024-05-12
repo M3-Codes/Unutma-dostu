@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
+=======
+import 'package:flutter/material.dart'; 
+>>>>>>> 52b36de960d7ab1bd3a192ec0431605ffd1fe4b7
 import 'package:insert_page/design/textfont.dart';
 
 class TextFieldWidget extends StatelessWidget {
