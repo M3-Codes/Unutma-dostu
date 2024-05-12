@@ -4,17 +4,9 @@ import 'package:flutter/material.dart';
 
 List<bool> list = [true, false, true, false, true, true, false, true, false];
 
-
-class ImageSwitcher extends StatefulWidget { 
-  const ImageSwitcher({super.key});
-  
-  get index => null;
-  
-//ds
 class ImageSwitcher extends StatefulWidget {
-  const ImageSwitcher(this.index, {super.key});
-
   final int index;
+  const ImageSwitcher(this.index, {super.key});
 
   @override
   _ImageSwitcherState createState() => _ImageSwitcherState();
