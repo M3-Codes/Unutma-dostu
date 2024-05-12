@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:welcome_signup_login/components/BG_1.dart';
+import 'package:welcome_signup_login/components/BG_w.dart';
 import 'package:welcome_signup_login/components/buttonauth.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
 import 'package:welcome_signup_login/components/logo_UD.dart';
@@ -16,7 +16,7 @@ class Welcome extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          BG_1(),
+          BG_w(),
           Flexible(
               flex: 8,
               child: Container(
