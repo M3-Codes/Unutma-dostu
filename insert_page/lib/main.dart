@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        const SizedBox(width: 35),
+                        const SizedBox(width: 30),
                         RepeatTime(
                           title: 'Tekrar',
                           onTap: () {},
@@ -108,9 +108,9 @@ class MyApp extends StatelessWidget {
                     const SizedBox(height: 10),
                     const Row(
                       children: [
-                        SizedBox(width: 35),
-                        text_it("Tarih", 20),
                         SizedBox(width: 30),
+                        text_it("Tarih", 20),
+                        // SizedBox(width: 30),
                         Flexible(
                           flex: 14,
                           child: DateButton(),

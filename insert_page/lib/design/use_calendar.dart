@@ -1,11 +1,11 @@
-// ignore_for_file: library_private_types_in_public_api, use_super_parameters
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class DateButton extends StatefulWidget {
-  const DateButton({Key? key}) : super(key: key);
+  const DateButton({super.key});
 
   @override
   _DateButtonState createState() => _DateButtonState();
@@ -47,6 +47,7 @@ class _DateButtonState extends State<DateButton> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+            
           const Icon(Icons.calendar_today, color: Colors.white),
           const SizedBox(width: 10),
           Text(

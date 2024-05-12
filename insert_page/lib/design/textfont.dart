@@ -1,5 +1,8 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class text_it extends StatelessWidget {
   final String text;
   final double fontsize;
@@ -7,12 +10,12 @@ class text_it extends StatelessWidget {
   const text_it(
     this.text,
     this.fontsize, {
-    super.key,
+    super.key, 
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    Widget content = Text(
       text,
       style: GoogleFonts.rubik(
         textStyle: TextStyle(
@@ -21,5 +24,15 @@ class text_it extends StatelessWidget {
         ),
       ),
     );
+
+    if (text == "Tarih") {
+      content = Row(
+        children: [
+          content,
+          const SizedBox(width: 40),
+        ],
+      );
+    }
+    return content;
   }
 }
