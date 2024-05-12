@@ -1,6 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:welcome_signup_login/components/BG_w.dart';
+import 'package:welcome_signup_login/components/buttonauth.dart';
+import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
+import 'package:welcome_signup_login/components/logo_UD.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -11,15 +16,7 @@ class Welcome extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0xFFc10080), Color(0xFF000000)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter)),
-          ),
+          BG_w(),
           Flexible(
               flex: 8,
               child: Container(
@@ -39,8 +36,7 @@ class Welcome extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           )),
                       TextSpan(
-                          text:
-                              '\nKişisel bilgileri çalışan hesabınıza girin',
+                          text: '\nKişisel bilgileri çalışan hesabınıza girin',
                           style: TextStyle(
                             fontSize: 20,
                             // height: 0,
@@ -49,67 +45,36 @@ class Welcome extends StatelessWidget {
                   ),
                 ),
               )),
-          Positioned(
-              top: 70,
-              child: Container(
-                  alignment: Alignment.center,
-                  width: 300,
-                  height: 150,
-                  decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Image.asset(
-                    "images/Logo.png",
-                  ))),
+          Logo_UD(),
           Column(
             children: [
               SizedBox(
                 height: 520,
               ),
-              ElevatedButton(
+              ButtonAtuh(
+                title: " Login ",
+                horizontal: 132,
+                colorbackround: Color(0xFFE0E0E0),
+                colorfont: Color(0xFF303030),
                 onPressed: () {
                   Navigator.pushNamed(context, "/login");
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 132, vertical: 10)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-                ),
-                child: Text(
-                  " Login ",
-                  style: TextStyle(fontSize: 20, color: Colors.grey[850]),
-                ),
               ),
               SizedBox(
                 height: 22,
               ),
-              ElevatedButton(
+              ButtonAtuh(
+                title: "SignUp",
+                horizontal: 130,
+                colorbackround: Color(0xFFE0E0E0),
+                colorfont: Color(0xFF303030),
                 onPressed: () {
                   Navigator.pushNamed(context, '/signup');
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[300]),
-                  padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 130, vertical: 10)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-                ),
-                child: Text(
-                  "SignUp",
-                  style: TextStyle(fontSize: 20, color: Colors.grey[850]),
-                ),
               ),
             ],
           ),
-          Positioned(
-              bottom: 25,
-              child: Image.asset(
-                "images/ylogo.png",
-                width: 250,
-                height: 65,
-              ))
+          Logo_M3_CODE_1(path: "images/ylogo.png")
         ],
       ),
     );
