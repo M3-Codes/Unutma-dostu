@@ -16,17 +16,17 @@ class AgainTime extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
         child: Row(children: [
           const Icon(Icons.alarm),
-          const Textfont("Tekrar"),
+          const Textfont("Tekrar", 20),
           const SizedBox(
             width: 10,
           ),
           TimeText(hour),
           const SizedBox(width: 10),
-          const Textfont(":"),
+          const Textfont(":", 20),
           const SizedBox(width: 10),
           TimeText(minute),
           const SizedBox(width: 10),
-          const Textfont(":"),
+          const Textfont(":", 20),
           const SizedBox(width: 10),
           TimeText(second),
         ]));

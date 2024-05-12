@@ -13,7 +13,7 @@ class labelColor extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
       child: Row(
         children: [
-          const Textfont("Etiket"),
+          const Textfont("Etiket", 20),
           const SizedBox(
             width: 10,
           ),
@@ -30,7 +30,7 @@ class labelColor extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          const Textfont("Renk"),
+          const Textfont("Renk", 20),
           const SizedBox(width: 10),
           const CircleAvatar(
             radius: 25,

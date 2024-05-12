@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/pages/home_page.dart';
+import 'package:main_app/pages/insert_page.dart';
 import 'package:main_app/pages/login_page.dart';
 import 'package:main_app/pages/signup_page.dart';
 import 'package:main_app/pages/view_page.dart';
@@ -17,10 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/view',
+      initialRoute: '/home',
       routes: {
+        '/home': (context) => const HomePage(),
         '/': (context) => const Welcome(),
         '/view': (context) => const ViewPage(),
+        '/insert': (context) => const InsertPage(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup()
       },

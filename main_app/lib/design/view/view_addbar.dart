@@ -12,10 +12,10 @@ class addbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFFC1007F),
-      title: const TitleTextFont("Araba Anahtari"),
+      title: const Textfont("Araba Anahtari", 30),
       leading: BackButton(
         color: Colors.white,
-        onPressed: () => log("Tamam"),
+        onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
       ),
       actions: [
         PopupMenuButton(
@@ -24,11 +24,11 @@ class addbar extends StatelessWidget {
             return [
               const PopupMenuItem(
                 value: 'delete',
-                child: Textfont('Delete item'),
+                child: Textfont('Delete item', 20),
               ),
               const PopupMenuItem(
                 value: 'edit',
-                child: Textfont('Update item'),
+                child: Textfont('Update item', 20),
               ),
             ];
           },

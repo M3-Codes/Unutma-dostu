@@ -11,7 +11,7 @@ class Textfont extends StatelessWidget {
         text,
         style: GoogleFonts.rubik(
           textStyle: const TextStyle(
-            fontSize: 25,
+            fontSize: 20,
             color: Color.fromARGB(255, 0, 0, 0),
           ),
         ),

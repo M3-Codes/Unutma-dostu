@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../design/logo.dart';
 import '../design/welcome/welcome_button.dart';
 import '../design/welcome/welcome_gradient.dart';
-
 import '../design/welcome/welcome_text.dart';
 
 class Welcome extends StatelessWidget {

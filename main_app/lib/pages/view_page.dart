@@ -31,9 +31,9 @@ class ViewPage extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            const readingboxes("Araba Anahatr", "Ürün Ad"),
-            const readingboxes("Opel Araba Anahatarı", "Açıklama"),
-            const readingboxes("kapı Aarksı Askılık", "Yer           "),
+            const Readingboxes("Araba Anahatr", "Ürün Ad  "),
+            const Readingboxes("Opel Araba Anahatarı", "Açıklama"),
+            const Readingboxes("kapı Aarksı Askılık", "Yer           "),
             const labelColor("#CarKey"),
             const AgainTime("01", "00", "40"),
             const DayDate("02", "01", "2023"),

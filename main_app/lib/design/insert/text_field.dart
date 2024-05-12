@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/design/textfont.dart';
 
-import '../textfont.dart';
-import 'view_textstyle.dart';
-
-class Readingboxes extends StatelessWidget {
+class TextFieldWidget extends StatelessWidget {
   final String title;
   final String hintText;
-  const Readingboxes(this.hintText, this.title, {super.key});
+
+  const TextFieldWidget({
+    super.key,
+    required this.title,
+    required this.hintText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +20,16 @@ class Readingboxes extends StatelessWidget {
           Textfont(title, 20),
           const SizedBox(width: 20),
           Expanded(
-            child: TextFormField(
-              readOnly: true,
-              initialValue: hintText,
-              style: CustomTextStyle.rubikTextStyle(),
+            child: TextField(
+              enabled: true,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(11.0),
                   borderSide: const BorderSide(
                     color: Colors.black,
-                    width: 5,
+                    width: 1.0,
                   ),
                 ),
                 contentPadding: const EdgeInsets.all(10.0),
