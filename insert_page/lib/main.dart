@@ -1,11 +1,9 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:insert_page/design/use_calendar.dart';
 import 'package:insert_page/design/color_pick.dart';
 import 'package:insert_page/design/repeat_time.dart';
 import 'design/image_info.dart';
 import 'design/text_field.dart';
-import 'design/camera_open.dart';
 import 'design/textfont.dart';
 
 void main() {
@@ -13,8 +11,6 @@ void main() {
     home: MyApp(),
   ));
 }
-
-CameraOpen op = CameraOpen();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -38,20 +34,15 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Row(
+                    const Row(
                       children: [
                         ImageInfos(
                           title: 'Ürün Eki',
-                          onTap: () =>
-                              log("Ürün imgesi Butonu şuan çalışmamakta"),
-                          color: const Color(0xFF00FFF0),
+                          color: Color(0xFFC1007F),
                         ),
                         ImageInfos(
                           title: 'Yer Eki',
-                          onTap: () {
-                            op.openit();
-                          },
-                          color: const Color(0xFFF6FA32),
+                          color: Color(0xFFC1007F),
                         ),
                       ],
                     ),
