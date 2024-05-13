@@ -80,7 +80,7 @@ class _ImageInfosState extends State<ImageInfos> {
                 borderRadius: BorderRadius.circular(11),
                 border: Border.all(color: Colors.black, width: 1),
               ),
-              child: const Icon(Icons.add_a_photo, color: Color.fromARGB(255, 255, 255, 255)),
+              child: const Icon(Icons.add_a_photo, color: Colors.white),
             ),
           ),
         ],
