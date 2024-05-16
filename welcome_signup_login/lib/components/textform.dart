@@ -6,15 +6,18 @@ class TextForm extends StatelessWidget {
   final String hinttext;
   final TextEditingController ccontroller;
   final IconData icon;
+  final String? Function(String?)? validator;
   const TextForm(
       {super.key,
       required this.hinttext,
       required this.ccontroller,
-      required this.icon});
+      required this.icon,
+      required this.validator});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       controller: ccontroller,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(

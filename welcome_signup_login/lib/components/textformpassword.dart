@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class TextForm_Password extends StatefulWidget {
   final TextEditingController ccontroller;
-  const TextForm_Password({super.key, required this.ccontroller});
+  final String? Function(String?)? validator;
+
+  const TextForm_Password(
+      {super.key, required this.ccontroller, required this.validator});
 
   @override
   State<TextForm_Password> createState() => _TextForm_PasswordState();
@@ -15,6 +18,7 @@ class _TextForm_PasswordState extends State<TextForm_Password> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: widget.validator,
       controller: widget.ccontroller,
       obscureText: _hpass,
       keyboardType: TextInputType.emailAddress,

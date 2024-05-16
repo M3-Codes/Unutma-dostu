@@ -23,7 +23,7 @@ class ChangePage extends StatelessWidget {
               text: lastText,
               style: const TextStyle(
                   color: Color(0xFFc10080),
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold)),
         ])),
       ),

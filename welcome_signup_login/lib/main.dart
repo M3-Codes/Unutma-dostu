@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:welcome_signup_login/firebase_options.dart';
-import 'package:welcome_signup_login/homepage.dart';
+import 'package:welcome_signup_login/screens/homepage.dart';
 import 'package:welcome_signup_login/screens/login.dart';
 import 'package:welcome_signup_login/screens/signup.dart';
 import 'package:welcome_signup_login/screens/welcome.dart';
@@ -29,10 +29,10 @@ class _MyAppState extends State<MyApp> {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         print(
-            '**********************************User is currently signed out!');
+            '********************************** User is currently signed out!');
       } else {
         print(
-            '*********************************************User is signed in!');
+            '********************************************* User is signed in!');
       }
     });
     super.initState();
@@ -44,8 +44,10 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       //initialRoute: '/homepage',
       //initialRoute: '/',
-      initialRoute:
-          FirebaseAuth.instance.currentUser == null ? '/' : '/homepage',
+      initialRoute: (FirebaseAuth.instance.currentUser != null &&
+              FirebaseAuth.instance.currentUser!.emailVerified)
+          ? '/homepage'
+          : '/',
       //home: Homepage(),
       routes: {
         '/': (context) => const Welcome(),
