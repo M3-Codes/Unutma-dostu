@@ -7,7 +7,11 @@ class AgainTime extends StatelessWidget {
   final String minute;
   final String second;
 
-  const AgainTime(this.minute, this.hour, this.second, {super.key});
+  const AgainTime(
+      {required this.minute,
+      required this.hour,
+      required this.second,
+      super.key});
 
   @override
   Widget build(Object context) {

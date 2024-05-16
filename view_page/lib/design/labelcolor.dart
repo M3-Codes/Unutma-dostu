@@ -4,8 +4,9 @@ import 'package:view_page/design/textfont.dart';
 
 // ignore: camel_case_types
 class labelColor extends StatelessWidget {
+  final Color color;
   final String text;
-  const labelColor(this.text, {super.key});
+  const labelColor({required this.text, required this.color, super.key});
 
   @override
   Widget build(BuildContext context) {

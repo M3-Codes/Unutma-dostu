@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
- 
+
 import 'package:flutter/material.dart';
 import 'package:view_page/design/textfont.dart';
 
@@ -7,7 +7,7 @@ class Imagesbutton extends StatelessWidget {
   final String text;
   final String path;
 
-  const Imagesbutton(this.text, this.path, {super.key});
+  const Imagesbutton({required this.text, required this.path, super.key});
 
   @override
   Widget build(BuildContext context) {

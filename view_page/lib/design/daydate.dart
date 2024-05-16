@@ -7,7 +7,8 @@ class DayDate extends StatelessWidget {
   final String month;
   final String year;
 
-  const DayDate(this.month, this.day, this.year, {super.key});
+  const DayDate(
+      {required this.month, required this.day, required this.year, super.key});
 
   @override
   Widget build(Object context) {

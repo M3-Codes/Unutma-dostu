@@ -6,7 +6,7 @@ import 'package:view_page/design/textfont.dart';
 class readingboxes extends StatelessWidget {
   final String title;
   final String hintText;
-  const readingboxes(this.hintText, this.title, {super.key});
+  const readingboxes({required this.hintText, required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
