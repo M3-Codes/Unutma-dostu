@@ -7,13 +7,13 @@ class Divider_login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      width: 330,
+      width: 322,
       child: Row(
         children: [
           Expanded(child: Divider(thickness: 1, color: Color(0xFFc10080))),
           Text(
             " Or Login With ",
-            style: TextStyle(fontSize: 16, color: Color(0xFFc10080)),
+            style: TextStyle(fontSize: 14, color: Color(0xFFc10080)),
           ),
           Expanded(child: Divider(thickness: 1, color: Color(0xFFc10080))),
         ],

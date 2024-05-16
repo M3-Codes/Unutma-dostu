@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:main_app/firebase_options.dart';
 import 'package:main_app/pages/home_page.dart';
 import 'package:main_app/pages/insert_page.dart';
 import 'package:main_app/pages/login_page.dart';
@@ -6,9 +8,11 @@ import 'package:main_app/pages/signup_page.dart';
 import 'package:main_app/pages/view_page.dart';
 import 'package:main_app/pages/welcome_page.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

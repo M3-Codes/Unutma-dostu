@@ -3,7 +3,11 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+<<<<<<< HEAD
   file_selector_linux
+=======
+  rive_common
+>>>>>>> 8c6d858c3b480736a76cbaf5e40ae6f53eb0cd20
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

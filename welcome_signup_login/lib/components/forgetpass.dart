@@ -8,11 +8,11 @@ class forgetpass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 8),
         alignment: Alignment.centerRight,
         child: const Text(
           "Forget Password ?",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 15),
         ));
   }
 }
