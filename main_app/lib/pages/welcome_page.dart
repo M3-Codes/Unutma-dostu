@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../design/logo.dart';
-import '../design/welcome/welcome_button.dart';
-import '../design/welcome/welcome_gradient.dart';
-import '../design/welcome/welcome_text.dart';
+
+import '../design/welcome_signup_login/BG_w.dart';
+import '../design/welcome_signup_login/buttonauth.dart';
+import '../design/welcome_signup_login/logo_M3_CODE.dart';
+import '../design/welcome_signup_login/logo_UD.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -13,28 +14,65 @@ class Welcome extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          const WelcomeGradient(),
-          const WelcomeText(),
-          const Logo(),
-          const Column(
+          const BG_w(),
+          Flexible(
+              flex: 8,
+              child: Container(
+                height: 240,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 0,
+                  horizontal: 40.0,
+                ),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: const TextSpan(
+                    children: [
+                      TextSpan(
+                          text: 'Hoşgeldiniz!\n',
+                          style: TextStyle(
+                            fontSize: 45.0,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      TextSpan(
+                          text: '\nKişisel bilgileri çalışan hesabınıza girin',
+                          style: TextStyle(
+                            fontSize: 20,
+                            // height: 0,
+                          ))
+                    ],
+                  ),
+                ),
+              )),
+          const Logo_UD(),
+          Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 520,
               ),
-              WelcomeButton("login", " Login "),
-              SizedBox(
+              ButtonAtuh(
+                title: " Login ",
+                horizontal: 132,
+                colorbackround: const Color(0xFFE0E0E0),
+                colorfont: const Color(0xFF303030),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/login");
+                },
+              ),
+              const SizedBox(
                 height: 22,
               ),
-              WelcomeButton("signup", "SignUp"),
+              ButtonAtuh(
+                title: "SignUp",
+                horizontal: 130,
+                colorbackround: const Color(0xFFE0E0E0),
+                colorfont: const Color(0xFF303030),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
+              ),
             ],
           ),
-          Positioned(
-              bottom: 25,
-              child: Image.asset(
-                "images/ylogo.png",
-                width: 250,
-                height: 65,
-              ))
+          const Logo_M3_CODE_1(path: "images/ylogo.png")
         ],
       ),
     );

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SLGradient extends StatelessWidget {
-  const SLGradient({
-    super.key,
-  });
+class BG_sl extends StatelessWidget {
+  const BG_sl({super.key});
 
   @override
   Widget build(BuildContext context) {

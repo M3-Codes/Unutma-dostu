@@ -129,7 +129,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
-<<<<<<< HEAD
   file_selector_linux:
     dependency: transitive
     description:
@@ -162,7 +161,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.3+1"
-=======
   firebase_auth:
     dependency: "direct main"
     description:
@@ -259,7 +257,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.9.5"
->>>>>>> 8c6d858c3b480736a76cbaf5e40ae6f53eb0cd20
   flutter:
     dependency: "direct main"
     description: flutter

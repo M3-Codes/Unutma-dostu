@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WelcomeGradient extends StatelessWidget {
-  const WelcomeGradient({
-    super.key,
-  });
+class BG_w extends StatelessWidget {
+  const BG_w({super.key});
 
   @override
   Widget build(BuildContext context) {
