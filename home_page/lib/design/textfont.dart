@@ -3,26 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Textfont extends StatelessWidget {
   final String text;
-  const Textfont(this.text, {super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        text,
-        style: GoogleFonts.rubik(
-          textStyle: const TextStyle(
-            fontSize: 20,
-            color: Color.fromARGB(255, 0, 0, 0),
-          ),
-        ),
-      ),
-    );
+  final double fontsize;
+  const Textfont(this.text, this.fontsize, {super.key});
+
+  Color color() {
+    if (text == "Yeni Ürün") {
+      return const Color(0xFFC1007F);
+    } else if (fontsize == 30) {
+      return const Color.fromARGB(255, 244, 239, 242);
+    }
+    return Colors.black;
   }
-}
-
-class TitleTextFont extends StatelessWidget {
-  final String text;
-  const TitleTextFont(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +21,9 @@ class TitleTextFont extends StatelessWidget {
       child: Text(
         text,
         style: GoogleFonts.rubik(
-          textStyle: const TextStyle(
-            fontSize: 30,
-            color: Color.fromARGB(255, 244, 239, 242),
+          textStyle: TextStyle(
+            fontSize: fontsize,
+            color: color(),
           ),
         ),
       ),
