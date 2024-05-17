@@ -28,9 +28,8 @@ class addbar extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('عن التطبيق'),
-          content: const Text(
-              'هذا التطبيق هو عبارة عن تطبيق تجريبي لعرض مهارات تطوير تطبيقات Flutter.'),
+          title: const Text('About as'),
+          content: const Text('M3 Code tasarlamış'),
           actions: <Widget>[
             TextButton(
               child: const Text('Ok'),

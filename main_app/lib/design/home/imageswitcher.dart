@@ -33,10 +33,13 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
           // switchImage();
           Navigator.pushReplacementNamed(context, '/view');
         },
-        child: Image(
-          image: list[(widget.index) - 1] ? secondImage : firstImage,
-          width: 80,
-          height: 80,
+        child: IgnorePointer(
+          ignoring: !list[(widget.index) - 1],
+          child: Image(
+            image: list[(widget.index) - 1] ? secondImage : firstImage,
+            width: 80,
+            height: 80,
+          ),
         ),
       ),
     );
