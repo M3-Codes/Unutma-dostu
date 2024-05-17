@@ -43,8 +43,7 @@ class _LoginState extends State<Login> {
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
-    Navigator.of(context)
-        .pushNamedAndRemoveUntil("/homepage", (route) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil("/home", (route) => false);
   }
 
   @override
@@ -150,11 +149,12 @@ class _LoginState extends State<Login> {
                                           password: password.text);
                                   if (credential.user!.emailVerified) {
                                     Navigator.of(context)
-                                        .pushReplacementNamed("/homepage");
+                                        .pushNamedAndRemoveUntil(
+                                            "/homepage", (route) => false);
                                   } else {
                                     AwesomeDialog(
                                       context: context,
-                                      dialogType: DialogType.info,
+                                      dialogType: DialogType.infoReverse,
                                       animType: AnimType.rightSlide,
                                       title: 'INFO',
                                       desc:

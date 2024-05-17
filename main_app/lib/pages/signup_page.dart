@@ -95,7 +95,7 @@ class _SignupState extends State<Signup> {
                                     .sendEmailVerification();
                                 AwesomeDialog(
                                   context: context,
-                                  dialogType: DialogType.info,
+                                  dialogType: DialogType.infoReverse,
                                   animType: AnimType.rightSlide,
                                   title: 'INFO',
                                   desc:
