@@ -94,7 +94,7 @@ class _SignupState extends State<Signup> {
                                     .sendEmailVerification();
                                 AwesomeDialog(
                                   context: context,
-                                  dialogType: DialogType.info,
+                                  dialogType: DialogType.infoReverse,
                                   animType: AnimType.rightSlide,
                                   title: 'INFO',
                                   desc:
@@ -111,7 +111,6 @@ class _SignupState extends State<Signup> {
                                   animType: AnimType.rightSlide,
                                   title: 'Error',
                                   desc: e.code,
-                                  //btnCancelOnPress: () {},
                                   btnOkOnPress: () {},
                                 ).show();
                                 // if (e.code == 'weak-password') {

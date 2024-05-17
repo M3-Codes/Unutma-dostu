@@ -153,11 +153,12 @@ class _LoginState extends State<Login> {
                                           password: password.text);
                                   if (credential.user!.emailVerified) {
                                     Navigator.of(context)
-                                        .pushReplacementNamed("/homepage");
+                                        .pushNamedAndRemoveUntil(
+                                            '/homepage', (route) => false);
                                   } else {
                                     AwesomeDialog(
                                       context: context,
-                                      dialogType: DialogType.info,
+                                      dialogType: DialogType.infoReverse,
                                       animType: AnimType.rightSlide,
                                       title: 'INFO',
                                       desc:
@@ -173,7 +174,6 @@ class _LoginState extends State<Login> {
                                     animType: AnimType.rightSlide,
                                     title: 'Error',
                                     desc: e.code,
-                                    btnCancelOnPress: () {},
                                     btnOkOnPress: () {},
                                   ).show();
                                 }
