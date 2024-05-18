@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:main_app/firebase_options.dart';
 import 'package:main_app/pages/home_page.dart';
@@ -16,21 +17,46 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print(
+            '********************************** User is currently signed out!');
+      } else {
+        print(
+            '********************************************* User is signed in!');
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      //initialRoute: '/homepage',
+      //initialRoute: '/',
+      initialRoute: (FirebaseAuth.instance.currentUser != null &&
+              FirebaseAuth.instance.currentUser!.emailVerified)
+          ? '/homepage'
+          : '/',
+      //home: Homepage(),
       routes: {
-        '/home': (context) => const HomePage(),
         '/': (context) => const Welcome(),
+        '/login': (context) => const Login(),
+        '/signup': (context) => const Signup(),
         '/view': (context) => const ViewPage(),
         '/insert': (context) => const InsertPage(),
-        '/login': (context) => const Login(),
-        '/signup': (context) => const Signup()
+        '/homepage': (context) => const HomePage()
       },
     );
   }

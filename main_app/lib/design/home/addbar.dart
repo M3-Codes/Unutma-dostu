@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../textfont.dart';
 
@@ -10,6 +12,18 @@ class addbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [
+        IconButton(
+            color: Colors.white,
+            onPressed: () async {
+              GoogleSignIn googleSignIn = GoogleSignIn();
+              googleSignIn.disconnect();
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/', (route) => false);
+            },
+            icon: const Icon(Icons.exit_to_app))
+      ],
       leading: IconButton(
         icon: const Icon(Icons.info),
         onPressed: () {
