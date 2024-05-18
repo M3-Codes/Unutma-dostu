@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../pages/view_page.dart';
+
 List<bool> list = [true, true, true, true, false, false, false, false, false];
 
 class ImageSwitcher extends StatefulWidget {
@@ -31,7 +33,13 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
       child: GestureDetector(
         onTap: () {
           // switchImage();
-          Navigator.pushReplacementNamed(context, '/view');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewPage(index: widget.index),
+            ),
+          );
+          ;
         },
         child: IgnorePointer(
           ignoring: !list[(widget.index) - 1],

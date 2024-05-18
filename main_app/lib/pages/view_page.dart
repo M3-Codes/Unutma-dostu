@@ -8,7 +8,8 @@ import '../design/view/readingboxes.dart';
 import '../design/view/view_addbar.dart';
 
 class ViewPage extends StatefulWidget {
-  const ViewPage({super.key});
+  final int index;
+  const ViewPage({required this.index, super.key});
 
   @override
   _ViewPageState createState() => _ViewPageState();
@@ -29,8 +30,8 @@ class _ViewPageState extends State<ViewPage> {
     FileReader reader = FileReader();
     database = await reader.file();
     setState(() {
-      time = database[1][5].toString().split(':');
-      tarih = database[1][6].toString().split('/');
+      time = database[widget.index][5].toString().split(':');
+      tarih = database[widget.index][6].toString().split('/');
     });
   }
 
@@ -45,7 +46,7 @@ class _ViewPageState extends State<ViewPage> {
         children: [
           Column(
             children: [
-              addbar(title: database[1][0].toString()),
+              addbar(title: database[widget.index][0].toString()),
               Masafe_H(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -57,12 +58,14 @@ class _ViewPageState extends State<ViewPage> {
               ),
               Masafe_H(),
               const SizedBox(width: 10),
-              readingboxes(hintText: database[1][0], title: 'Ürün Adı'),
-              readingboxes(hintText: database[1][1], title: 'Açıklama'),
-              readingboxes(hintText: database[1][2], title: 'Yer'),
+              readingboxes(
+                  hintText: database[widget.index][0], title: 'Ürün Adı'),
+              readingboxes(
+                  hintText: database[widget.index][1], title: 'Açıklama'),
+              readingboxes(hintText: database[widget.index][2], title: 'Yer'),
               labelColor(
-                  color: getColorFromString(database[1][4]),
-                  text: database[1][3]),
+                  color: getColorFromString(database[widget.index][4]),
+                  text: database[widget.index][3]),
               AgainTime(minute: time[0], hour: time[1], second: time[2]),
               DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
             ],

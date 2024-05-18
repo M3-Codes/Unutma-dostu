@@ -6,7 +6,6 @@ import 'package:main_app/pages/home_page.dart';
 import 'package:main_app/pages/insert_page.dart';
 import 'package:main_app/pages/login_page.dart';
 import 'package:main_app/pages/signup_page.dart';
-import 'package:main_app/pages/view_page.dart';
 import 'package:main_app/pages/welcome_page.dart';
 
 void main() async {
@@ -54,7 +53,6 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => const Welcome(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
-        '/view': (context) => const ViewPage(),
         '/insert': (context) => const InsertPage(),
         '/homepage': (context) => const HomePage()
       },
