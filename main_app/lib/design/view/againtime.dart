@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../textfont.dart';
-import 'view_textstyle.dart';
 
 class AgainTime extends StatelessWidget {
   final String hour;
   final String minute;
   final String second;
 
-  const AgainTime(this.minute, this.hour, this.second, {super.key});
+  const AgainTime(
+      {required this.minute,
+      required this.hour,
+      required this.second,
+      super.key});
 
   @override
   Widget build(Object context) {
@@ -38,7 +42,12 @@ class AgainTime extends StatelessWidget {
       child: TextFormField(
         initialValue: time,
         readOnly: true,
-        style: CustomTextStyle.rubikTextStyle(),
+        style: GoogleFonts.rubik(
+          textStyle: const TextStyle(
+            fontSize: 18,
+            color: Color(0xFFC1007F),
+          ),
+        ),
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),

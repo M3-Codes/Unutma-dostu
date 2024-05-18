@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:view_page/design/textfont.dart';
+
+import 'view_textstyle.dart';
 
 class DayDate extends StatelessWidget {
   final String day;
@@ -34,12 +35,7 @@ class DayDate extends StatelessWidget {
       child: TextFormField(
         initialValue: time,
         readOnly: true,
-        style: GoogleFonts.rubik(
-          textStyle: const TextStyle(
-            fontSize: 18,
-            color: Color.fromARGB(255, 253, 253, 253),
-          ),
-        ),
+        style: CustomTextStyle.rubikTextStyle(),
         decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xFFC1007F),

@@ -1,10 +1,10 @@
-import 'dart:io';
 import 'package:csv/csv.dart';
+import 'package:flutter/services.dart';
 
 class FileReader {
-  List file() {
+  Future<List<List<dynamic>>> file() async {
     // اقرأ ملف CSV
-    final input = File('D:\output.csv').readAsStringSync();
+    final String input = await rootBundle.loadString('lib/datebase/output.csv');
 
     // قم بتحويل البيانات إلى قائمة
     List<List<dynamic>> csvData = const CsvToListConverter().convert(input);

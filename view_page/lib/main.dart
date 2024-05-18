@@ -8,16 +8,14 @@ import 'package:view_page/design/readingboxes.dart';
 
 import 'datebase/file_reader.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FileReader reader = FileReader();
+  database = await reader.file();
   runApp(const MyApp());
 }
 
 List database = [];
-
-void myFunction() async {
-  FileReader reader = FileReader();
-  database = await reader.file();
-}
 
 List<String> time = database[1][5].toString().split(':');
 List<String> tarih = database[1][6].toString().split('/');
@@ -42,14 +40,14 @@ class MyApp extends StatelessWidget {
                 children: [
                   Imagesbutton(
                     text: 'Ürün eki',
-                    path: database[1][8],
+                    path: database[1][7],
                   ),
                   const SizedBox(
                     width: 25,
                   ),
                   Imagesbutton(
                     text: 'Yer eki',
-                    path: database[1][9],
+                    path: database[1][8],
                   )
                 ],
               ),

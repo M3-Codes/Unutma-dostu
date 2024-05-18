@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:view_page/design/textfont.dart';
+
+import 'view_textstyle.dart';
 
 // ignore: camel_case_types
 class labelColor extends StatelessWidget {
@@ -21,12 +22,7 @@ class labelColor extends StatelessWidget {
           Expanded(
             child: TextFormField(
               initialValue: text,
-              style: GoogleFonts.rubik(
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ),
+              style: CustomTextStyle.rubikTextStyle(),
               readOnly: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -38,9 +34,9 @@ class labelColor extends StatelessWidget {
           const SizedBox(width: 20),
           const Textfont("Renk"),
           const SizedBox(width: 10),
-          const CircleAvatar(
+          CircleAvatar(
             radius: 25,
-            backgroundColor: Colors.red,
+            backgroundColor: color,
           ),
         ],
       ),

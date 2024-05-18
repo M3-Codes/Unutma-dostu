@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import '../textfont.dart';
 import 'view_textstyle.dart';
 
-class Readingboxes extends StatelessWidget {
+// ignore: camel_case_types
+class readingboxes extends StatelessWidget {
   final String title;
   final String hintText;
-  const Readingboxes(this.hintText, this.title, {super.key});
+  const readingboxes({required this.hintText, required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {

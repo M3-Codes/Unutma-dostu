@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../textfont.dart';
@@ -6,7 +8,7 @@ class Imagesbutton extends StatelessWidget {
   final String text;
   final String path;
 
-  const Imagesbutton(this.text, this.path, {super.key});
+  const Imagesbutton({required this.text, required this.path, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +23,22 @@ class Imagesbutton extends StatelessWidget {
       child: Textfont(text, 20),
     );
   }
+}
 
-  void _showImage(BuildContext context, String imagePath, String text) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: Text(text),
-        content: Image.asset(imagePath), // Use the imagePath parameter
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('close'),
-          ),
-        ],
-      ),
-    );
-  }
+void _showImage(BuildContext context, String imagePath, String text) {
+  showDialog(
+    context: context,
+    builder: (_) => AlertDialog(
+      title: Text(text),
+      content: Image.asset(imagePath), // Use the imagePath parameter
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('close'),
+        ),
+      ],
+    ),
+  );
 }

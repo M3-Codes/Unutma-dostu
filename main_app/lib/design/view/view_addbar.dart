@@ -1,12 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import '../textfont.dart';
 
 class addbar extends StatelessWidget {
   final String title;
-  const addbar(this.title, {super.key});
+  const addbar({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class addbar extends StatelessWidget {
       title: const Textfont("Araba Anahtari", 30),
       leading: BackButton(
         color: Colors.white,
-        onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
+        onPressed: () => Navigator.pushReplacementNamed(context, '/homepage'),
       ),
       actions: [
         PopupMenuButton(

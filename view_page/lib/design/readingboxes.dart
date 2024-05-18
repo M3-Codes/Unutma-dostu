@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:view_page/design/textfont.dart';
+
+import 'view_textstyle.dart';
 
 // ignore: camel_case_types
 class readingboxes extends StatelessWidget {
@@ -20,12 +21,7 @@ class readingboxes extends StatelessWidget {
             child: TextFormField(
               readOnly: true,
               initialValue: hintText,
-              style: GoogleFonts.rubik(
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ),
+              style: CustomTextStyle.rubikTextStyle(),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
