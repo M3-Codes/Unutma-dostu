@@ -5,7 +5,6 @@ class ColorButton extends StatefulWidget {
   const ColorButton({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _ColorButtonState createState() => _ColorButtonState();
 }
 
@@ -47,15 +46,22 @@ class _ColorButtonState extends State<ColorButton> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _changeColor,
-      style: ElevatedButton.styleFrom(
+    return SizedBox(
+      width: 48.0,
+      height: 48.0,
+      child: ElevatedButton(
+        onPressed: _changeColor,
+        style: ElevatedButton.styleFrom(
+          minimumSize: const Size(48.0, 48.0),
           backgroundColor: _buttonColor,
           padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 0.0),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-              side: const BorderSide(color: Colors.black87, width: 1))),
-      child: const Icon(Icons.colorize, color: Color(0xFFFFFFFF)),
+            borderRadius: BorderRadius.circular(10),
+            side: const BorderSide(color: Colors.black87, width: 1),
+          ),
+        ),
+        child: const Icon(Icons.colorize, color: Color(0xFFFFFFFF)),
+      ),
     );
   }
 }

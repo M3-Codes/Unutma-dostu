@@ -66,13 +66,16 @@ class MyApp extends StatelessWidget {
                   const Row(
                     children: [
                       Flexible(
-                        flex: 3,
+                        flex: 5,
                         child: TextFieldWidget(
                           title: 'Etiket',
-                          hintText: '#.................',
+                          hintText: '#...........',
                         ),
                       ),
+                      SizedBox(width: 15,),
                       text_it("Renk  ", 20),
+                       SizedBox(width: 10,),
+                      
                       ColorButton(),
                       SizedBox(
                         width: 35,
