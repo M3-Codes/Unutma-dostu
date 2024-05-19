@@ -22,7 +22,7 @@ class TextFieldWidget extends StatelessWidget {
             width: title == "Yer" ? 70 : 20, 
           ),
           SizedBox(
-            width: title == "Etiket" ? 30 : 0, 
+            width: title == "Etiket" ? 25 : 0, 
           ),
           SizedBox(
             width: title == "Ürün Adı" ? 5 : 0, 

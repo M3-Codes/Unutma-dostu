@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:insert_page/design/customappbar.dart';
+import 'package:insert_page/design/custom_appbar.dart';
 import 'package:insert_page/design/use_calendar.dart';
-import 'package:insert_page/design/color_pick.dart';
+import 'package:insert_page/design/color_picker.dart';
 import 'package:insert_page/design/repeat_time.dart';
 import 'design/image_info.dart';
 import 'design/text_field.dart';

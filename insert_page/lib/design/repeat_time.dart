@@ -34,7 +34,7 @@ class _RepeatTimeState extends State<RepeatTime> {
         children: [
           text_it(widget.title, 20),
           SizedBox(width: widget.title == "  :" ? 10 : 20),  
-          SizedBox(width: widget.title == "Tekrar" ? 30 : 0), 
+          SizedBox(width: widget.title == "Tekrar" ? 20 : 0), 
           GestureDetector(
             onTap: widget.onTap,
             child: Container(
