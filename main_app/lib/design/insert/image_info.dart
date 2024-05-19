@@ -1,7 +1,9 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_print
+
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:main_app/design/textfont.dart';
 
 class ImageInfos extends StatefulWidget {
   final String title;
@@ -57,19 +59,11 @@ class _ImageInfosState extends State<ImageInfos> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       child: Row(
         children: [
-          Text(
-            widget.title,
-            style: GoogleFonts.rubik(
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          const SizedBox(width: 20),
+          Textfont(widget.title, 20),
+          const SizedBox(width: 10),
           GestureDetector(
             onTap: _getImage,
             child: Container(

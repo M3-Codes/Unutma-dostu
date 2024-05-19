@@ -1,3 +1,0 @@
-class CameraOpen{
-  void openit(){}
-}

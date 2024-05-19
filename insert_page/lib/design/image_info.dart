@@ -63,7 +63,7 @@ class _ImageInfosState extends State<ImageInfos> {
       child: Row(
         children: [
           text_it(widget.title, 20),
-          const SizedBox(width: 20),
+          const SizedBox(width: 10),
           GestureDetector(
             onTap: _getImage,
             child: Container(

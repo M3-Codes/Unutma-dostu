@@ -1,7 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../textfont.dart';
 
 class RepeatTime extends StatefulWidget {
   final String title;
@@ -23,7 +24,7 @@ class _RepeatTimeState extends State<RepeatTime> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: '00',);
+    _controller = TextEditingController(text: '00');
   }
 
   @override
@@ -32,23 +33,16 @@ class _RepeatTimeState extends State<RepeatTime> {
       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 1.0),
       child: Row(
         children: [
-          Text(
-            widget.title,
-            style: GoogleFonts.rubik(
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
+          Textfont(widget.title, 20),
+          SizedBox(width: widget.title == "  :" ? 10 : 20),
+          SizedBox(width: widget.title == "Tekrar" ? 20 : 0),
           GestureDetector(
             onTap: widget.onTap,
             child: Container(
-              width: 50,
+              width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: const Color(0x00FFFFFF), // Buradaki renk sabit
+                color: const Color(0x00FFFFFF),
                 borderRadius: BorderRadius.circular(11),
                 border: Border.all(color: const Color(0xFFC1007F), width: 1),
               ),
@@ -60,9 +54,6 @@ class _RepeatTimeState extends State<RepeatTime> {
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                   ),
-                  onChanged: (value) {
-                    // Buraya istediğiniz ekstra doğrulama veya mantık ekleyebilirsiniz
-                  },
                 ),
               ),
             ),

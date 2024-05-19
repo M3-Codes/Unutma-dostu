@@ -32,7 +32,7 @@ class addbar extends StatelessWidget {
         color: Colors.white,
       ),
       backgroundColor: const Color(0xFFC1007F),
-      title: Textfont("Hoş Geldin $title", 30),
+      title: Textfont("Hoş Geldin $title", 25),
       centerTitle: true,
     );
   }

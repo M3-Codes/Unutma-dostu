@@ -7,9 +7,7 @@ class Textfont extends StatelessWidget {
   const Textfont(this.text, this.fontsize, {super.key});
 
   Color color() {
-    if (text == "Yeni Ürün") {
-      return const Color(0xFFC1007F);
-    } else if (fontsize == 30) {
+    if (fontsize == 25) {
       return const Color.fromARGB(255, 244, 239, 242);
     }
     return Colors.black;

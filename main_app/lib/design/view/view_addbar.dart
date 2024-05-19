@@ -10,7 +10,7 @@ class addbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFFC1007F),
-      title: const Textfont("Araba Anahtari", 30),
+      title: Textfont(title, 25),
       leading: BackButton(
         color: Colors.white,
         onPressed: () => Navigator.pushReplacementNamed(context, '/homepage'),
