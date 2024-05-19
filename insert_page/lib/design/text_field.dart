@@ -3,8 +3,7 @@ import 'package:insert_page/design/textfont.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String title;
-  final String hintText;
-
+  final String hintText; 
   const TextFieldWidget({
     super.key,
     required this.title,
@@ -17,8 +16,17 @@ class TextFieldWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       child: Row(
         children: [
+          
           text_it(title, 20),
-          const SizedBox(width: 20),
+          SizedBox(
+            width: title == "Yer" ? 70 : 20, 
+          ),
+          SizedBox(
+            width: title == "Etiket" ? 30 : 0, 
+          ),
+          SizedBox(
+            width: title == "Ürün Adı" ? 5 : 0, 
+          ),
           Expanded(
             child: TextField(
               enabled: true,

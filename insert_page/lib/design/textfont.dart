@@ -20,7 +20,7 @@ class text_it extends StatelessWidget {
       style: GoogleFonts.rubik(
         textStyle: TextStyle(
           fontSize: fontsize,
-          color: text == "Yeni Ürün" ? const Color(0xFFC1007F) : Colors.black,
+          color: text == "Yeni Ürün" ? Colors.white : Colors.black,
         ),
       ),
     );
