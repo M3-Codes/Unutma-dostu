@@ -14,7 +14,7 @@ class TextForm_Password extends StatefulWidget {
 }
 
 class _TextForm_PasswordState extends State<TextForm_Password> {
-  bool _hpass = false;
+  bool _hpass = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(

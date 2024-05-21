@@ -43,7 +43,8 @@ class _LoginState extends State<Login> {
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
-    Navigator.of(context).pushNamedAndRemoveUntil("/home", (route) => false);
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil("/homepage", (route) => false);
   }
 
   @override
