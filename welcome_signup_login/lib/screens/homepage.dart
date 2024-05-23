@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:welcome_signup_login/components/BG_w.dart';
+import 'package:welcome_signup_login/components/home_drawer.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
 import 'package:welcome_signup_login/components/logo_UD.dart';
 
@@ -30,6 +31,7 @@ class _homepageState extends State<Homepage> {
               icon: const Icon(Icons.exit_to_app))
         ],
       ),
+      drawer: const Drawer_h(),
       body: const Stack(
         alignment: Alignment.center,
         children: [BG_w(), Logo_UD(), Logo_M3_CODE_1(path: "images/ylogo.png")],
