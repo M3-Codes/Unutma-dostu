@@ -23,7 +23,7 @@ class addbutton extends StatelessWidget {
               side: BorderSide(color: Colors.black87, width: 3))),
       child: const Icon(
         Icons.add,
-        color: Colors.black,
+        color: Colors.white,
         size: 50,
       ),
     );
