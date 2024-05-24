@@ -164,7 +164,7 @@ class _Drawer_hState extends State<Drawer_h> {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: const Text('About as'),
+                                title: const Text('About us'),
                                 content: const Text('M3 Code sunar'),
                                 actions: <Widget>[
                                   TextButton(
