@@ -31,23 +31,24 @@ class _homepageState extends State<Homepage> {
               return Scaffold(
                 appBar: AppBar(
                   title: Text('Welcome ' + useDataMap['username']),
-                  actions: [
-                    IconButton(
-                        onPressed: () async {
-                          GoogleSignIn googleSignIn = GoogleSignIn();
-                          googleSignIn.disconnect();
-                          await FirebaseAuth.instance.signOut();
-                          Navigator.of(context)
-                              .pushNamedAndRemoveUntil('/', (route) => false);
-                        },
-                        icon: const Icon(Icons.exit_to_app))
-                  ],
+                  centerTitle: true,
                 ),
                 drawer: const Drawer_h(),
-                body: const Stack(
+                body: Stack(
                   alignment: Alignment.center,
                   children: [
-                    BG_w(),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                            Color.fromARGB(255, 248, 183, 183),
+                            Color.fromARGB(255, 157, 113, 142),
+                          ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)),
+                    ),
                     Logo_UD(),
                     Logo_M3_CODE_1(path: "images/ylogo.png")
                   ],
@@ -57,23 +58,24 @@ class _homepageState extends State<Homepage> {
               return Scaffold(
                 appBar: AppBar(
                   title: const Text('Welcome ' + 'User'),
-                  actions: [
-                    IconButton(
-                        onPressed: () async {
-                          GoogleSignIn googleSignIn = GoogleSignIn();
-                          googleSignIn.disconnect();
-                          await FirebaseAuth.instance.signOut();
-                          Navigator.of(context)
-                              .pushNamedAndRemoveUntil('/', (route) => false);
-                        },
-                        icon: const Icon(Icons.exit_to_app))
-                  ],
+                  centerTitle: true,
                 ),
                 drawer: const Drawer_h(),
-                body: const Stack(
+                body: Stack(
                   alignment: Alignment.center,
                   children: [
-                    BG_w(),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                            Color.fromARGB(255, 248, 183, 183),
+                            Color.fromARGB(255, 157, 113, 142),
+                          ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)),
+                    ),
                     Logo_UD(),
                     Logo_M3_CODE_1(path: "images/ylogo.png")
                   ],

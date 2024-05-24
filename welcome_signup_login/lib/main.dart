@@ -42,12 +42,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/homepage',
+      //initialRoute: '/homepage',
       //initialRoute: '/',
-      // initialRoute: (FirebaseAuth.instance.currentUser != null &&
-      //         FirebaseAuth.instance.currentUser!.emailVerified)
-      //     ? '/homepage'
-      //     : '/',
+      initialRoute: (FirebaseAuth.instance.currentUser != null &&
+              FirebaseAuth.instance.currentUser!.emailVerified)
+          ? '/homepage'
+          : '/',
       //home: Homepage(),
       routes: {
         '/': (context) => const Welcome(),

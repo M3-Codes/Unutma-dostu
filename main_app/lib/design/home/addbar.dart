@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -5,38 +6,49 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../textfont.dart';
 
 // ignore: camel_case_types
-class addbar extends StatelessWidget {
-  final String title;
-  const addbar(this.title, {super.key});
+class addbar extends StatefulWidget {
+  const addbar({super.key});
 
   @override
+  State<addbar> createState() => _addbarState();
+}
+
+class _addbarState extends State<addbar> {
+  final cuser = FirebaseAuth.instance.currentUser!;
+  @override
   Widget build(BuildContext context) {
-    return AppBar(
-      actions: [
-        IconButton(
-            color: Colors.white,
-            onPressed: () async {
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              googleSignIn.disconnect();
-              await FirebaseAuth.instance.signOut();
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil('/', (route) => false);
-            },
-            icon: const Icon(Icons.exit_to_app))
-      ],
-      leading: IconButton(
-        icon: const Icon(Icons.info),
-        onPressed: () {
-          _showAboutDialog(context);
-        },
-        color: Colors.white,
-      ),
-      backgroundColor: const Color(0xFFC1007F),
-      title: Textfont("Hoş Geldin $title", 25),
-      centerTitle: true,
-    );
+    return StreamBuilder<DocumentSnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('Users')
+            .doc(cuser.email)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final useData = snapshot.data!.data();
+            if (useData != null) {
+              final useDataMap = useData as Map<String, dynamic>;
+              return AppBar(
+                iconTheme: IconThemeData(color: Colors.white),
+                backgroundColor: const Color(0xFFC1007F),
+                title: Textfont('Hoş Geldin ' + useDataMap['username'], 25),
+                centerTitle: true,
+              );
+            } else {
+              return AppBar(
+                iconTheme: IconThemeData(color: Colors.white),
+                backgroundColor: const Color(0xFFC1007F),
+                title: Textfont("Hoş Geldin User", 25),
+                centerTitle: true,
+              );
+            }
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error${snapshot.error}'));
+          }
+          return const Center(child: CircularProgressIndicator());
+        });
   }
 
+  // AppBar(
   void _showAboutDialog(BuildContext context) {
     showDialog(
       context: context,

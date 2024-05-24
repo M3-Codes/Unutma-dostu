@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -86,11 +87,16 @@ class _SignupState extends State<Signup> {
                           onPressed: () async {
                             if (formState.currentState!.validate()) {
                               try {
-                                final credential = await FirebaseAuth.instance
-                                    .createUserWithEmailAndPassword(
+                                UserCredential usercredential =
+                                    await FirebaseAuth.instance
+                                        .createUserWithEmailAndPassword(
                                   email: email.text,
                                   password: password.text,
                                 );
+                                FirebaseFirestore.instance
+                                    .collection('Users')
+                                    .doc(usercredential.user!.email)
+                                    .set({'username': username.text});
                                 FirebaseAuth.instance.currentUser!
                                     .sendEmailVerification();
                                 AwesomeDialog(

@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/design/home/home_drawer.dart';
 import '../design/home/addbar.dart';
 import '../design/home/addbutton.dart';
 import '../design/home/divider.dart';
 import '../design/home/imageswitcher.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer_h(),
       body: Column(children: <Widget>[
-        const addbar("Admin"),
+        const addbar(),
         Masafe_H(),
         const Row(
           children: [

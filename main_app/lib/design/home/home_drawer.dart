@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:welcome_signup_login/components/BG_w.dart';
-import 'package:welcome_signup_login/components/buttonauth.dart';
-import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
+import 'package:main_app/design/welcome_signup_login/BG_w.dart';
+import 'package:main_app/design/welcome_signup_login/logo_M3_CODE.dart';
 
 class Drawer_h extends StatefulWidget {
   const Drawer_h({super.key});
@@ -59,6 +60,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                       style: TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold)),
+                                  //cuser.email!.length >= 25 ? h = 338;
+                                  //overflow: TextOverflow.ellipsis,
                                   SizedBox(
                                     width: 250,
                                     child: Center(
@@ -71,6 +74,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                                   color: Colors.grey[900]))),
                                     ),
                                   ),
+                                  // Text(cuser.email!,
+                                  //     style: TextStyle(fontSize: 15)),
                                   SizedBox(height: 10),
                                   SizedBox(
                                       width: 250,
