@@ -4,7 +4,29 @@ import 'package:flutter/material.dart';
 
 import '../../pages/view_page.dart';
 
-List<bool> list = [true, true, true, true, false, false, false, false, false];
+List<bool> list = [
+  true,
+  true,
+  true,
+  true,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+];
 
 class ImageSwitcher extends StatefulWidget {
   final int index;

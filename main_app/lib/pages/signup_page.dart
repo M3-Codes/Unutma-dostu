@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -58,6 +60,7 @@ class _SignupState extends State<Signup> {
                                 if (val == "") {
                                   return "Please fill out this field";
                                 }
+                                return null;
                               }),
                           const SizedBox(height: 18),
                           TextForm(
@@ -68,6 +71,7 @@ class _SignupState extends State<Signup> {
                                 if (val == "") {
                                   return "Please fill out this field";
                                 }
+                                return null;
                               }),
                           const SizedBox(height: 18),
                           TextForm_Password(
@@ -76,6 +80,7 @@ class _SignupState extends State<Signup> {
                                 if (val == "") {
                                   return "Please fill out this field";
                                 }
+                                return null;
                               }),
                           const SizedBox(height: 43),
                         ]),
@@ -146,7 +151,7 @@ class _SignupState extends State<Signup> {
                                 //   ).show();
                                 // }
                               } catch (e) {
-                                print(e);
+                                log(e.toString());
                               }
                             }
                           },

@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -44,13 +44,13 @@ class _LoginState extends State<Login> {
     }
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
 
     // Once signed in, return the UserCredential
@@ -101,6 +101,7 @@ class _LoginState extends State<Login> {
                                       if (val == "") {
                                         return "Please fill out this field";
                                       }
+                                      return null;
                                     }),
                                 const SizedBox(height: 18),
                                 TextForm_Password(
@@ -109,6 +110,7 @@ class _LoginState extends State<Login> {
                                       if (val == "") {
                                         return "Please fill out this field";
                                       }
+                                      return null;
                                     }),
                                 InkWell(
                                     onTap: () async {

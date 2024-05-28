@@ -17,67 +17,73 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Drawer_h(),
-      body: Column(children: <Widget>[
-        const addbar(),
-        Masafe_H(),
-        const Row(
-          children: [
-            SizedBox(
-              width: 45,
+      body: Column(
+        children: <Widget>[
+          const addbar(),
+          Masafe_H(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // إنشاء قائمة من القوائم للعناصر المتكررة
+                  for (var rowItems in repeatedRowItems)
+                    Column(
+                      children: [
+                        RowBoxes(rowItems),
+                        const divider(),
+                        Masafe_H(),
+                      ],
+                    ),
+                ],
+              ),
             ),
-            ImageSwitcher(1),
-            SizedBox(width: 30),
-            ImageSwitcher(2),
-            SizedBox(width: 30),
-            ImageSwitcher(3),
-          ],
-        ),
-        Masafe_B(),
-        const divider(),
-        Masafe_H(),
-        const Row(
-          children: [
-            SizedBox(
-              width: 45,
-            ),
-            ImageSwitcher(4),
-            SizedBox(width: 30),
-            ImageSwitcher(5),
-            SizedBox(width: 30),
-            ImageSwitcher(6),
-          ],
-        ),
-        Masafe_B(),
-        const divider(),
-        Masafe_H(),
-        const Row(
-          children: [
-            SizedBox(
-              width: 45,
-            ),
-            ImageSwitcher(7),
-            SizedBox(width: 30),
-            ImageSwitcher(8),
-            SizedBox(width: 30),
-            ImageSwitcher(9),
-          ],
-        ),
-        Masafe_B(),
-        const divider(),
-        Masafe_H(),
-        const addbutton(),
-        Masafe_H(),
-        Container(
+          ),
+          const addbutton(),
+          Masafe_H(),
+          Container(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
               "images/yslogo.png",
               width: 390,
               height: 65,
-            ))
-      ]),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
+class RowBoxes extends StatelessWidget {
+  final List<int> indexes;
+
+  const RowBoxes(this.indexes, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        for (var index in indexes) ...[
+          const SizedBox(width: 30),
+          ImageSwitcher(index),
+          const SizedBox(width: 15),
+        ],
+      ],
+    );
+  }
+}
+
+// العناصر المتكررة لكل صف
+final List<List<int>> repeatedRowItems = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [10, 11, 12],
+  [13, 14, 15],
+  [16, 17, 18],
+  [19, 20, 21],
+  // يمكنك إضافة المزيد من القوائم حسب الحاجة
+];
 
 // ignore: non_constant_identifier_names
 Widget Masafe_H() {

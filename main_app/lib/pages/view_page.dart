@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../datebase/file_reader.dart';
 import '../design/view/Imagesbutton.dart';
 import '../design/view/againtime.dart';
@@ -19,7 +20,7 @@ class _ViewPageState extends State<ViewPage> {
   late List database = [];
   late List<String> time;
   late List<String> tarih;
-
+  bool _loading = false;
   @override
   void initState() {
     super.initState();
@@ -27,11 +28,15 @@ class _ViewPageState extends State<ViewPage> {
   }
 
   Future<void> _loadData() async {
+    setState(() {
+      _loading = true;
+    });
     FileReader reader = FileReader();
     database = await reader.file();
     setState(() {
       time = database[widget.index][5].toString().split(':');
       tarih = database[widget.index][6].toString().split('/');
+      _loading = false;
     });
   }
 
@@ -41,44 +46,47 @@ class _ViewPageState extends State<ViewPage> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              addbar(title: database[widget.index][0].toString()),
-              Masafe_H(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Imagesbutton(text: 'Ürün eki', path: database[1][7]),
-                  const SizedBox(width: 25),
-                  Imagesbutton(text: 'Yer eki', path: database[1][8]),
-                ],
-              ),
-              Masafe_H(),
-              const SizedBox(width: 10),
-              readingboxes(
-                  hintText: database[widget.index][0], title: 'Ürün Adı'),
-              readingboxes(
-                  hintText: database[widget.index][1], title: 'Açıklama'),
-              readingboxes(hintText: database[widget.index][2], title: 'Yer'),
-              labelColor(
-                  color: getColorFromString(database[widget.index][4]),
-                  text: database[widget.index][3]),
-              AgainTime(minute: time[0], hour: time[1], second: time[2]),
-              DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
-            ],
-          ),
-          Positioned(
-            bottom: 25,
-            child: Image.asset(
-              "images/yslogo.png",
-              width: 390,
-              height: 65,
+    return ModalProgressHUD(
+      inAsyncCall: _loading,
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Column(
+              children: [
+                addbar(title: database[widget.index][0].toString()),
+                Masafe_H(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Imagesbutton(text: 'Ürün eki', path: database[1][7]),
+                    const SizedBox(width: 25),
+                    Imagesbutton(text: 'Yer eki', path: database[1][8]),
+                  ],
+                ),
+                Masafe_H(),
+                const SizedBox(width: 10),
+                readingboxes(
+                    hintText: database[widget.index][0], title: 'Ürün Adı'),
+                readingboxes(
+                    hintText: database[widget.index][1], title: 'Açıklama'),
+                readingboxes(hintText: database[widget.index][2], title: 'Yer'),
+                labelColor(
+                    color: getColorFromString(database[widget.index][4]),
+                    text: database[widget.index][3]),
+                AgainTime(minute: time[0], hour: time[1], second: time[2]),
+                DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
+              ],
             ),
-          ),
-        ],
+            Positioned(
+              bottom: 25,
+              child: Image.asset(
+                "images/yslogo.png",
+                width: 390,
+                height: 65,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
