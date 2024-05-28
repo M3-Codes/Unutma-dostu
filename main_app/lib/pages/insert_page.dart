@@ -7,9 +7,14 @@ import '../design/insert/text_field.dart';
 import '../design/insert/use_calendar.dart';
 import '../design/textfont.dart';
 
-class InsertPage extends StatelessWidget {
+class InsertPage extends StatefulWidget {
   const InsertPage({super.key});
 
+  @override
+  State<InsertPage> createState() => _InsertPageState();
+}
+
+class _InsertPageState extends State<InsertPage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

@@ -1,7 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-
 import '../../datebase/file_reader.dart';
 import '../../pages/view_page.dart';
 
@@ -44,7 +42,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   @override
   Widget build(BuildContext context) {
     if (list.isEmpty || widget.index - 1 >= list.length) {
-      return CircularProgressIndicator(); // يمكنك عرض أي مؤشر تحميل هنا.
+      return const CircularProgressIndicator(); // يمكنك عرض أي مؤشر تحميل هنا.
     }
 
     return Center(
