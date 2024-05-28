@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,22 +26,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool _isLoading = true;
   @override
   void initState() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        print(
-            '********************************** User is currently signed out!');
-      } else {
-        print(
-            '********************************************* User is signed in!');
-      }
-    });
-    super.initState();
+    try {
+      FirebaseAuth.instance.authStateChanges().listen((User? user) {});
+      super.initState();
+      _isLoading = false;
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //initialRoute: '/homepage',

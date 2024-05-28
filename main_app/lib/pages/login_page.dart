@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../design/welcome_signup_login/BG_sl.dart';
@@ -25,11 +27,21 @@ class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  bool _loading = false;
 
   Future signInWithGoogle() async {
+    setState(() {
+      _loading = true;
+    });
     // Trigger the authentication flow
+
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    if (googleUser == null) return;
+    if (googleUser == null) {
+      setState(() {
+        _loading = false;
+      });
+      return;
+    }
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth =
@@ -43,175 +55,186 @@ class _LoginState extends State<Login> {
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
+    setState(() {
+      _loading = false;
+    });
+
     Navigator.of(context)
         .pushNamedAndRemoveUntil("/homepage", (route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          const BG_sl(),
-          const Logo_UD(),
-          const BG_text(),
-          SizedBox(
-            width: 345,
-            child: Form(
-              key: formState,
-              child: Column(
-                children: [
-                  const Expanded(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
-                  Expanded(
-                      flex: 2,
-                      child: ListView(
-                        padding: const EdgeInsets.only(top: 0),
-                        children: [
-                          Container(height: 43),
-                          Column(
-                            children: [
-                              TextForm(
-                                  hinttext: "Email",
-                                  ccontroller: email,
-                                  icon: Icons.email,
-                                  validator: (val) {
-                                    if (val == "") {
-                                      return "Please fill out this field";
-                                    }
-                                  }),
-                              const SizedBox(height: 18),
-                              TextForm_Password(
-                                  ccontroller: password,
-                                  validator: (val) {
-                                    if (val == "") {
-                                      return "Please fill out this field";
-                                    }
-                                  }),
-                              InkWell(
-                                  onTap: () async {
-                                    if (email.text == "") {
+    return ModalProgressHUD(
+      inAsyncCall: _loading,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            const BG_sl(),
+            const Logo_UD(),
+            const BG_text(),
+            SizedBox(
+              width: 345,
+              child: Form(
+                key: formState,
+                child: Column(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                        flex: 2,
+                        child: ListView(
+                          padding: const EdgeInsets.only(top: 0),
+                          children: [
+                            Container(height: 43),
+                            Column(
+                              children: [
+                                TextForm(
+                                    hinttext: "Email",
+                                    ccontroller: email,
+                                    icon: Icons.email,
+                                    validator: (val) {
+                                      if (val == "") {
+                                        return "Please fill out this field";
+                                      }
+                                    }),
+                                const SizedBox(height: 18),
+                                TextForm_Password(
+                                    ccontroller: password,
+                                    validator: (val) {
+                                      if (val == "") {
+                                        return "Please fill out this field";
+                                      }
+                                    }),
+                                InkWell(
+                                    onTap: () async {
+                                      if (email.text == "") {
+                                        AwesomeDialog(
+                                          context: context,
+                                          dialogType: DialogType.error,
+                                          animType: AnimType.rightSlide,
+                                          title: 'ُError',
+                                          desc:
+                                              'Please enter your email and then click Forgot Password',
+                                          btnOkOnPress: () {},
+                                        ).show();
+                                        return;
+                                      }
+                                      try {
+                                        await FirebaseAuth.instance
+                                            .sendPasswordResetEmail(
+                                                email: email.text);
+                                        AwesomeDialog(
+                                          context: context,
+                                          dialogType: DialogType.success,
+                                          animType: AnimType.rightSlide,
+                                          title: 'Success',
+                                          desc:
+                                              'A link to reset your password has been sent to your email',
+                                          btnOkOnPress: () {},
+                                        ).show();
+                                      } catch (e) {
+                                        AwesomeDialog(
+                                          context: context,
+                                          dialogType: DialogType.error,
+                                          animType: AnimType.rightSlide,
+                                          title: 'Error',
+                                          desc:
+                                              'Please make sure that the email you entered is correct',
+                                          btnOkOnPress: () {},
+                                        ).show();
+                                      }
+                                    },
+                                    child: const forgetpass()),
+                                const SizedBox(height: 18),
+                              ],
+                            ),
+                            ButtonAtuh(
+                              title: "  Login  ",
+                              horizontal: 0,
+                              colorbackround:
+                                  const Color.fromARGB(255, 97, 4, 66),
+                              colorfont:
+                                  const Color.fromARGB(255, 255, 255, 255),
+                              onPressed: () async {
+                                if (formState.currentState!.validate()) {
+                                  try {
+                                    final credential = await FirebaseAuth
+                                        .instance
+                                        .signInWithEmailAndPassword(
+                                            email: email.text,
+                                            password: password.text);
+                                    if (credential.user!.emailVerified) {
+                                      Navigator.of(context)
+                                          .pushNamedAndRemoveUntil(
+                                              "/homepage", (route) => false);
+                                    } else {
                                       AwesomeDialog(
                                         context: context,
-                                        dialogType: DialogType.error,
+                                        dialogType: DialogType.infoReverse,
                                         animType: AnimType.rightSlide,
-                                        title: 'ُError',
+                                        title: 'INFO',
                                         desc:
-                                            'Please enter your email and then click Forgot Password',
-                                        btnOkOnPress: () {},
-                                      ).show();
-                                      return;
-                                    }
-                                    try {
-                                      await FirebaseAuth.instance
-                                          .sendPasswordResetEmail(
-                                              email: email.text);
-                                      AwesomeDialog(
-                                        context: context,
-                                        dialogType: DialogType.success,
-                                        animType: AnimType.rightSlide,
-                                        title: 'Success',
-                                        desc:
-                                            'A link to reset your password has been sent to your email',
-                                        btnOkOnPress: () {},
-                                      ).show();
-                                    } catch (e) {
-                                      AwesomeDialog(
-                                        context: context,
-                                        dialogType: DialogType.error,
-                                        animType: AnimType.rightSlide,
-                                        title: 'Error',
-                                        desc:
-                                            'Please make sure that the email you entered is correct',
+                                            'Please click the activation link we sent to your email',
+                                        //btnCancelOnPress: () {},
                                         btnOkOnPress: () {},
                                       ).show();
                                     }
-                                  },
-                                  child: const forgetpass()),
-                              const SizedBox(height: 18),
-                            ],
-                          ),
-                          ButtonAtuh(
-                            title: "  Login  ",
-                            horizontal: 0,
-                            colorbackround:
-                                const Color.fromARGB(255, 97, 4, 66),
-                            colorfont: const Color.fromARGB(255, 255, 255, 255),
-                            onPressed: () async {
-                              if (formState.currentState!.validate()) {
-                                try {
-                                  final credential = await FirebaseAuth.instance
-                                      .signInWithEmailAndPassword(
-                                          email: email.text,
-                                          password: password.text);
-                                  if (credential.user!.emailVerified) {
-                                    Navigator.of(context)
-                                        .pushNamedAndRemoveUntil(
-                                            "/homepage", (route) => false);
-                                  } else {
+                                  } on FirebaseAuthException catch (e) {
                                     AwesomeDialog(
                                       context: context,
-                                      dialogType: DialogType.infoReverse,
+                                      dialogType: DialogType.error,
                                       animType: AnimType.rightSlide,
-                                      title: 'INFO',
-                                      desc:
-                                          'Please click the activation link we sent to your email',
-                                      //btnCancelOnPress: () {},
+                                      title: 'Error',
+                                      desc: e.code,
+                                      btnCancelOnPress: () {},
                                       btnOkOnPress: () {},
                                     ).show();
                                   }
-                                } on FirebaseAuthException catch (e) {
-                                  AwesomeDialog(
-                                    context: context,
-                                    dialogType: DialogType.error,
-                                    animType: AnimType.rightSlide,
-                                    title: 'Error',
-                                    desc: e.code,
-                                    btnCancelOnPress: () {},
-                                    btnOkOnPress: () {},
-                                  ).show();
+                                } else {
+                                  print("Not valid");
                                 }
-                              } else {
-                                print("Not valid");
-                              }
-                            },
-                          ),
-                          const SizedBox(height: 14),
-                          const Column(children: [Divider_login()]),
-                          const SizedBox(height: 14),
-                          ElevatedButton(
-                            onPressed: () {
-                              signInWithGoogle();
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color.fromARGB(255, 97, 4, 66)),
-                              padding: MaterialStateProperty.all(
-                                  const EdgeInsets.symmetric(
-                                      horizontal: 155, vertical: 10)),
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15))),
+                              },
                             ),
-                            child: Image.asset("images/google.png", width: 30),
-                          ),
-                          const SizedBox(height: 19),
-                          const ChangePage(
-                              path: '/signup',
-                              firstText: "Don't Have An Account ? ",
-                              lastText: "Sign Up")
-                        ],
-                      )),
-                ],
+                            const SizedBox(height: 14),
+                            const Column(children: [Divider_login()]),
+                            const SizedBox(height: 14),
+                            ElevatedButton(
+                              onPressed: () {
+                                signInWithGoogle();
+                              },
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    const Color.fromARGB(255, 97, 4, 66)),
+                                padding: MaterialStateProperty.all(
+                                    const EdgeInsets.symmetric(
+                                        horizontal: 155, vertical: 10)),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(15))),
+                              ),
+                              child:
+                                  Image.asset("images/google.png", width: 30),
+                            ),
+                            const SizedBox(height: 19),
+                            const ChangePage(
+                                path: '/signup',
+                                firstText: "Don't Have An Account ? ",
+                                lastText: "Sign Up")
+                          ],
+                        )),
+                  ],
+                ),
               ),
             ),
-          ),
-          const Logo_M3_CODE_1(path: "images/yslogo.png")
-        ],
+            const Logo_M3_CODE_1(path: "images/yslogo.png")
+          ],
+        ),
       ),
     );
   }
