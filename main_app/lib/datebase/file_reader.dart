@@ -14,4 +14,15 @@ class FileReader {
     // يمكنك الآن تحويل البيانات إلى تنسيق Dart واستخدامها كما تريد
     return csvData;
   }
+
+  // ignore: non_constant_identifier_names
+  List<bool> myList = List.filled(21, false);
+  Future<List<bool>> doluMU() async {
+    List<List<dynamic>> csvData = await file();
+
+    for (var i = 0; i < csvData.length - 1; i++) {
+      myList[i] = true;
+    }
+    return myList;
+  }
 }
