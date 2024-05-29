@@ -1,10 +1,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import '../../pages/home_page.dart';
 import '../textfont.dart';
 
 class addbar extends StatelessWidget {
   final String title;
-  const addbar({required this.title, super.key});
+  final VoidCallback onpressed;
+  const addbar({required this.title, required this.onpressed, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,34 +43,46 @@ class addbar extends StatelessWidget {
       ],
     );
   }
-}
 
-void _showDelete(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text("Confirm deletion"),
-        content: const Text("Are you sure you want to delete this item?"),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(false);
-            },
-            child: const Text("NO"),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(true);
-            },
-            child: const Text("Yes"),
-          ),
-        ],
-      );
-    },
-  ).then((value) {
-    if (value != null && value) {
-      log("Tamam");
-    }
-  });
+  void _showDelete(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirm deletion"),
+          content: const Text("Are you sure you want to delete this item?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false);
+              },
+              child: const Text("NO"),
+            ),
+            TextButton(
+              onPressed: () {
+                onpressed();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Başarıyla silindi'),
+                    duration: Duration(seconds: 3),
+                  ),
+                );
+                Future.delayed(const Duration(seconds: 1), () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                });
+              },
+              child: const Text("Yes"),
+            ),
+          ],
+        );
+      },
+    ).then((value) {
+      if (value != null && value) {
+        log("Tamam");
+      }
+    });
+  }
 }

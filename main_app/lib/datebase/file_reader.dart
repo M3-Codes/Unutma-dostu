@@ -60,6 +60,21 @@ class FileReader {
     }
   }
 
+  Future<void> deleteRow(
+      String firstColumnValue, String secondColumnValue) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/MyData.csv');
+
+    List<List<dynamic>> csvData = await readFromNewFile();
+
+    // Assume the columns we are checking are the first (index 0) and second (index 1)
+    csvData.removeWhere(
+        (row) => row[0] == firstColumnValue && row[1] == secondColumnValue);
+
+    String csv = const ListToCsvConverter().convert(csvData);
+    await file.writeAsString(csv);
+  }
+
   // ignore: non_constant_identifier_names
   List<bool> myList = List.filled(21, false);
   Future<List<bool>> doluMU() async {

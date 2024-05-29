@@ -27,11 +27,12 @@ class _ViewPageState extends State<ViewPage> {
     _loadData();
   }
 
+  FileReader reader = FileReader();
   Future<void> _loadData() async {
     setState(() {
       _loading = true;
     });
-    FileReader reader = FileReader();
+
     database = await reader.readFromNewFile();
     setState(() {
       time = database[widget.index][5].toString().split(':');
@@ -53,7 +54,13 @@ class _ViewPageState extends State<ViewPage> {
           children: [
             Column(
               children: [
-                addbar(title: database[widget.index][0].toString()),
+                addbar(
+                  title: database[widget.index][0].toString(),
+                  onpressed: () {
+                    reader.deleteRow(database[widget.index][0].toString(),
+                        database[widget.index][1].toString());
+                  },
+                ),
                 Masafe_H(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
