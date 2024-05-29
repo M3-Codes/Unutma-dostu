@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,19 +23,26 @@ class _HomePageState extends State<HomePage> {
           const addbar(),
           Masafe_H(),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // إنشاء قائمة من القوائم للعناصر المتكررة
-                  for (var rowItems in repeatedRowItems)
-                    Column(
-                      children: [
-                        RowBoxes(rowItems),
-                        const divider(),
-                        Masafe_H(),
-                      ],
-                    ),
-                ],
+            child: RawScrollbar(
+              thumbColor: const Color(0xFFC1007F),
+              radius: const Radius.circular(5),
+              thickness: 9.0,
+              thumbVisibility: true,
+              controller: _scrollController,
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    for (var rowItems in repeatedRowItems)
+                      Column(
+                        children: [
+                          RowBoxes(rowItems),
+                          const divider(),
+                          Masafe_H(),
+                        ],
+                      ),
+                  ],
+                ),
               ),
             ),
           ),

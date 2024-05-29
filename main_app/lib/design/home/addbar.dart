@@ -36,16 +36,16 @@ class _addbarState extends State<addbar> {
             if (useData != null) {
               final useDataMap = useData as Map<String, dynamic>;
               return AppBar(
-                iconTheme: IconThemeData(color: Colors.white),
+                iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
                 title: Textfont('Hoş Geldin ' + useDataMap['username'], 25),
                 centerTitle: true,
               );
             } else {
               return AppBar(
-                iconTheme: IconThemeData(color: Colors.white),
+                iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: Textfont("Hoş Geldin User", 25),
+                title: const Textfont("Hoş Geldin User", 25),
                 centerTitle: true,
               );
             }
