@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
@@ -37,7 +34,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: const Icon(Icons.save, color: Colors.white),
             onPressed: () {
               onpressed();
-              log("tamam");
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Başarıyla kaydedildi'),
+                  duration: Duration(seconds: 4),
+                ),
+              );
+              Future.delayed(Duration(seconds: 2), () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              });
             },
           ),
         ),

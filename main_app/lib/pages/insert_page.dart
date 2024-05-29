@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import 'package:main_app/datebase/file_reader.dart';
 import '../design/insert/color_picker.dart';
 import '../design/insert/custom_appbar.dart';
@@ -21,8 +23,8 @@ class _InsertPageState extends State<InsertPage> {
   String _description = '';
   String _place = '';
   String _etkit = '';
-  String _color = '';
-  String _date = '';
+  Color _color = Colors.green;
+  DateTime _date = DateTime.now();
   String _path1 = 'images/Araba_Anahtarı 1.jpg';
   String _path2 = 'images/Araba_Anahtarı 2.jpg';
 
@@ -44,9 +46,9 @@ class _InsertPageState extends State<InsertPage> {
       _description,
       _place,
       _etkit,
-      _color.toString(),
-      _date,
+      _color.value.toString(),
       _tekrar,
+      DateFormat('dd/MM/yyyy').format(_date).toString(),
       _path1,
       _path2
     ];
@@ -141,7 +143,7 @@ class _InsertPageState extends State<InsertPage> {
                       ),
                       ColorButton(
                         onColorSelected: (Color value) {
-                          _color = value.toString();
+                          _color = value;
                         },
                       ),
                       const SizedBox(
@@ -189,7 +191,7 @@ class _InsertPageState extends State<InsertPage> {
                         flex: 14,
                         child: DateButton(
                           onDateSelected: (DateTime value) {
-                            _date = value.toString();
+                            _date = value;
                           },
                         ),
                       ),
