@@ -33,7 +33,7 @@ class _SignupState extends State<Signup> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          BG_sl(),
+          BGsl(),
           Logo_UD(),
           BG_text(),
           SizedBox(

@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:welcome_signup_login/components/BG_w.dart';
+
 import 'package:welcome_signup_login/components/home_drawer.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
 import 'package:welcome_signup_login/components/logo_UD.dart';

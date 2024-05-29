@@ -2,12 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:welcome_signup_login/components/BG_w.dart';
-import 'package:welcome_signup_login/components/buttonauth.dart';
 import 'package:welcome_signup_login/components/logo_M3_CODE.dart';
 
 class Drawer_h extends StatefulWidget {
@@ -160,6 +157,7 @@ class _Drawer_hState extends State<Drawer_h> {
                           GoogleSignIn googleSignIn = GoogleSignIn();
                           googleSignIn.disconnect();
                           await FirebaseAuth.instance.signOut();
+                          // ignore: use_build_context_synchronously
                           Navigator.of(context)
                               .pushNamedAndRemoveUntil('/', (route) => false);
                         },

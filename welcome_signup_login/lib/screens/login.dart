@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          BG_sl(),
+          BGsl(),
           Logo_UD(),
           BG_text(),
           SizedBox(

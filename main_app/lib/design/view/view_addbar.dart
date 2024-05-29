@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
-class addbar extends StatelessWidget {
+class Addbar extends StatelessWidget {
   final String title;
   final VoidCallback onpressed;
-  const addbar({required this.title, required this.onpressed, super.key});
+  const Addbar({required this.title, required this.onpressed, super.key});
 
   @override
   Widget build(BuildContext context) {

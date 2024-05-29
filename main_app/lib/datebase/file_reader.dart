@@ -26,8 +26,6 @@ class FileReader {
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
-    print("path");
-    print(directory.path);
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
@@ -56,7 +54,7 @@ class FileReader {
           const CsvToListConverter().convert(contents);
       return csvData;
     } else {
-      throw FileSystemException('File not found');
+      throw const FileSystemException('File not found');
     }
   }
 
