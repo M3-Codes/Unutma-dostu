@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class DateButton extends StatefulWidget {
-  const DateButton({super.key});
+  final ValueChanged<DateTime> onDateSelected;
+  const DateButton({super.key, required this.onDateSelected});
 
   @override
   _DateButtonState createState() => _DateButtonState();
@@ -23,11 +24,11 @@ class _DateButtonState extends State<DateButton> {
       cancelText: 'Geri',
       confirmText: 'Tamam',
       helpText: 'Tarih Seç',
-      
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
+        widget.onDateSelected(_selectedDate);
       });
     }
   }
@@ -47,13 +48,11 @@ class _DateButtonState extends State<DateButton> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-            
           const Icon(Icons.calendar_today, color: Colors.white),
           const SizedBox(width: 10),
           Text(
-             DateFormat('dd/MM/yyyy').format(_selectedDate),
+            DateFormat('dd/MM/yyyy').format(_selectedDate),
             style: GoogleFonts.rubik(color: Colors.white),
-
           ),
         ],
       ),

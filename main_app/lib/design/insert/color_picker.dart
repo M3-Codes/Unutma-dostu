@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ColorButton extends StatefulWidget {
-  const ColorButton({super.key});
+  final ValueChanged<Color> onColorSelected;
+  const ColorButton({super.key, required this.onColorSelected});
 
   @override
   _ColorButtonState createState() => _ColorButtonState();
@@ -40,6 +41,7 @@ class _ColorButtonState extends State<ColorButton> {
                   log(selectedColor.toString());
                   _buttonColor = selectedColor;
                 });
+                widget.onColorSelected(_buttonColor);
                 Navigator.of(context).pop();
               },
             ),

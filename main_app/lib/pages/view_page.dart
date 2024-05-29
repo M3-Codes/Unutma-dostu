@@ -32,7 +32,7 @@ class _ViewPageState extends State<ViewPage> {
       _loading = true;
     });
     FileReader reader = FileReader();
-    database = await reader.file();
+    database = await reader.readFromNewFile();
     setState(() {
       time = database[widget.index][5].toString().split(':');
       tarih = database[widget.index][6].toString().split('/');

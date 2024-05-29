@@ -30,6 +30,7 @@ class TextFieldWidget extends StatelessWidget {
           Expanded(
             child: TextField(
               enabled: true,
+              onChanged: onChanged,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,

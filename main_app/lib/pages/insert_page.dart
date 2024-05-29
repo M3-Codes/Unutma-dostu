@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/datebase/file_reader.dart';
 import '../design/insert/color_picker.dart';
 import '../design/insert/custom_appbar.dart';
 import '../design/insert/image_info.dart';
@@ -15,10 +16,42 @@ class InsertPage extends StatefulWidget {
 }
 
 class _InsertPageState extends State<InsertPage> {
+  FileReader writer = FileReader();
   String _productName = '';
   String _description = '';
   String _place = '';
   String _etkit = '';
+  String _color = '';
+  String _date = '';
+  String _path1 = 'images/Araba_Anahtarı 1.jpg';
+  String _path2 = 'images/Araba_Anahtarı 2.jpg';
+
+  String _tekrar = '00:00:00';
+
+  String _hour = '00';
+  String _minute = '00';
+  String _second = '00';
+
+  void _updateTekrar() {
+    setState(() {
+      _tekrar = '$_hour:$_minute:$_second';
+    });
+  }
+
+  void _saveData() {
+    List<dynamic> row = [
+      _productName,
+      _description,
+      _place,
+      _etkit,
+      _color.toString(),
+      _date,
+      _tekrar,
+      _path1,
+      _path2
+    ];
+    writer.writeToFile(row);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +60,11 @@ class _InsertPageState extends State<InsertPage> {
         final bool isSmallScreen = constraints.maxWidth < 600;
 
         return Scaffold(
-          appBar: const CustomAppBar(),
+          appBar: CustomAppBar(
+            onpressed: () {
+              _saveData();
+            },
+          ),
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: isSmallScreen ? 5.0 : 20.0,
@@ -102,7 +139,11 @@ class _InsertPageState extends State<InsertPage> {
                       const SizedBox(
                         width: 10,
                       ),
-                      const ColorButton(),
+                      ColorButton(
+                        onColorSelected: (Color value) {
+                          _color = value.toString();
+                        },
+                      ),
                       const SizedBox(
                         width: 35,
                       ),
@@ -114,27 +155,43 @@ class _InsertPageState extends State<InsertPage> {
                       const SizedBox(width: 30),
                       RepeatTime(
                         title: 'Tekrar',
+                        onTextChanged: (value) {
+                          _hour = value;
+                          _updateTekrar();
+                        },
                         onTap: () {},
                       ),
                       RepeatTime(
                         title: "   :",
+                        onTextChanged: (value) {
+                          _minute = value;
+                          _updateTekrar();
+                        },
                         onTap: () {},
                       ),
                       RepeatTime(
                         title: "   :",
+                        onTextChanged: (value) {
+                          _second = value;
+                          _updateTekrar();
+                        },
                         onTap: () {},
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
-                  const Row(
+                  Row(
                     children: [
-                      SizedBox(width: 30),
-                      Textfont("Tarih", 20),
-                      SizedBox(width: 25),
+                      const SizedBox(width: 30),
+                      const Textfont("Tarih", 20),
+                      const SizedBox(width: 25),
                       Flexible(
                         flex: 14,
-                        child: DateButton(),
+                        child: DateButton(
+                          onDateSelected: (DateTime value) {
+                            _date = value.toString();
+                          },
+                        ),
                       ),
                     ],
                   ),

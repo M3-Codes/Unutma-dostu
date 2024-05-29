@@ -7,12 +7,13 @@ import '../textfont.dart';
 class RepeatTime extends StatefulWidget {
   final String title;
   final VoidCallback onTap;
+  final ValueChanged<String> onTextChanged;
 
-  const RepeatTime({
-    super.key,
-    required this.title,
-    required this.onTap,
-  });
+  const RepeatTime(
+      {super.key,
+      required this.title,
+      required this.onTap,
+      required this.onTextChanged});
 
   @override
   _RepeatTimeState createState() => _RepeatTimeState();
@@ -25,6 +26,9 @@ class _RepeatTimeState extends State<RepeatTime> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: '00');
+    _controller.addListener(() {
+      widget.onTextChanged(_controller.text);
+    });
   }
 
   @override

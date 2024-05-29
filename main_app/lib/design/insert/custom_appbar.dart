@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final VoidCallback onpressed;
+  const CustomAppBar({super.key, required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: IconButton(
             icon: const Icon(Icons.save, color: Colors.white),
             onPressed: () {
-              //TODO
+              onpressed();
+              log("tamam");
             },
           ),
         ),
