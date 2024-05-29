@@ -4,11 +4,12 @@ import 'package:main_app/design/textfont.dart';
 class TextFieldWidget extends StatelessWidget {
   final String title;
   final String hintText;
-  const TextFieldWidget({
-    super.key,
-    required this.title,
-    required this.hintText,
-  });
+  final ValueChanged<String>? onChanged;
+  const TextFieldWidget(
+      {super.key,
+      required this.title,
+      required this.hintText,
+      required this.onChanged});
 
   @override
   Widget build(BuildContext context) {

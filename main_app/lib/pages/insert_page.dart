@@ -15,6 +15,11 @@ class InsertPage extends StatefulWidget {
 }
 
 class _InsertPageState extends State<InsertPage> {
+  String _productName = '';
+  String _description = '';
+  String _place = '';
+  String _etkit = '';
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -46,39 +51,59 @@ class _InsertPageState extends State<InsertPage> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const TextFieldWidget(
+                  TextFieldWidget(
                     title: 'Ürün Adı',
                     hintText: 'Ürünün Adını Yazınız...',
+                    onChanged: (value) {
+                      setState(() {
+                        _productName = value; // حفظ النص المدخل في المتغير
+                      });
+                    },
                   ),
                   const SizedBox(height: 10),
-                  const TextFieldWidget(
+                  TextFieldWidget(
                     title: 'Açıklama',
                     hintText: 'Açıklama Yazınız...',
+                    onChanged: (value) {
+                      setState(() {
+                        _description = value; // حفظ النص المدخل في المتغير
+                      });
+                    },
                   ),
                   const SizedBox(height: 10),
-                  const TextFieldWidget(
+                  TextFieldWidget(
                     title: 'Yer',
                     hintText: 'Yeri Yazınız...',
+                    onChanged: (value) {
+                      setState(() {
+                        _place = value; // حفظ النص المدخل في المتغير
+                      });
+                    },
                   ),
                   const SizedBox(height: 10),
-                  const Row(
+                  Row(
                     children: [
                       Flexible(
                         flex: 5,
                         child: TextFieldWidget(
                           title: 'Etiket',
                           hintText: '#...........',
+                          onChanged: (value) {
+                            setState(() {
+                              _etkit = value; // حفظ النص المدخل في المتغير
+                            });
+                          },
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
-                      Textfont("Renk  ", 20),
-                      SizedBox(
+                      const Textfont("Renk  ", 20),
+                      const SizedBox(
                         width: 10,
                       ),
-                      ColorButton(),
-                      SizedBox(
+                      const ColorButton(),
+                      const SizedBox(
                         width: 35,
                       ),
                     ],
