@@ -66,10 +66,12 @@ class _ViewPageState extends State<ViewPage> {
                 Masafe_H(),
                 const SizedBox(width: 10),
                 readingboxes(
-                    hintText: database[widget.index][0], title: 'Ürün Adı'),
+                    hintText: database[widget.index][0], title: 'Ürün Adı '),
                 readingboxes(
                     hintText: database[widget.index][1], title: 'Açıklama'),
-                readingboxes(hintText: database[widget.index][2], title: 'Yer'),
+                readingboxes(
+                    hintText: database[widget.index][2],
+                    title: 'Yer           '),
                 labelColor(
                     color: Color(database[widget.index][4]),
                     text: database[widget.index][3]),
