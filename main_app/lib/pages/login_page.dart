@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -164,6 +162,9 @@ class _LoginState extends State<Login> {
                                   const Color.fromARGB(255, 255, 255, 255),
                               onPressed: () async {
                                 if (formState.currentState!.validate()) {
+                                  setState(() {
+                                    _loading = true;
+                                  });
                                   try {
                                     final credential = await FirebaseAuth
                                         .instance
@@ -196,6 +197,10 @@ class _LoginState extends State<Login> {
                                       btnCancelOnPress: () {},
                                       btnOkOnPress: () {},
                                     ).show();
+                                  } finally {
+                                    setState(() {
+                                      _loading = false;
+                                    });
                                   }
                                 } else {
                                   print("Not valid");
