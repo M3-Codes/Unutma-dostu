@@ -1,12 +1,18 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:main_app/pages/update_page.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
 class Addbar extends StatelessWidget {
   final String title;
+  final List<dynamic> data;
   final VoidCallback onpressed;
-  const Addbar({required this.title, required this.onpressed, super.key});
+  const Addbar(
+      {required this.title,
+      required this.data,
+      required this.onpressed,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,14 @@ class Addbar extends StatelessWidget {
             if (value == 'delete') {
               _showDelete(context);
             } else if (value == 'edit') {
-              log('Tamam');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => UpdatePage(
+                          database: data,
+                        )),
+              );
+              ;
             }
           },
         ),
@@ -65,6 +78,7 @@ class Addbar extends StatelessWidget {
                   const SnackBar(
                     content: Text('Başarıyla silindi'),
                     duration: Duration(seconds: 3),
+                    backgroundColor: Color(0xFFC1007F),
                   ),
                 );
                 Future.delayed(const Duration(seconds: 1), () {

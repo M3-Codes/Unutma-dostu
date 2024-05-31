@@ -42,7 +42,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   @override
   Widget build(BuildContext context) {
     if (list.isEmpty || widget.index - 1 >= list.length) {
-      return const CircularProgressIndicator(); // يمكنك عرض أي مؤشر تحميل هنا.
+      return const CircularProgressIndicator();
     }
 
     return Center(
@@ -55,7 +55,6 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
               builder: (context) => ViewPage(index: widget.index),
             ),
           );
-          ;
         },
         child: IgnorePointer(
           ignoring: !list[(widget.index) - 1],

@@ -21,6 +21,7 @@ class _ViewPageState extends State<ViewPage> {
   late List database = [];
   late List<String> time;
   late List<String> tarih;
+  late List<dynamic> data;
   bool _loading = false;
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _ViewPageState extends State<ViewPage> {
     setState(() {
       time = database[widget.index][5].toString().split(':');
       tarih = database[widget.index][6].toString().split('/');
+      data = database[widget.index];
       _loading = false;
     });
   }
@@ -61,6 +63,7 @@ class _ViewPageState extends State<ViewPage> {
                     reader.deleteRow(database[widget.index][0].toString(),
                         database[widget.index][1].toString());
                   },
+                  data: data,
                 ),
                 Masafe_H(),
                 Row(

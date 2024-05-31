@@ -10,34 +10,49 @@ import '../design/insert/text_field.dart';
 import '../design/insert/use_calendar.dart';
 import '../design/textfont.dart';
 
-class InsertPage extends StatefulWidget {
-  const InsertPage({super.key});
+class UpdatePage extends StatefulWidget {
+  final List<dynamic> database;
+  const UpdatePage({super.key, required this.database});
 
   @override
-  State<InsertPage> createState() => _InsertPageState();
+  State<UpdatePage> createState() => _InsertPageState();
 }
 
-class _InsertPageState extends State<InsertPage> {
+class _InsertPageState extends State<UpdatePage> {
   FileReader writer = FileReader();
-  String _productName = '';
-  String _description = '';
-  String _place = '';
-  String _etkit = '';
+  late String _productName;
+  late String _description;
+  late String _place;
+  late String _etkit;
   Color _color = Colors.green;
   DateTime _date = DateTime.now();
   String _path1 = 'images/Araba_Anahtarı 1.jpg';
   String _path2 = 'images/Araba_Anahtarı 2.jpg';
-
   String _tekrar = '00:00:00';
-
   String _hour = '00';
   String _minute = '00';
   String _second = '00';
+
+  @override
+  void initState() {
+    super.initState();
+    _productName = widget.database[0];
+    _description = widget.database[1];
+    _place = widget.database[2];
+    _etkit = widget.database[3];
+    _color = Color(widget.database[4]);
+    _tekrar = widget.database[5];
+    _date = DateFormat("dd/MM/yyyy").parse(widget.database[6]);
+  }
 
   void _updateTekrar() {
     setState(() {
       _tekrar = '$_hour:$_minute:$_second';
     });
+  }
+
+  void _deleterow() {
+    writer.deleteRow(widget.database[0], widget.database[1]);
   }
 
   void _saveData() {
@@ -63,10 +78,12 @@ class _InsertPageState extends State<InsertPage> {
 
         return Scaffold(
           appBar: CustomAppBar(
-            onpressed: () {
+            onpressed: () async {
+              _deleterow();
+              await Future.delayed(Duration(seconds: 2));
               _saveData();
             },
-            title: "Yeni Ürün",
+            title: "Ürün güncellemesi",
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
@@ -93,7 +110,7 @@ class _InsertPageState extends State<InsertPage> {
                   const SizedBox(height: 20),
                   TextFieldWidget(
                     title: 'Ürün Adı',
-                    hintText: 'Ürünün Adını Yazınız...',
+                    hintText: _productName,
                     onChanged: (value) {
                       setState(() {
                         _productName = value;
@@ -103,7 +120,7 @@ class _InsertPageState extends State<InsertPage> {
                   const SizedBox(height: 10),
                   TextFieldWidget(
                     title: 'Açıklama',
-                    hintText: 'Açıklama Yazınız...',
+                    hintText: _description,
                     onChanged: (value) {
                       setState(() {
                         _description = value;
@@ -113,7 +130,7 @@ class _InsertPageState extends State<InsertPage> {
                   const SizedBox(height: 10),
                   TextFieldWidget(
                     title: 'Yer',
-                    hintText: 'Yeri Yazınız...',
+                    hintText: _place,
                     onChanged: (value) {
                       setState(() {
                         _place = value;
@@ -127,7 +144,7 @@ class _InsertPageState extends State<InsertPage> {
                         flex: 5,
                         child: TextFieldWidget(
                           title: 'Etiket',
-                          hintText: '#...........',
+                          hintText: _etkit,
                           onChanged: (value) {
                             setState(() {
                               _etkit = value;

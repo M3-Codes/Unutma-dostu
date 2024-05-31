@@ -4,7 +4,8 @@ import '../textfont.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onpressed;
-  const CustomAppBar({super.key, required this.onpressed});
+  final String title;
+  const CustomAppBar({super.key, required this.title, required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      title: const Textfont(
-        'Yeni Ürün',
+      title: Textfont(
+        title,
         25,
       ),
       actions: [
@@ -37,7 +38,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Başarıyla kaydedildi'),
-                  duration: Duration(seconds: 4),
+                  duration: Duration(seconds: 3),
+                  backgroundColor: Color(0xFFC1007F),
                 ),
               );
               Future.delayed(Duration(seconds: 2), () {

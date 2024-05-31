@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:main_app/firebase_options.dart';
 import 'package:main_app/pages/home_page.dart';
-import 'package:main_app/pages/insert_page.dart';
 import 'package:main_app/pages/login_page.dart';
 import 'package:main_app/pages/signup_page.dart';
 import 'package:main_app/pages/welcome_page.dart';
@@ -56,7 +55,6 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => const Welcome(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
-        '/insert': (context) => const InsertPage(),
         '/homepage': (context) => const HomePage()
       },
     );

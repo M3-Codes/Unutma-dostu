@@ -1,8 +1,7 @@
 // ignore_for_file: camel_case_types
-
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+
+import '../../pages/insert_page.dart';
 
 class addbutton extends StatelessWidget {
   const addbutton({
@@ -13,8 +12,12 @@ class addbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        Navigator.pushReplacementNamed(context, '/insert');
-        log("Tamam");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const InsertPage(),
+          ),
+        );
       },
       style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFFC1007F),
