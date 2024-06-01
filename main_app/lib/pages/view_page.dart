@@ -60,8 +60,11 @@ class _ViewPageState extends State<ViewPage> {
                 Addbar(
                   title: database[widget.index][0].toString(),
                   onpressed: () {
-                    reader.deleteRow(database[widget.index][0].toString(),
-                        database[widget.index][1].toString());
+                    reader.deleteRow(
+                        database[widget.index][0].toString(),
+                        database[widget.index][1].toString(),
+                        database[widget.index][7].toString(),
+                        database[widget.index][8].toString());
                   },
                   data: data,
                 ),
@@ -69,9 +72,11 @@ class _ViewPageState extends State<ViewPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Imagesbutton(text: 'Ürün eki', path: database[1][7]),
+                    Imagesbutton(
+                        text: 'Ürün eki', path: database[widget.index][7]),
                     const SizedBox(width: 25),
-                    Imagesbutton(text: 'Yer eki', path: database[1][8]),
+                    Imagesbutton(
+                        text: 'Yer eki', path: database[widget.index][8]),
                   ],
                 ),
                 Masafe_H(),
@@ -111,38 +116,3 @@ Widget Masafe_H() {
     height: 25,
   );
 }
-
-// Color getColorFromString(String colorString) {
-//   // قائمة بمطابقة الألوان بالنص مع القيم RGB
-//   final Map<String, Color> colors = {
-//     'Color(0xfff44336)': const Color(0xfff44336),
-//     'Color(0xffe91e63)': const Color(0xffe91e63),
-//     'Color(0xff9c27b0)': const Color(0xff9c27b0),
-//     'Color(0xff673ab7)': const Color(0xff673ab7),
-//     'Color(0xff3f51b5)': const Color(0xff3f51b5),
-//     'Color(0xff2196f3)': const Color(0xff2196f3),
-//     'Color(0xff03a9f4)': const Color(0xff03a9f4),
-//     'Color(0xff00bcd4)': const Color(0xff00bcd4),
-//     'Color(0xff009688)': const Color(0xff009688),
-//     'Color(0xff4caf50)': const Color(0xff4caf50),
-//     'Color(0xff8bc34a)': const Color(0xff8bc34a),
-//     'Color(0xffcddc39)': const Color(0xffcddc39),
-//     'Color(0xffffeb3b)': const Color(0xffffeb3b),
-//     'Color(0xffffc107)': const Color(0xffffc107),
-//     'Color(0xffff9800)': const Color(0xffff9800),
-//     'Color(0xffff5722)': const Color(0xffff5722),
-//     'Color(0xff795548)': const Color(0xff795548),
-//     'Color(0xff9e9e9e)': const Color(0xff9e9e9e),
-//     'Color(0xff607d8b)': const Color(0xff607d8b),
-//     'Color(0xff000000)': const Color(0xff000000),
-//     // يمكنك إضافة المزيد من الألوان هنا
-//   };
-
-//   // التحقق مما إذا كانت الألوان متاحة في القائمة
-//   if (colors.containsKey(colorString)) {
-//     return colors[colorString]!;
-//   } else {
-//     // إذا لم تكن اللون متاحًا، يمكنك إرجاع قيمة لون افتراضية هنا أو رمي استثناء
-//     return Colors.black;
-//   }
-// }

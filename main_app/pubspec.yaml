@@ -51,6 +51,9 @@ dependencies:
   google_sign_in: ^6.2.1
   awesome_dialog: ^3.2.1
   firebase_core: ^2.31.0
+  path: ^1.8.0
+  image: ^3.0.1
+  
  
 
   

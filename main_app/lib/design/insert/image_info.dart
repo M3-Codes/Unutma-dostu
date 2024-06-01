@@ -1,16 +1,21 @@
 // ignore_for_file: library_private_types_in_public_api, avoid_print
 
+import 'dart:developer';
 import 'dart:io';
+import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:main_app/design/textfont.dart';
+import 'package:path_provider/path_provider.dart';
 
 class ImageInfos extends StatefulWidget {
   final String title;
   final Color color;
+  final ValueChanged<String> onImageSaved;
 
   const ImageInfos({
     super.key,
+    required this.onImageSaved,
     required this.title,
     required this.color,
   });
@@ -36,6 +41,40 @@ class _ImageInfosState extends State<ImageInfos> {
     });
   }
 
+  String generateUniqueFileName() {
+    final currentTime = DateTime.now().millisecondsSinceEpoch;
+    final randomNumber = UniqueKey().hashCode;
+    return 'image_$currentTime"box"$randomNumber.jpg';
+  }
+
+  Future<void> _saveImageToDevice() async {
+    if (_image == null) return;
+
+    if (_image == null) return;
+
+    final appDir = await getApplicationDocumentsDirectory();
+    const folderName = 'my_image';
+    final fileName = generateUniqueFileName();
+
+    final directory = Directory('${appDir.path}/$folderName');
+    if (!await directory.exists()) {
+      await directory.create(recursive: true);
+    }
+
+    // تقليل حجم الصورة
+    final bytes = await _image!.readAsBytes();
+    final img.Image? image = img.decodeImage(bytes);
+    if (image != null) {
+      final resizedImage = img.copyResize(image, width: 800);
+      final compressedBytes = img.encodeJpg(resizedImage, quality: 85);
+
+      final savedImage = File('${directory.path}/$fileName')
+        ..writeAsBytesSync(compressedBytes);
+      log(savedImage.path);
+      widget.onImageSaved(fileName);
+    }
+  }
+
   void _showImageDialog() {
     showDialog(
       context: context,
@@ -46,6 +85,15 @@ class _ImageInfosState extends State<ImageInfos> {
               ? Image.file(_image!)
               : const Text('Uygun Resim Yoktur'),
           actions: [
+            TextButton(
+              onPressed: () async {
+                _saveImageToDevice();
+                await Future.delayed(const Duration(seconds: 1));
+                // ignore: use_build_context_synchronously
+                Navigator.of(context).pop();
+              },
+              child: const Text('Kaydet'),
+            ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: const Text('Geri'),

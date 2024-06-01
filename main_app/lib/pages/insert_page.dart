@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:main_app/datebase/file_reader.dart';
 import '../design/insert/color_picker.dart';
@@ -25,11 +24,9 @@ class _InsertPageState extends State<InsertPage> {
   String _etkit = '';
   Color _color = Colors.green;
   DateTime _date = DateTime.now();
-  String _path1 = 'images/Araba_Anahtarı 1.jpg';
-  String _path2 = 'images/Araba_Anahtarı 2.jpg';
-
+  String _path1 = '';
+  String _path2 = '';
   String _tekrar = '00:00:00';
-
   String _hour = '00';
   String _minute = '00';
   String _second = '00';
@@ -55,6 +52,16 @@ class _InsertPageState extends State<InsertPage> {
     writer.writeToFile(row);
   }
 
+  void _onImageSaved(String fileName, int index) {
+    setState(() {
+      if (index == 0) {
+        _path1 = fileName;
+      } else {
+        _path2 = fileName;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -78,15 +85,17 @@ class _InsertPageState extends State<InsertPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
-                  const Row(
+                  Row(
                     children: [
                       ImageInfos(
                         title: 'Ürün Eki',
-                        color: Color(0xFFC1007F),
+                        color: const Color(0xFFC1007F),
+                        onImageSaved: (fileName) => _onImageSaved(fileName, 0),
                       ),
                       ImageInfos(
                         title: 'Yer Eki',
-                        color: Color(0xFFC1007F),
+                        color: const Color(0xFFC1007F),
+                        onImageSaved: (fileName) => _onImageSaved(fileName, 1),
                       ),
                     ],
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:main_app/datebase/file_reader.dart';
 import '../design/insert/color_picker.dart';
@@ -43,6 +42,8 @@ class _InsertPageState extends State<UpdatePage> {
     _color = Color(widget.database[4]);
     _tekrar = widget.database[5];
     _date = DateFormat("dd/MM/yyyy").parse(widget.database[6]);
+    _path1 = widget.database[7];
+    _path1 = widget.database[8];
   }
 
   void _updateTekrar() {
@@ -52,7 +53,8 @@ class _InsertPageState extends State<UpdatePage> {
   }
 
   void _deleterow() {
-    writer.deleteRow(widget.database[0], widget.database[1]);
+    writer.deleteRow(widget.database[0], widget.database[1], widget.database[7],
+        widget.database[8]);
   }
 
   void _saveData() {
@@ -70,6 +72,16 @@ class _InsertPageState extends State<UpdatePage> {
     writer.writeToFile(row);
   }
 
+  void _onImageSaved(String fileName, int index) {
+    setState(() {
+      if (index == 0) {
+        _path1 = fileName;
+      } else {
+        _path2 = fileName;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -80,7 +92,7 @@ class _InsertPageState extends State<UpdatePage> {
           appBar: CustomAppBar(
             onpressed: () async {
               _deleterow();
-              await Future.delayed(Duration(seconds: 2));
+              await Future.delayed(const Duration(seconds: 2));
               _saveData();
             },
             title: "Ürün güncellemesi",
@@ -95,15 +107,17 @@ class _InsertPageState extends State<UpdatePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
-                  const Row(
+                  Row(
                     children: [
                       ImageInfos(
                         title: 'Ürün Eki',
                         color: Color(0xFFC1007F),
+                        onImageSaved: (fileName) => _onImageSaved(fileName, 0),
                       ),
                       ImageInfos(
                         title: 'Yer Eki',
                         color: Color(0xFFC1007F),
+                        onImageSaved: (fileName) => _onImageSaved(fileName, 0),
                       ),
                     ],
                   ),
