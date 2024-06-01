@@ -4,19 +4,6 @@ import 'package:csv/csv.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileReader {
-  // Future<List<List<dynamic>>> filereder() async {
-  //   // اقرأ ملف CSV
-  //   final String input = await rootBundle.loadString('lib/datebase/output.csv');
-
-  //   // قم بتحويل البيانات إلى قائمة
-  //   List<List<dynamic>> csvData = const CsvToListConverter().convert(input);
-
-  //   // قم بطباعة البيانات للتأكد من قراءتها بشكل صحيح
-
-  //   // يمكنك الآن تحويل البيانات إلى تنسيق Dart واستخدامها كما تريد
-  //   return csvData;
-  // }
-
   Future<void> writeToFile(List<dynamic> row) async {
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/MyData.csv');
