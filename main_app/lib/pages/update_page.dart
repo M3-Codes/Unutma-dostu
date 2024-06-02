@@ -43,7 +43,7 @@ class _InsertPageState extends State<UpdatePage> {
     _tekrar = widget.database[5];
     _date = DateFormat("dd/MM/yyyy").parse(widget.database[6]);
     _path1 = widget.database[7];
-    _path1 = widget.database[8];
+    _path2 = widget.database[8];
   }
 
   void _updateTekrar() {
