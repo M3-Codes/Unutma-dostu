@@ -61,8 +61,8 @@ class _ViewPageState extends State<ViewPage> {
                   title: database[widget.index][0].toString(),
                   onpressed: () {
                     reader.deleteRow(
-                        database[widget.index][0].toString(),
-                        database[widget.index][1].toString(),
+                        database[widget.index][0],
+                        database[widget.index][1],
                         database[widget.index][7].toString(),
                         database[widget.index][8].toString(),
                         "",
