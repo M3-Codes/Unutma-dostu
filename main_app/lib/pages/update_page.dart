@@ -65,7 +65,7 @@ class _InsertPageState extends State<UpdatePage> {
       _etkit.toString(),
       _color.value.toString(),
       _tekrar.toString(),
-      DateFormat('dd/MM/yyyy').format(_date).toString(),
+      DateFormat('dd/MM/yyyy/HH:mm:ss').format(_date).toString(),
       _path1,
       _path2
     ];
