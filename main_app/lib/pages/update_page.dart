@@ -41,7 +41,7 @@ class _InsertPageState extends State<UpdatePage> {
     _etkit = widget.database[3];
     _color = Color(widget.database[4]);
     _tekrar = widget.database[5];
-    _date = DateFormat("dd/MM/yyyy").parse(widget.database[6]);
+    _date = DateFormat('dd/MM/yyyy/HH:mm:ss').parse(widget.database[6]);
     _path1 = widget.database[7];
     _path2 = widget.database[8];
   }
