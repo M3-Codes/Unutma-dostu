@@ -75,8 +75,8 @@ class FileReader {
   }
 
   Future<void> deleteRow(
-      String firstColumnValue,
-      String secondColumnValue,
+      dynamic firstColumnValue,
+      dynamic secondColumnValue,
       String oldPath1,
       String oldPath2,
       String newPath1,
