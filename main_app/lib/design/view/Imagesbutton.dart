@@ -24,7 +24,7 @@ class Imagesbutton extends StatelessWidget {
 
         // Use default image if path is empty or file does not exist
         if (path.isEmpty || !(await File(imagePath).exists())) {
-          imagePath = 'images/Araba_Anahtarı 1.jpg';
+          imagePath = 'images/nofoto.png';
         }
         // ignore: use_build_context_synchronously
         _showImage(context, imagePath, text);
@@ -51,7 +51,7 @@ void _showImage(BuildContext context, String imagePath, String text) {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('close'),
+          child: const Text('Kapat'),
         ),
       ],
     ),
