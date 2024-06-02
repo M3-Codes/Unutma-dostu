@@ -35,10 +35,10 @@ class _InsertPageState extends State<UpdatePage> {
   @override
   void initState() {
     super.initState();
-    _productName = widget.database[0];
-    _description = widget.database[1];
-    _place = widget.database[2];
-    _etkit = widget.database[3];
+    _productName = widget.database[0].toString();
+    _description = widget.database[1].toString();
+    _place = widget.database[2].toString();
+    _etkit = widget.database[3].toString();
     _color = Color(widget.database[4]);
     _tekrar = widget.database[5];
     _date = DateFormat('dd/MM/yyyy/HH:mm:ss').parse(widget.database[6]);
