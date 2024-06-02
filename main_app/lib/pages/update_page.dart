@@ -59,12 +59,12 @@ class _InsertPageState extends State<UpdatePage> {
 
   void _saveData() {
     List<dynamic> row = [
-      _productName,
-      _description,
-      _place,
-      _etkit,
+      _productName.toString(),
+      _description.toString(),
+      _place.toString(),
+      _etkit.toString(),
       _color.value.toString(),
-      _tekrar,
+      _tekrar.toString(),
       DateFormat('dd/MM/yyyy').format(_date).toString(),
       _path1,
       _path2
