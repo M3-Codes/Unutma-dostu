@@ -25,8 +25,8 @@ class _InsertPageState extends State<UpdatePage> {
   late String _etkit;
   Color _color = Colors.green;
   DateTime _date = DateTime.now();
-  String _path1 = 'images/Araba_Anahtarı 1.jpg';
-  String _path2 = 'images/Araba_Anahtarı 2.jpg';
+  String _path1 = '';
+  String _path2 = '';
   String _tekrar = '00:00:00';
   String _hour = '00';
   String _minute = '00';
@@ -111,12 +111,12 @@ class _InsertPageState extends State<UpdatePage> {
                     children: [
                       ImageInfos(
                         title: 'Ürün Eki',
-                        color: Color(0xFFC1007F),
+                        color: const Color(0xFFC1007F),
                         onImageSaved: (fileName) => _onImageSaved(fileName, 0),
                       ),
                       ImageInfos(
                         title: 'Yer Eki',
-                        color: Color(0xFFC1007F),
+                        color: const Color(0xFFC1007F),
                         onImageSaved: (fileName) => _onImageSaved(fileName, 1),
                       ),
                     ],
