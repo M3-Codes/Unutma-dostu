@@ -117,7 +117,7 @@ class _InsertPageState extends State<UpdatePage> {
                       ImageInfos(
                         title: 'Yer Eki',
                         color: Color(0xFFC1007F),
-                        onImageSaved: (fileName) => _onImageSaved(fileName, 0),
+                        onImageSaved: (fileName) => _onImageSaved(fileName, 1),
                       ),
                     ],
                   ),
