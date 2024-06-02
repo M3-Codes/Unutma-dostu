@@ -54,7 +54,7 @@ class _InsertPageState extends State<UpdatePage> {
 
   void _deleterow() {
     writer.deleteRow(widget.database[0], widget.database[1], widget.database[7],
-        widget.database[8]);
+        widget.database[8], _path1, _path2);
   }
 
   void _saveData() {
@@ -76,7 +76,7 @@ class _InsertPageState extends State<UpdatePage> {
     setState(() {
       if (index == 0) {
         _path1 = fileName;
-      } else {
+      } else if (index == 1) {
         _path2 = fileName;
       }
     });

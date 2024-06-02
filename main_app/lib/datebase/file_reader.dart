@@ -74,8 +74,13 @@ class FileReader {
     }
   }
 
-  Future<void> deleteRow(String firstColumnValue, String secondColumnValue,
-      String path1, String path2) async {
+  Future<void> deleteRow(
+      String firstColumnValue,
+      String secondColumnValue,
+      String oldPath1,
+      String oldPath2,
+      String newPath1,
+      String newPath2) async {
     String? clinet = clientName();
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/$clinet.csv');
@@ -86,13 +91,20 @@ class FileReader {
     csvData.removeWhere((row) =>
         row[0] == firstColumnValue &&
         row[1] == secondColumnValue &&
-        row[7] == path1 &&
-        row[8] == path2);
+        row[7] == oldPath1 &&
+        row[8] == oldPath2);
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
     await uploadFileToFirebaseStorage(file, clinet);
-    await deleteImages(clinet, path1, path2);
+
+    // Delete images if paths are not the same
+    if (oldPath1 != newPath1) {
+      await deleteImage(clinet, oldPath1);
+    }
+    if (oldPath2 != newPath2) {
+      await deleteImage(clinet, oldPath2);
+    }
   }
 
   // ignore: non_constant_identifier_names
@@ -170,45 +182,26 @@ class FileReader {
     }
   }
 
-  Future<void> deleteImages(String client, String path1, String path2) async {
+  Future<void> deleteImage(String client, String path) async {
     final appDir = await getApplicationDocumentsDirectory();
     const folderName = 'my_image';
     final directory = Directory('${appDir.path}/$folderName');
 
-    // Delete local file for path1
-    final localFile1 = File('${directory.path}/$path1');
-    if (await localFile1.exists()) {
-      await localFile1.delete();
-      log('Deleted local file: ${localFile1.path}');
+    // Delete local file
+    final localFile = File('${directory.path}/$path');
+    if (await localFile.exists()) {
+      await localFile.delete();
+      log('Deleted local file: ${localFile.path}');
     } else {
-      log('Local file not found: ${localFile1.path}');
+      log('Local file not found: ${localFile.path}');
     }
 
-    // Delete file from Firebase Storage for path1
+    // Delete file from Firebase Storage
     try {
-      final storageRef1 =
-          FirebaseStorage.instance.ref().child('$client/$folderName/$path1');
-      await storageRef1.delete();
-      log('Deleted file from Firebase Storage: $path1');
-    } catch (e) {
-      log('Error deleting file from Firebase Storage: $e');
-    }
-
-    // Delete local file for path2
-    final localFile2 = File('${directory.path}/$path2');
-    if (await localFile2.exists()) {
-      await localFile2.delete();
-      log('Deleted local file: ${localFile2.path}');
-    } else {
-      log('Local file not found: ${localFile2.path}');
-    }
-
-    // Delete file from Firebase Storage for path2
-    try {
-      final storageRef2 =
-          FirebaseStorage.instance.ref().child('$client/$folderName/$path2');
-      await storageRef2.delete();
-      log('Deleted file from Firebase Storage: $path2');
+      final storageRef =
+          FirebaseStorage.instance.ref().child('$client/$folderName/$path');
+      await storageRef.delete();
+      log('Deleted file from Firebase Storage: $path');
     } catch (e) {
       log('Error deleting file from Firebase Storage: $e');
     }

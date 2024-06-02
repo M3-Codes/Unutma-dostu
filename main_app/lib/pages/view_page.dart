@@ -64,7 +64,9 @@ class _ViewPageState extends State<ViewPage> {
                         database[widget.index][0].toString(),
                         database[widget.index][1].toString(),
                         database[widget.index][7].toString(),
-                        database[widget.index][8].toString());
+                        database[widget.index][8].toString(),
+                        "",
+                        "");
                   },
                   data: data,
                 ),
@@ -82,15 +84,17 @@ class _ViewPageState extends State<ViewPage> {
                 Masafe_H(),
                 const SizedBox(width: 10),
                 readingboxes(
-                    hintText: database[widget.index][0], title: 'Ürün Adı '),
+                    hintText: database[widget.index][0].toString(),
+                    title: 'Ürün Adı '),
                 readingboxes(
-                    hintText: database[widget.index][1], title: 'Açıklama'),
+                    hintText: database[widget.index][1].toString(),
+                    title: 'Açıklama'),
                 readingboxes(
-                    hintText: database[widget.index][2],
+                    hintText: database[widget.index][2].toString(),
                     title: 'Yer           '),
                 labelColor(
                     color: Color(database[widget.index][4]),
-                    text: database[widget.index][3]),
+                    text: database[widget.index][3].toString()),
                 AgainTime(minute: time[0], hour: time[1], second: time[2]),
                 DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
               ],

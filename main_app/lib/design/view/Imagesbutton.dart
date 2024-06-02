@@ -20,8 +20,14 @@ class Imagesbutton extends StatelessWidget {
         final appDir = await getApplicationDocumentsDirectory();
         const folderName = 'my_image'; // اسم المجلد
         final directory = Directory('${appDir.path}/$folderName');
+        String imagePath = '${directory.path}/$path';
+
+        // Use default image if path is empty or file does not exist
+        if (path.isEmpty || !(await File(imagePath).exists())) {
+          imagePath = 'images/Araba_Anahtarı 1.jpg';
+        }
         // ignore: use_build_context_synchronously
-        _showImage(context, '${directory.path}/$path', text);
+        _showImage(context, imagePath, text);
       },
       style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
@@ -37,7 +43,9 @@ void _showImage(BuildContext context, String imagePath, String text) {
     context: context,
     builder: (_) => AlertDialog(
       title: Text(text),
-      content: Image.file(File(imagePath)), // Use the imagePath parameter
+      content: imagePath.startsWith('images/')
+          ? Image.asset(imagePath) // Use Image.asset for assets
+          : Image.file(File(imagePath)), // Use Image.file for files
       actions: [
         TextButton(
           onPressed: () {
