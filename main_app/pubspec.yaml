@@ -53,7 +53,9 @@ dependencies:
   firebase_core: ^2.31.0
   path: ^1.8.0
   image: ^3.0.1
-  
+  flutter_local_notifications: ^17.1.2
+  timezone: ^0.9.3
+  shared_preferences: ^2.2.3
  
 
   

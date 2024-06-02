@@ -1,10 +1,15 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:intl/intl.dart';
+
 import 'package:path/path.dart';
 import 'package:csv/csv.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../nog.dart';
 
 class FileReader {
   String clientName() {
@@ -29,12 +34,18 @@ class FileReader {
     await file.writeAsString(csv);
     await uploadFileToFirebaseStorage(file, clinet);
     await uploadFolderToFirebaseStorage(clinet);
+
+    DateTime date = DateFormat('dd/MM/yyyy/HH:mm:ss').parse(row[6]);
+    String tekrar = row[5];
+    NotificationManager.showNotification(row[0], date, tekrar);
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
     String? clinet = clientName();
     final directory = await getApplicationDocumentsDirectory();
     final localFile = File('${directory.path}/$clinet.csv');
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstRead = prefs.getBool('isFirstRead') ?? true;
 
     if (!await localFile.exists()) {
       // Check if the file exists in Firebase Storage
@@ -68,6 +79,15 @@ class FileReader {
       String contents = await localFile.readAsString();
       List<List<dynamic>> csvData =
           const CsvToListConverter().convert(contents);
+      if (isFirstRead) {
+        for (var row in csvData.skip(1)) {
+          // Skip the header row
+          DateTime date = DateFormat('dd/MM/yyyy/HH:mm:ss').parse(row[6]);
+          String tekrar = row[5];
+          NotificationManager.showNotification(row[0], date, tekrar);
+        }
+        await prefs.setBool('isFirstRead', false);
+      }
       return csvData;
     } else {
       throw const FileSystemException('File not found');
@@ -97,6 +117,8 @@ class FileReader {
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
     await uploadFileToFirebaseStorage(file, clinet);
+
+    NotificationManager.cancelNotification(firstColumnValue);
 
     // Delete images if paths are not the same
     if (oldPath1 != newPath1) {

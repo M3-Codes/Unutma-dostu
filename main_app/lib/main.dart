@@ -8,8 +8,13 @@ import 'package:main_app/pages/login_page.dart';
 import 'package:main_app/pages/signup_page.dart';
 import 'package:main_app/pages/welcome_page.dart';
 
+import 'nog.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationManager.initialize();
+  NotificationManager.showNotification(
+      "Test Product", DateTime.now(), "00:05:00");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
