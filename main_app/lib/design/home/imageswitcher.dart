@@ -13,6 +13,7 @@ class ImageSwitcher extends StatefulWidget {
 
 class _ImageSwitcherState extends State<ImageSwitcher> {
   late List<bool> list = [];
+  late List<String> etkitlist = [];
 
   AssetImage firstImage = const AssetImage('images/box2.jpg');
   AssetImage secondImage = const AssetImage('images/box1.jpg');
@@ -26,8 +27,10 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   void fetchData() async {
     FileReader fileReader = FileReader();
     List<bool> fetchedList = await fileReader.doluMU();
+    List<String> etkit = await fileReader.etiktler();
     setState(() {
       list = fetchedList;
+      etkitlist = etkit;
     });
   }
 
@@ -46,24 +49,33 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
     }
 
     return Center(
-      child: GestureDetector(
-        onTap: () {
-          // switchImage();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ViewPage(index: widget.index),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // switchImage();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewPage(index: widget.index),
+                ),
+              );
+            },
+            child: IgnorePointer(
+              ignoring: !list[(widget.index) - 1],
+              child: Image(
+                image: list[(widget.index) - 1] ? secondImage : firstImage,
+                width: 80,
+                height: 80,
+              ),
             ),
-          );
-        },
-        child: IgnorePointer(
-          ignoring: !list[(widget.index) - 1],
-          child: Image(
-            image: list[(widget.index) - 1] ? secondImage : firstImage,
-            width: 80,
-            height: 80,
           ),
-        ),
+          Text(
+            list[(widget.index) - 1] ? etkitlist[widget.index - 1] : " ",
+            style: const TextStyle(fontSize: 12),
+          ),
+        ],
       ),
     );
   }
