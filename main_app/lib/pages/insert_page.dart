@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:main_app/datebase/file_reader.dart';
+import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/insert/color_picker.dart';
 import '../design/insert/custom_appbar.dart';
 import '../design/insert/image_info.dart';

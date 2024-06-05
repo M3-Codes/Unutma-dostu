@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <application
-        android:label="main_app"
+        android:label="Unutma Dostu"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
