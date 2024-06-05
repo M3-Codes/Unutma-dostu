@@ -62,7 +62,7 @@ class _InsertPageState extends State<UpdatePage> {
       _productName.toString(),
       _description.toString(),
       _place.toString(),
-      _etkit.toString(),
+      "#$_etkit",
       _color.value.toString(),
       _tekrar.toString(),
       DateFormat('dd/MM/yyyy/HH:mm:ss').format(_date).toString(),
