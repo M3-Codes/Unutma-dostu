@@ -38,7 +38,7 @@ class _InsertPageState extends State<UpdatePage> {
     _productName = widget.database[0].toString();
     _description = widget.database[1].toString();
     _place = widget.database[2].toString();
-    _etkit = widget.database[3].toString();
+    _etkit = "#${widget.database[3]}";
     _color = Color(widget.database[4]);
     _tekrar = widget.database[5];
     _date = DateFormat('dd/MM/yyyy/HH:mm:ss').parse(widget.database[6]);

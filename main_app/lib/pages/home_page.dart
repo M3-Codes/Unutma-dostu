@@ -123,7 +123,7 @@ final List<List<int>> repeatedRowItems = [
 // ignore: non_constant_identifier_names
 Widget Masafe_H() {
   return const SizedBox(
-    height: 30,
+    height: 20,
   );
 }
 

@@ -117,6 +117,17 @@ class FileReader {
     return myList;
   }
 
+  Future<List<String>> etiktler() async {
+    List<List<dynamic>> csvData = await readFromNewFile();
+    int listlength = csvData.length;
+    List<String> list = List<String>.filled(listlength, "");
+
+    for (var i = 1; i < listlength; i++) {
+      list[i - 1] = csvData[i][3];
+    }
+    return list;
+  }
+
   Future<void> uploadFileToFirebaseStorage(File file, String clientName) async {
     final Reference storageRef = FirebaseStorage.instance
         .ref()

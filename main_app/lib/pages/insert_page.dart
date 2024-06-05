@@ -42,7 +42,7 @@ class _InsertPageState extends State<InsertPage> {
       _productName,
       _description,
       _place,
-      _etkit,
+      "#$_etkit",
       _color.value.toString(),
       _tekrar,
       DateFormat('dd/MM/yyyy/HH:mm:ss').format(_date).toString(),
@@ -136,7 +136,7 @@ class _InsertPageState extends State<InsertPage> {
                         flex: 5,
                         child: TextFieldWidget(
                           title: 'Etiket',
-                          hintText: '#...........',
+                          hintText: '',
                           onChanged: (value) {
                             setState(() {
                               _etkit = value;
