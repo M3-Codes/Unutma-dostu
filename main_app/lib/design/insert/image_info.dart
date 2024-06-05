@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:main_app/design/textfont.dart';
+import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ImageInfos extends StatefulWidget {

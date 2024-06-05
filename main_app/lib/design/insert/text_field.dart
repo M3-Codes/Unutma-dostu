@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:main_app/design/textfont.dart';
+import 'package:UnutmaDostu/design/textfont.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String title;

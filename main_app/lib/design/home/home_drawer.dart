@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:main_app/design/welcome_signup_login/BG_w.dart';
-import 'package:main_app/design/welcome_signup_login/logo_M3_CODE.dart';
+import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
+import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
 
 class Drawer_h extends StatefulWidget {
   const Drawer_h({super.key});

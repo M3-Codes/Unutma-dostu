@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:main_app/pages/update_page.dart';
+import 'package:UnutmaDostu/pages/update_page.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
