@@ -55,4 +55,5 @@ flutter:
   
   assets:
     - images/
+    - images/door_sound.mp3
     - lib/datebase/output.csv

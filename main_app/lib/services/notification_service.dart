@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:UnutmaDostu/main.dart';
 import 'package:UnutmaDostu/pages/home_page.dart';
@@ -20,6 +20,7 @@ class NotificationService {
           onlyAlertOnce: true,
           playSound: true,
           criticalAlerts: true,
+          soundSource: 'resource://raw/door_sound',
         )
       ],
       channelGroups: [
@@ -106,6 +107,7 @@ class NotificationService {
         category: category,
         payload: payload,
         bigPicture: bigPicture,
+        customSound: 'resource://raw/door_sound',
       ),
       actionButtons: actionButtons,
       schedule: scheduled

@@ -38,21 +38,23 @@ class AgainTime extends StatelessWidget {
 
   // ignore: non_constant_identifier_names
   Widget TimeText(String time) {
-    return Expanded(
+    return SizedBox(
+      width: 60,
       child: TextFormField(
         initialValue: time,
         readOnly: true,
         style: GoogleFonts.rubik(
           textStyle: const TextStyle(
-            fontSize: 18,
+            fontSize: 14,
             color: Color(0xFFC1007F),
           ),
         ),
         decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide:
-                  const BorderSide(color: Color(0xFFC1007F), width: 10)),
+              borderSide: const BorderSide(color: Color(0xFFC1007F), width: 1)),
         ),
       ),
     );

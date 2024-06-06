@@ -26,6 +26,7 @@ class ImageInfos extends StatefulWidget {
 
 class _ImageInfosState extends State<ImageInfos> {
   File? _image;
+  bool imageIsEmpty = false;
 
   Future<void> _getImage() async {
     final picker = ImagePicker();
@@ -49,9 +50,7 @@ class _ImageInfosState extends State<ImageInfos> {
 
   Future<void> _saveImageToDevice() async {
     if (_image == null) return;
-
-    if (_image == null) return;
-
+    imageIsEmpty = true;
     final appDir = await getApplicationDocumentsDirectory();
     const folderName = 'my_image';
     final fileName = generateUniqueFileName();
@@ -118,11 +117,12 @@ class _ImageInfosState extends State<ImageInfos> {
               width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: widget.color,
+                color: imageIsEmpty ? widget.color : Colors.white,
                 borderRadius: BorderRadius.circular(11),
                 border: Border.all(color: Colors.black, width: 1),
               ),
-              child: const Icon(Icons.add_a_photo, color: Colors.white),
+              child: Icon(Icons.add_a_photo,
+                  color: imageIsEmpty ? Colors.white : Color(0xFFC1007F)),
             ),
           ),
         ],

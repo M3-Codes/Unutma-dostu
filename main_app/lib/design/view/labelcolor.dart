@@ -15,7 +15,7 @@ class labelColor extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
       child: Row(
         children: [
-          const Textfont("Etiket", 20),
+          const Textfont("Etiket     ", 20),
           const SizedBox(
             width: 10,
           ),
@@ -24,14 +24,18 @@ class labelColor extends StatelessWidget {
               initialValue: text,
               style: GoogleFonts.rubik(
                 textStyle: const TextStyle(
-                  fontSize: 18,
+                  fontSize: 14,
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
               readOnly: true,
               decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
+                  borderSide:
+                      const BorderSide(color: Color(0xFFC1007F), width: 1),
                 ),
               ),
             ),

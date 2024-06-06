@@ -6,7 +6,7 @@ import 'package:UnutmaDostu/firebase_options.dart';
 import 'package:UnutmaDostu/pages/home_page.dart';
 import 'package:UnutmaDostu/pages/login_page.dart';
 import 'package:UnutmaDostu/pages/signup_page.dart';
-import 'package:UnutmaDostu/pages/welcome_page.dart'; 
+import 'package:UnutmaDostu/pages/welcome_page.dart';
 import 'package:UnutmaDostu/services/notification_service.dart';
 
 void main() async {
@@ -22,10 +22,8 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-
   @override
   State<MyApp> createState() => _MyAppState();
-  
 }
 
 class _MyAppState extends State<MyApp> {

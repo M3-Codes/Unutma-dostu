@@ -95,7 +95,7 @@ class _ViewPageState extends State<ViewPage> {
                 labelColor(
                     color: Color(database[widget.index][4]),
                     text: database[widget.index][3].toString()),
-                AgainTime(minute: time[0], hour: time[1], second: time[2]),
+                AgainTime(hour: time[0], minute: time[1], second: time[2]),
                 DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
               ],
             ),

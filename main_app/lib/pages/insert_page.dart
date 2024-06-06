@@ -26,7 +26,7 @@ class _InsertPageState extends State<InsertPage> {
   DateTime _date = DateTime.now();
   String _path1 = '';
   String _path2 = '';
-  String _tekrar = '00:00:00';
+  String _tekrar = '00:00:05';
   String _hour = '00';
   String _minute = '00';
   String _second = '00';

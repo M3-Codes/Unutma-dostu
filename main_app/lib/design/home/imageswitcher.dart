@@ -36,14 +36,13 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
     FileReader fileReader = FileReader();
     List<bool> fetchedList = await fileReader.doluMU();
     List<String> etkit = await fileReader.etiktler();
-    database = await fileReader.readFromNewFile(); 
+    database = await fileReader.readFromNewFile();
     setState(() {
       list = fetchedList;
       etkitlist = etkit;
       if (list[(widget.index) - 1]) {
         time1 = database[widget.index][5].toString().split(':');
         tarih = database[widget.index][6].toString().split('/');
-        time2 = tarih[3].toString().split(':');
         data = database[widget.index];
       }
     });
@@ -54,9 +53,12 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   int _interval = 0;
 
   int _calculateInterval() {
-    int hours = int.parse(time1[0]) ?? 0;
-    int minutes = int.parse(time1[1]) ?? 0;
-    int seconds = int.parse(time1[2]) ?? 0;
+    int hours = int.parse(time1[0]);
+    int minutes = int.parse(time1[1]);
+    int seconds = int.parse(time1[2]);
+    if (seconds < 5) {
+      seconds = 5;
+    }
 
     setState(() {
       _interval = (hours * 3600) + (minutes * 60) + seconds;
@@ -68,9 +70,12 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
     if (list.isNotEmpty && list[widget.index - 1]) {
       _calculateInterval();
       NotificationService.showNotification(
-        title: list[(widget.index) - 1]?database[widget.index][0].toString():"ürün"  ,
-        body: list[(widget.index) - 1]?database[widget.index][3].toString():"ürün" ,
-        
+        title: list[(widget.index) - 1]
+            ? database[widget.index][0].toString()
+            : "ürün",
+        body: list[(widget.index) - 1]
+            ? database[widget.index][3].toString()
+            : "ürün",
         scheduled: true,
         interval: _interval,
         payload: {"navigate": "true"},
@@ -79,7 +84,9 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
             key: 'check',
             label: 'Göz Atın',
             actionType: ActionType.SilentAction,
-            color: list[(widget.index) - 1]? Color(database[widget.index][4]):Colors.green,
+            color: list[(widget.index) - 1]
+                ? Color(database[widget.index][4])
+                : Colors.green,
           ),
         ],
       );
@@ -131,4 +138,3 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
     );
   }
 }
-
