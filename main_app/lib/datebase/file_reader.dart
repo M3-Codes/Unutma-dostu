@@ -17,7 +17,6 @@ class FileReader {
     return "MyDate";
   }
 
-
   Future<void> writeToFile(List<dynamic> row) async {
     String clinet = clientName();
     final directory = await getApplicationDocumentsDirectory();
@@ -62,6 +61,22 @@ class FileReader {
           ];
           await writeToFile(row);
         }
+      }
+    } else {
+      try {
+        final storageRef =
+            FirebaseStorage.instance.ref().child('$clinet/$clinet.csv');
+        final metadata = await storageRef.getMetadata();
+        final localFileStat = await localFile.stat();
+
+        if (metadata.updated != null &&
+            metadata.updated!.isAfter(localFileStat.modified)) {
+          await storageRef.writeToFile(localFile);
+          await downloadFolderFromFirebaseStorage(clinet);
+          log('File updated from Firebase Storage.');
+        }
+      } catch (e) {
+        log('Error checking for updates: $e');
       }
     }
 
