@@ -87,16 +87,22 @@ class _InsertPageState extends State<InsertPage> {
                   const SizedBox(height: 20),
                   Row(
                     children: [
-                      ImageInfos(
-                        title: 'Ürün Eki',
-                        color: const Color(0xFFC1007F),
-                        onImageSaved: (fileName) => _onImageSaved(fileName, 0),
-                      ),
-                      ImageInfos(
-                        title: 'Yer Eki',
-                        color: const Color(0xFFC1007F),
-                        onImageSaved: (fileName) => _onImageSaved(fileName, 1),
-                      ),
+                      const Expanded(flex: 3, child: SizedBox()),
+                      Expanded(
+                          flex: 17,
+                          child: ImageInfos(
+                              title: 'Ürün Eki',
+                              color: const Color(0xFFC1007F),
+                              onImageSaved: (fileName) =>
+                                  _onImageSaved(fileName, 0))),
+                      const Expanded(flex: 3, child: SizedBox()),
+                      Expanded(
+                          flex: 17,
+                          child: ImageInfos(
+                              title: 'Yer Eki',
+                              color: const Color(0xFFC1007F),
+                              onImageSaved: (fileName) =>
+                                  _onImageSaved(fileName, 1))),
                     ],
                   ),
                   const SizedBox(height: 20),

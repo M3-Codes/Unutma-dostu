@@ -22,9 +22,9 @@ class DayDate extends StatelessWidget {
             width: 10,
           ),
           TimeText(day),
-          const SizedBox(width: 25),
+          const SizedBox(width: 21),
           TimeText(month),
-          const SizedBox(width: 25),
+          const SizedBox(width: 21),
           TimeText(year),
         ]));
   }

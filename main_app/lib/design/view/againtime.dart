@@ -19,20 +19,25 @@ class AgainTime extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
         child: Row(children: [
-          const Icon(Icons.alarm),
-          const Textfont("Tekrar", 20),
-          const SizedBox(
-            width: 10,
+          Row(
+            children: [
+              const Icon(Icons.alarm),
+              const Textfont("Tekrar", 20),
+              const SizedBox(
+                width: 10,
+              ),
+              TimeText(hour),
+              const SizedBox(width: 8),
+              const Textfont(":", 20),
+              const SizedBox(width: 8),
+              TimeText(minute),
+              const SizedBox(width: 8),
+              const Textfont(":", 20),
+              const SizedBox(width: 8),
+              TimeText(second),
+            ],
           ),
-          TimeText(hour),
-          const SizedBox(width: 10),
-          const Textfont(":", 20),
-          const SizedBox(width: 10),
-          TimeText(minute),
-          const SizedBox(width: 10),
-          const Textfont(":", 20),
-          const SizedBox(width: 10),
-          TimeText(second),
+          const Expanded(flex: 1, child: SizedBox()),
         ]));
   }
 

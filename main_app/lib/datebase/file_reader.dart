@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:path/path.dart';
 import 'package:csv/csv.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -8,11 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileReader {
-  Future<bool> isConnectedToInternet() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    return connectivityResult != ConnectivityResult.none;
-  }
-
   String clientName() {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -24,21 +18,17 @@ class FileReader {
   }
 
   Future<void> writeToFile(List<dynamic> row) async {
-    String client = clientName();
+    String clinet = clientName();
     final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/$client.csv');
+    final file = File('${directory.path}/$clinet.csv');
 
     List<List<dynamic>> csvData = await readFromNewFile();
     csvData.add(row);
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
-    if (await isConnectedToInternet()) {
-      await uploadFileToFirebaseStorage(file, client);
-      await syncLocalFolderWithFirebase(client);
-    } else {
-      log('No internet connection. Changes saved locally.');
-    }
+    await uploadFileToFirebaseStorage(file, clinet);
+    await uploadFolderToFirebaseStorage(clinet);
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
@@ -47,14 +37,15 @@ class FileReader {
     final localFile = File('${directory.path}/$clinet.csv');
 
     if (!await localFile.exists()) {
-      if (await isConnectedToInternet()) {
+      // Check if the file exists in Firebase Storage
+      try {
         final storageRef =
             FirebaseStorage.instance.ref().child('$clinet/$clinet.csv');
         await storageRef.getDownloadURL();
         await storageRef.writeToFile(localFile);
         await downloadFolderFromFirebaseStorage(clinet);
         await Future.delayed(const Duration(seconds: 3));
-      } else {
+      } catch (e) {
         if (!await localFile.exists()) {
           await localFile.create(recursive: true);
           List<dynamic> row = [
@@ -72,7 +63,7 @@ class FileReader {
         }
       }
     } else {
-      if (!await isConnectedToInternet()) {
+      try {
         final storageRef =
             FirebaseStorage.instance.ref().child('$clinet/$clinet.csv');
         final metadata = await storageRef.getMetadata();
@@ -84,8 +75,8 @@ class FileReader {
           await downloadFolderFromFirebaseStorage(clinet);
           log('File updated from Firebase Storage.');
         }
-      } else {
-        log('Error checking for updates: hata');
+      } catch (e) {
+        log('Error checking for updates: $e');
       }
     }
 
@@ -154,14 +145,10 @@ class FileReader {
   }
 
   Future<void> uploadFileToFirebaseStorage(File file, String clientName) async {
-    if (await isConnectedToInternet()) {
-      final Reference storageRef = FirebaseStorage.instance
-          .ref()
-          .child('$clientName/${basename(file.path)}');
-      await storageRef.putFile(file);
-    } else {
-      log('No internet connection. File not uploaded.');
-    }
+    final Reference storageRef = FirebaseStorage.instance
+        .ref()
+        .child('$clientName/${basename(file.path)}');
+    await storageRef.putFile(file);
   }
 
   // Create folder for client in Firebase Storage
@@ -236,98 +223,14 @@ class FileReader {
       log('Local file not found: ${localFile.path}');
     }
 
-    if (await isConnectedToInternet()) {
-      try {
-        final storageRef =
-            FirebaseStorage.instance.ref().child('$client/$folderName/$path');
-        await storageRef.delete();
-        log('Deleted file from Firebase Storage: $path');
-      } catch (e) {
-        log('Error deleting file from Firebase Storage: $e');
-      }
-    } else {
-      log('No internet connection. File not deleted from Firebase Storage.');
-    }
-  }
-
-  Future<void> syncLocalFolderWithFirebase(String client) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    const folderName = 'my_image';
-    final directory = Directory('${appDir.path}/$folderName');
-
-    if (await directory.exists() && await isConnectedToInternet()) {
-      final List<FileSystemEntity> localFiles = directory.listSync();
-      final ListResult firebaseFiles =
-          await FirebaseStorage.instance.ref('$client/$folderName').listAll();
-
-      for (FileSystemEntity entity in localFiles) {
-        if (entity is File) {
-          final storageRef = FirebaseStorage.instance
-              .ref()
-              .child('$client/$folderName/${basename(entity.path)}');
-          try {
-            await storageRef.getMetadata();
-
-            final metadata = await storageRef.getMetadata();
-            final localFileStat = await entity.stat();
-            if (metadata.updated != null &&
-                metadata.updated!.isBefore(localFileStat.modified)) {
-              await storageRef.putFile(entity);
-              log('Updated file in Firebase: ${entity.path}');
-            }
-          } catch (e) {
-            // إذا لم يتم العثور على الملف في Firebase (أي أن استثناء thrown)، نقوم بتحميله إلى Firebase
-            await storageRef.putFile(entity);
-            log('Uploaded new file: ${entity.path}');
-          }
-        }
-      }
-
-      for (var item in firebaseFiles.items) {
-        final localFile = File('${directory.path}/${item.name}');
-        if (!localFile.existsSync()) {
-          await item.delete();
-          log('Deleted file from Firebase Storage: ${item.name}');
-        }
-      }
-    } else {
-      log('No internet connection or local directory does not exist. Folder not synchronized.');
-    }
-  }
-
-  Future<void> syncFirebaseFolderWithLocal(String client) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    const folderName = 'my_image';
-    final directory = Directory('${appDir.path}/$folderName');
-
-    if (!await directory.exists()) {
-      await directory.create(recursive: true);
-    }
-
-    if (await isConnectedToInternet()) {
-      final ListResult firebaseFiles =
-          await FirebaseStorage.instance.ref('$client/$folderName').listAll();
-
-      for (var item in firebaseFiles.items) {
-        final String fileName = item.name;
-        final File localFile = File('${directory.path}/$fileName');
-
-        if (!await localFile.exists()) {
-          await item.writeToFile(localFile);
-          log('Downloaded new file: ${localFile.path}');
-        } else {
-          final metadata = await item.getMetadata();
-          final localFileStat = await localFile.stat();
-
-          if (metadata.updated != null &&
-              metadata.updated!.isAfter(localFileStat.modified)) {
-            await item.writeToFile(localFile);
-            log('Updated local file from Firebase: ${localFile.path}');
-          }
-        }
-      }
-    } else {
-      log('No internet connection. Folder not synchronized.');
+    // Delete file from Firebase Storage
+    try {
+      final storageRef =
+          FirebaseStorage.instance.ref().child('$client/$folderName/$path');
+      await storageRef.delete();
+      log('Deleted file from Firebase Storage: $path');
+    } catch (e) {
+      log('Error deleting file from Firebase Storage: $e');
     }
   }
 }
