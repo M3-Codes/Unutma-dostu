@@ -105,6 +105,7 @@ class _SignupState extends State<Signup> {
                                 FirebaseAuth.instance.currentUser!
                                     .sendEmailVerification();
                                 AwesomeDialog(
+                                  // ignore: use_build_context_synchronously
                                   context: context,
                                   dialogType: DialogType.infoReverse,
                                   animType: AnimType.rightSlide,
@@ -118,6 +119,7 @@ class _SignupState extends State<Signup> {
                                 ).show();
                               } on FirebaseAuthException catch (e) {
                                 AwesomeDialog(
+                                  // ignore: use_build_context_synchronously
                                   context: context,
                                   dialogType: DialogType.error,
                                   animType: AnimType.rightSlide,

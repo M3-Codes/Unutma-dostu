@@ -12,6 +12,7 @@ class addbar extends StatefulWidget {
   State<addbar> createState() => _addbarState();
 }
 
+// ignore: camel_case_types
 class _addbarState extends State<addbar> {
   get cuser {
     final user = FirebaseAuth.instance.currentUser;
@@ -37,6 +38,7 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
+                // ignore: prefer_interpolation_to_compose_strings
                 title: Textfont('Hoş Geldin ' + useDataMap['username'], 25),
                 centerTitle: true,
               );
@@ -56,6 +58,7 @@ class _addbarState extends State<addbar> {
   }
 
   // AppBar(
+  // ignore: unused_element
   void _showAboutDialog(BuildContext context) {
     showDialog(
       context: context,

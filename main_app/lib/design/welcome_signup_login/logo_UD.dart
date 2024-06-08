@@ -1,5 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class Logo_UD extends StatelessWidget {
   const Logo_UD({super.key});
 

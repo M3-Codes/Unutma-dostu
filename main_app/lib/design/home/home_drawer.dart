@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
 
+// ignore: camel_case_types
 class Drawer_h extends StatefulWidget {
   const Drawer_h({super.key});
 
@@ -14,6 +15,7 @@ class Drawer_h extends StatefulWidget {
   State<Drawer_h> createState() => _Drawer_hState();
 }
 
+// ignore: camel_case_types
 class _Drawer_hState extends State<Drawer_h> {
   final cuser = FirebaseAuth.instance.currentUser!;
   @override
@@ -161,6 +163,7 @@ class _Drawer_hState extends State<Drawer_h> {
                           GoogleSignIn googleSignIn = GoogleSignIn();
                           googleSignIn.disconnect();
                           await FirebaseAuth.instance.signOut();
+                          // ignore: use_build_context_synchronously
                           Navigator.of(context)
                               .pushNamedAndRemoveUntil('/', (route) => false);
                         },

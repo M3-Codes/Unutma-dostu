@@ -57,6 +57,7 @@ class _LoginState extends State<Login> {
       _loading = false;
     });
 
+    // ignore: use_build_context_synchronously
     Navigator.of(context)
         .pushNamedAndRemoveUntil("/homepage", (route) => false);
   }
@@ -129,6 +130,7 @@ class _LoginState extends State<Login> {
                                             .sendPasswordResetEmail(
                                                 email: email.text);
                                         AwesomeDialog(
+                                          // ignore: use_build_context_synchronously
                                           context: context,
                                           dialogType: DialogType.success,
                                           animType: AnimType.rightSlide,
@@ -139,6 +141,7 @@ class _LoginState extends State<Login> {
                                         ).show();
                                       } catch (e) {
                                         AwesomeDialog(
+                                          // ignore: use_build_context_synchronously
                                           context: context,
                                           dialogType: DialogType.error,
                                           animType: AnimType.rightSlide,
@@ -172,11 +175,13 @@ class _LoginState extends State<Login> {
                                             email: email.text,
                                             password: password.text);
                                     if (credential.user!.emailVerified) {
+                                      // ignore: use_build_context_synchronously
                                       Navigator.of(context)
                                           .pushNamedAndRemoveUntil(
                                               "/homepage", (route) => false);
                                     } else {
                                       AwesomeDialog(
+                                        // ignore: use_build_context_synchronously
                                         context: context,
                                         dialogType: DialogType.infoReverse,
                                         animType: AnimType.rightSlide,
@@ -189,6 +194,7 @@ class _LoginState extends State<Login> {
                                     }
                                   } on FirebaseAuthException catch (e) {
                                     AwesomeDialog(
+                                      // ignore: use_build_context_synchronously
                                       context: context,
                                       dialogType: DialogType.error,
                                       animType: AnimType.rightSlide,
@@ -202,9 +208,7 @@ class _LoginState extends State<Login> {
                                       _loading = false;
                                     });
                                   }
-                                } else {
-                                  print("Not valid");
-                                }
+                                } else {}
                               },
                             ),
                             const SizedBox(height: 14),

@@ -122,7 +122,7 @@ class _ImageInfosState extends State<ImageInfos> {
                 border: Border.all(color: Colors.black, width: 1),
               ),
               child: Icon(Icons.add_a_photo,
-                  color: imageIsEmpty ? Colors.white : Color(0xFFC1007F)),
+                  color: imageIsEmpty ? Colors.white : const Color(0xFFC1007F)),
             ),
           ),
         ],

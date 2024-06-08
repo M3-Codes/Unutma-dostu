@@ -18,7 +18,7 @@ class ChangePage extends StatelessWidget {
       },
       child: Center(
         child: Text.rich(TextSpan(children: [
-          TextSpan(text: firstText, style: TextStyle(fontSize: 16)),
+          TextSpan(text: firstText, style: const TextStyle(fontSize: 16)),
           TextSpan(
               text: lastText,
               style: const TextStyle(

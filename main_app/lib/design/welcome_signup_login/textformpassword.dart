@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class TextForm_Password extends StatefulWidget {
   final TextEditingController ccontroller;
   final String? Function(String?)? validator;
@@ -13,6 +14,7 @@ class TextForm_Password extends StatefulWidget {
   State<TextForm_Password> createState() => _TextForm_PasswordState();
 }
 
+// ignore: camel_case_types
 class _TextForm_PasswordState extends State<TextForm_Password> {
   bool _hpass = true;
   @override

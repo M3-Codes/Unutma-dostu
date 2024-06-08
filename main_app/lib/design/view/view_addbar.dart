@@ -49,7 +49,6 @@ class Addbar extends StatelessWidget {
                           database: data,
                         )),
               );
-              ;
             }
           },
         ),

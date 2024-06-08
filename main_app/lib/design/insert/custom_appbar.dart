@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   backgroundColor: Color(0xFFC1007F),
                 ),
               );
-              Future.delayed(Duration(seconds: 2), () {
+              Future.delayed(const Duration(seconds: 2), () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
