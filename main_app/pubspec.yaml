@@ -31,7 +31,7 @@ dependencies:
   firebase_core: ^2.31.0
   path: ^1.8.0
   image: ^3.0.1
-
+  connectivity_plus: ^3.0.3
   awesome_notifications: ^0.9.3+1
   
  
