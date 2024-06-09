@@ -18,7 +18,7 @@ class Imagesbutton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () async {
         final appDir = await getApplicationDocumentsDirectory();
-        const folderName = 'my_image'; // اسم المجلد
+        const folderName = 'my_image';
         final directory = Directory('${appDir.path}/$folderName');
         String imagePath = '${directory.path}/$path';
 

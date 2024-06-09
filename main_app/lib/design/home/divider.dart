@@ -12,7 +12,7 @@ class divider extends StatelessWidget {
     return const Divider(
       indent: 30,
       endIndent: 30,
-      thickness: 10, // سمك الخط
+      thickness: 10,
       color: Color.fromARGB(255, 16, 16, 16),
     );
   }

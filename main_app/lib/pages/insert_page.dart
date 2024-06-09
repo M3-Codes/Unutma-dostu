@@ -172,6 +172,7 @@ class _InsertPageState extends State<InsertPage> {
                     children: [
                       const SizedBox(width: 30),
                       RepeatTime(
+                        timeType: TimeType.hours,
                         title: 'Tekrar',
                         onTextChanged: (value) {
                           _hour = value;
@@ -180,6 +181,7 @@ class _InsertPageState extends State<InsertPage> {
                         onTap: () {},
                       ),
                       RepeatTime(
+                        timeType: TimeType.minutes,
                         title: "   :",
                         onTextChanged: (value) {
                           _minute = value;
@@ -188,6 +190,7 @@ class _InsertPageState extends State<InsertPage> {
                         onTap: () {},
                       ),
                       RepeatTime(
+                        timeType: TimeType.seconds,
                         title: "   :",
                         onTextChanged: (value) {
                           _second = value;
