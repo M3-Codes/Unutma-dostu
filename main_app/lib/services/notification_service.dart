@@ -9,10 +9,11 @@ class NotificationService {
       null,
       [
         NotificationChannel(
-          channelGroupKey: 'high_importance_channel',
+          channelGroupKey: 'high_importance_channel_group',
           channelKey: 'high_importance_channel',
-          channelName: 'Basic notifications',
-          channelDescription: 'Notification channel for basic tests',
+          channelName: 'High Importance Notifications',
+          channelDescription:
+              'This channel is used for important notifications.',
           defaultColor: const Color(0xFF9D50DD),
           ledColor: Colors.white,
           importance: NotificationImportance.Max,
@@ -21,13 +22,13 @@ class NotificationService {
           playSound: true,
           criticalAlerts: true,
           soundSource: 'resource://raw/door_sound',
-        )
+        ),
       ],
       channelGroups: [
         NotificationChannelGroup(
           channelGroupKey: 'high_importance_channel_group',
-          channelGroupName: 'Group 1',
-        )
+          channelGroupName: 'High Importance Notifications Group',
+        ),
       ],
       debug: true,
     );
@@ -80,7 +81,7 @@ class NotificationService {
     }
   }
 
-  static Future<void> showNotification({
+  static Future<void> showFloatingNotification({
     required final String title,
     required final String body,
     final String? summary,
@@ -97,17 +98,18 @@ class NotificationService {
 
     await AwesomeNotifications().createNotification(
       content: NotificationContent(
-        id: -1,
+        id: -1, // يجب أن يكون لكل إشعار معرف فريد. استخدم -1 لتوليد معرف فريد تلقائياً.
         channelKey: 'high_importance_channel',
         title: title,
         body: body,
         actionType: actionType,
-        notificationLayout: notificationLayout,
+        notificationLayout: notificationLayout, // استخدم التخطيط الافتراضي
         summary: summary,
         category: category,
         payload: payload,
         bigPicture: bigPicture,
         customSound: 'resource://raw/door_sound',
+        // لا حاجة لتحديد importance و priority هنا
       ),
       actionButtons: actionButtons,
       schedule: scheduled

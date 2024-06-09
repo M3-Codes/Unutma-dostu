@@ -69,7 +69,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   void _scheduleNotificationIfNeeded() {
     if (list.isNotEmpty && list[widget.index - 1]) {
       _calculateInterval();
-      NotificationService.showNotification(
+      NotificationService.showFloatingNotification(
         title: list[(widget.index) - 1]
             ? database[widget.index][0].toString()
             : "ürün",
