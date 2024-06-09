@@ -32,7 +32,13 @@ class _RepeatTimeState extends State<RepeatTime> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: '00');
+    // ignore: unrelated_type_equality_checks
+    if (TimeType.seconds == widget.timeType) {
+      _controller = TextEditingController(text: '05');
+    } else {
+      _controller = TextEditingController(text: '00');
+    }
+
     _controller.addListener(() {
       widget.onTextChanged(_controller.text);
     });
