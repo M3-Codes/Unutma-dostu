@@ -15,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
@@ -36,6 +37,9 @@ class _MyAppState extends State<MyApp> {
       _isLoading = false;
     } catch (e) {
       log(e.toString());
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -48,13 +52,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: MyApp.navigatorKey,
       debugShowCheckedModeBanner: false,
-      //initialRoute: '/homepage',
-      //initialRoute: '/',
-      initialRoute: (FirebaseAuth.instance.currentUser != null &&
-              FirebaseAuth.instance.currentUser!.emailVerified)
-          ? '/homepage'
-          : '/',
-      //home: Homepage(),
+      home: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : (FirebaseAuth.instance.currentUser != null &&
+                  FirebaseAuth.instance.currentUser!.emailVerified)
+              ? const HomePage()
+              : const Welcome(),
       routes: {
         '/': (context) => const Welcome(),
         '/login': (context) => const Login(),
