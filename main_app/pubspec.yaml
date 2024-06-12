@@ -28,7 +28,7 @@ dependencies:
   firebase_auth : ^4.19.5
   google_sign_in: ^6.2.1
   awesome_dialog: ^3.2.1
-  firebase_core: ^2.31.0
+  firebase_core: ^2.32.0
   path: ^1.8.0
   image: ^3.0.1
   connectivity_plus: ^3.0.3

@@ -71,12 +71,11 @@ class FileReader {
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
-    if (await isConnectedToInternet()) {
-      await uploadFileToFirebaseStorage(file, clinet);
-      await uploadFolderToFirebaseStorage(clinet);
-    } else {
-      log('No internet connection. Changes saved locally.');
-    }
+
+    await uploadFileToFirebaseStorage(file, clinet);
+    await uploadFolderToFirebaseStorage(clinet);
+
+    log('No internet connection. Changes saved locally.');
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
