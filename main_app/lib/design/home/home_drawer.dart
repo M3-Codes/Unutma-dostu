@@ -162,8 +162,8 @@ class _Drawer_hState extends State<Drawer_h> {
                           googleSignIn.disconnect();
                           await FirebaseAuth.instance.signOut();
                           // ignore: use_build_context_synchronously
-                          Navigator.of(context)
-                              .pushNamedAndRemoveUntil('/', (route) => false);
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              '/welcome', (route) => false);
                         },
                       ),
                     ),
