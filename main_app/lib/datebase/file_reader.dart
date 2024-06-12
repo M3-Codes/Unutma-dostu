@@ -71,12 +71,9 @@ class FileReader {
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
-    if (await isConnectedToInternet()) {
-      await uploadFileToFirebaseStorage(file, clinet);
-      await uploadFolderToFirebaseStorage(clinet);
-    } else {
-      log('No internet connection. Changes saved locally.');
-    }
+
+    await uploadFileToFirebaseStorage(file, clinet);
+    await uploadFolderToFirebaseStorage(clinet);
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
@@ -134,11 +131,11 @@ class FileReader {
       List<List<dynamic>> csvData =
           const CsvToListConverter().convert(contents);
 
-      List<String> csvImageFileNames = [];
-      for (var row in csvData) {
-        csvImageFileNames.addAll([row[7], row[8]]);
-      }
-      await deleteNonExistentImages(csvImageFileNames);
+      // List<String> csvImageFileNames = [];
+      // for (var row in csvData) {
+      //   csvImageFileNames.addAll([row[7], row[8]]);
+      // }
+      // await deleteNonExistentImages(csvImageFileNames);
 
       return csvData;
     } else {
