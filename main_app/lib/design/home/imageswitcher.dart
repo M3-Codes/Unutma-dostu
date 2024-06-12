@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import '../../datebase/file_reader.dart';
 import '../../pages/view_page.dart';
 import '../../services/notification_service.dart';
@@ -29,6 +30,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   @override
   void initState() {
     super.initState();
+
     fetchData();
   }
 
@@ -104,7 +106,12 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   @override
   Widget build(BuildContext context) {
     if (list.isEmpty || widget.index - 1 >= list.length) {
-      return const CircularProgressIndicator();
+      return Lottie.asset(
+        'images/boxload.json',
+        width: 80,
+        height: 80,
+        fit: BoxFit.cover,
+      );
     }
 
     return Center(

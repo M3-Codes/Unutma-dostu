@@ -57,4 +57,4 @@ flutter:
     - images/
     - images/door_sound.mp3
     - lib/datebase/output.csv
-    - images/boxLoader.json
+    - images/boxload.json
