@@ -133,11 +133,11 @@ class FileReader {
       List<List<dynamic>> csvData =
           const CsvToListConverter().convert(contents);
 
-      List<String> csvImageFileNames = [];
-      for (var row in csvData) {
-        csvImageFileNames.addAll([row[7], row[8]]);
-      }
-      await deleteNonExistentImages(csvImageFileNames);
+      // List<String> csvImageFileNames = [];
+      // for (var row in csvData) {
+      //   csvImageFileNames.addAll([row[7], row[8]]);
+      // }
+      // await deleteNonExistentImages(csvImageFileNames);
 
       return csvData;
     } else {
