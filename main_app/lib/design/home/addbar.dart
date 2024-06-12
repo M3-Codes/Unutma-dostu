@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,20 +33,20 @@ class _addbarState extends State<addbar> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Textdesign('Enter Username',20),
+          title: const Textdesign('Enter Username', 20),
           content: TextField(
             controller: _usernameController,
             decoration: const InputDecoration(hintText: "Enter your username"),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Textdesign('Cancel',18),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Textdesign('OK',12),
+              child: const Text('OK'),
               onPressed: () {
                 setState(() {
                   username = _usernameController.text;
@@ -73,8 +75,11 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                // ignore: prefer_interpolation_to_compose_strings
-                title: Textdesign('Hoş Geldin ' + useDataMap['username'], 25,color: Colors.white,),
+                title: Textdesign(
+                  'Hoş Geldin ' + useDataMap['username'],
+                  25,
+                  color: Colors.white,
+                ),
                 centerTitle: true,
               );
             } else if (username != null && username!.isNotEmpty) {
@@ -96,15 +101,18 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: const Textdesign("Hoş Geldin User", 25),
+                title: const Textdesign(
+                  "Hoş Geldin User",
+                  25,
+                  color: Colors.white,
+                ),
                 centerTitle: true,
               );
             }
           } else if (snapshot.hasError) {
-            return Center(child: Textdesign('Error${snapshot.error}',12));
+            return Center(child: Textdesign('Error${snapshot.error}', 12));
           }
           return const Center(child: CircularProgressIndicator());
         });
   }
-
 }
