@@ -283,7 +283,7 @@ class _Drawer_hState extends State<Drawer_h> {
                                         onTap: () {
                                           Clipboard.setData(
                                             const ClipboardData(
-                                              text: 'https://github.com',
+                                              text: 'https://github.com/M3-Codes/M3-Codes',
                                             ),
                                           );
                                           ScaffoldMessenger.of(context)
@@ -315,7 +315,7 @@ class _Drawer_hState extends State<Drawer_h> {
                                         onTap: () {
                                           Clipboard.setData(
                                             const ClipboardData(
-                                              text: 'https://github.com',
+                                              text: 'https://github.com/M3-Codes',
                                             ),
                                           );
                                           ScaffoldMessenger.of(context)
