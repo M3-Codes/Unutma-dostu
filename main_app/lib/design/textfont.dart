@@ -11,8 +11,8 @@ class Textdesign extends StatelessWidget {
   const Textdesign(
     this.text,
     this.fontsize, {
-    this.color=Colors.black, // Opsiyonel olarak renk parametresi
-    this.fontWeight = FontWeight.normal, // Varsayılan olarak FontWeight.normal kullanılıyor
+    this.color=Colors.black, 
+    this.fontWeight = FontWeight.normal,
     this.align = TextAlign.left,
     super.key,
   });
@@ -26,7 +26,7 @@ class Textdesign extends StatelessWidget {
         style: GoogleFonts.rubik(
           textStyle: TextStyle(
             fontSize: fontsize,
-            fontWeight: fontWeight, // Varsayılan kalınlık normal olarak belirlendi
+            fontWeight: fontWeight, 
             color: color,
           ),
         ),

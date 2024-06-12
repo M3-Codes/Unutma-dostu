@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, camel_case_types
+
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +9,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
 
-// ignore: camel_case_types
 class Drawer_h extends StatefulWidget {
   const Drawer_h({super.key});
 
@@ -15,7 +16,6 @@ class Drawer_h extends StatefulWidget {
   State<Drawer_h> createState() => _Drawer_hState();
 }
 
-// ignore: camel_case_types
 class _Drawer_hState extends State<Drawer_h> {
   final cuser = FirebaseAuth.instance.currentUser!;
   @override
@@ -58,8 +58,6 @@ class _Drawer_hState extends State<Drawer_h> {
                                       style: const TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold)),
-                                  //cuser.email!.length >= 25 ? h = 338;
-                                  //overflow: TextOverflow.ellipsis,
                                   SizedBox(
                                     width: 250,
                                     child: Center(
@@ -72,8 +70,6 @@ class _Drawer_hState extends State<Drawer_h> {
                                                   color: Colors.grey[900]))),
                                     ),
                                   ),
-                                  // Text(cuser.email!,
-                                  //     style: TextStyle(fontSize: 15)),
                                   const SizedBox(height: 10),
                                   const SizedBox(
                                       width: 250,
@@ -163,7 +159,7 @@ class _Drawer_hState extends State<Drawer_h> {
                           GoogleSignIn googleSignIn = GoogleSignIn();
                           googleSignIn.disconnect();
                           await FirebaseAuth.instance.signOut();
-                          // ignore: use_build_context_synchronously
+
                           Navigator.of(context).pushNamedAndRemoveUntil(
                               '/welcome', (route) => false);
                         },
@@ -199,7 +195,7 @@ class _Drawer_hState extends State<Drawer_h> {
                                           'images/info.png',
                                           width: 30,
                                           height: 30,
-                                        ), // Buraya logo için path'i verin
+                                        ),
                                       ),
                                       const Textdesign(
                                         'About Us',

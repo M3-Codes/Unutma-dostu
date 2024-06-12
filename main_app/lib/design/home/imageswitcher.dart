@@ -1,4 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
+import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -136,9 +137,9 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
               ),
             ),
           ),
-          Text(
+          Textdesign(
             list[(widget.index) - 1] ? etkitlist[widget.index - 1] : " ",
-            style: const TextStyle(fontSize: 12),
+            12,
           ),
         ],
       ),

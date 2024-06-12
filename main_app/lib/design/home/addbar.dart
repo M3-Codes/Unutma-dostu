@@ -31,20 +31,20 @@ class _addbarState extends State<addbar> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Enter Username'),
+          title: const Textdesign('Enter Username',20),
           content: TextField(
             controller: _usernameController,
             decoration: const InputDecoration(hintText: "Enter your username"),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel'),
+              child: const Textdesign('Cancel',18),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('OK'),
+              child: const Textdesign('OK',12),
               onPressed: () {
                 setState(() {
                   username = _usernameController.text;
@@ -85,7 +85,7 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: Textfont("Hoş Geldin $username", 25),
+                title: Textdesign("Hoş Geldin $username", 25),
                 centerTitle: true,
               );
             } else {
@@ -101,31 +101,10 @@ class _addbarState extends State<addbar> {
               );
             }
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error${snapshot.error}'));
+            return Center(child: Textdesign('Error${snapshot.error}',12));
           }
           return const Center(child: CircularProgressIndicator());
         });
   }
 
-  // AppBar(
-  // ignore: unused_element
-  void _showAboutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('About as'),
-          content: const Text('M3 Code sunar'),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Ok'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 }

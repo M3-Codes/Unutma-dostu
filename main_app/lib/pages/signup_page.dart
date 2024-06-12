@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -105,7 +107,7 @@ class _SignupState extends State<Signup> {
                                 FirebaseAuth.instance.currentUser!
                                     .sendEmailVerification();
                                 AwesomeDialog(
-                                  // ignore: use_build_context_synchronously
+                                
                                   context: context,
                                   dialogType: DialogType.infoReverse,
                                   animType: AnimType.rightSlide,
@@ -119,39 +121,16 @@ class _SignupState extends State<Signup> {
                                 ).show();
                               } on FirebaseAuthException catch (e) {
                                 AwesomeDialog(
-                                  // ignore: use_build_context_synchronously
+                                  
                                   context: context,
                                   dialogType: DialogType.error,
                                   animType: AnimType.rightSlide,
                                   title: 'Error',
                                   desc: e.code,
-                                  //btnCancelOnPress: () {},
+                            
                                   btnOkOnPress: () {},
                                 ).show();
-                                // if (e.code == 'weak-password') {
-                                //   print('The password provided is too weak.');
-                                //   AwesomeDialog(
-                                //     context: context,
-                                //     dialogType: DialogType.error,
-                                //     animType: AnimType.rightSlide,
-                                //     title: 'Error',
-                                //     desc: 'The password provided is too weak.',
-                                //     //btnCancelOnPress: () {},
-                                //     btnOkOnPress: () {},
-                                //   ).show();
-                                // } else if (e.code == 'email-already-in-use') {
-                                //   print('The account already exists for that email.');
-                                //   AwesomeDialog(
-                                //     context: context,
-                                //     dialogType: DialogType.error,
-                                //     animType: AnimType.rightSlide,
-                                //     title: 'Error',
-                                //     desc:
-                                //         'The account already exists for that email.',
-                                //     //btnCancelOnPress: () {},
-                                //     btnOkOnPress: () {},
-                                //   ).show();
-                                // }
+                               
                               } catch (e) {
                                 log(e.toString());
                               }
