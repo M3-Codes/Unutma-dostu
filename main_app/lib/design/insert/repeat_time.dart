@@ -100,7 +100,7 @@ class _RepeatTimeState extends State<RepeatTime> {
             onTap: widget.onTap,
             child: Container(
               width: 40,
-              height: 100,
+              height: 105,
               decoration: BoxDecoration(
                 color: const Color(0x00FFFFFF),
                 borderRadius: BorderRadius.circular(8),
