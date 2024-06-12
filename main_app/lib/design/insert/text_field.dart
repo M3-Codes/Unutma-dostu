@@ -17,7 +17,7 @@ class TextFieldWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       child: Row(
         children: [
-          Textfont(title, 20),
+          Textdesign(title, 20),
           SizedBox(
             width: title == "Yer" ? 70 : 20,
           ),

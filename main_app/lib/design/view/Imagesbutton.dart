@@ -33,7 +33,7 @@ class Imagesbutton extends StatelessWidget {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
               side: const BorderSide(color: Colors.black87, width: 3))),
-      child: Textfont(text, 20),
+      child: Textdesign(text, 20),
     );
   }
 }

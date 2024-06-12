@@ -22,17 +22,17 @@ class AgainTime extends StatelessWidget {
           Row(
             children: [
               const Icon(Icons.alarm),
-              const Textfont("Tekrar", 20),
+              const Textdesign("Tekrar", 20),
               const SizedBox(
                 width: 10,
               ),
               TimeText(hour),
               const SizedBox(width: 8),
-              const Textfont(":", 20),
+              const Textdesign(":", 20),
               const SizedBox(width: 8),
               TimeText(minute),
               const SizedBox(width: 8),
-              const Textfont(":", 20),
+              const Textdesign(":", 20),
               const SizedBox(width: 8),
               TimeText(second),
             ],

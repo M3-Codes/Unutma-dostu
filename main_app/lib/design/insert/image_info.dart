@@ -109,7 +109,7 @@ class _ImageInfosState extends State<ImageInfos> {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         children: [
-          Textfont(widget.title, 20),
+          Textdesign(widget.title, 20),
           const SizedBox(width: 10),
           GestureDetector(
             onTap: _getImage,

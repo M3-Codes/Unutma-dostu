@@ -1,50 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Textfont extends StatelessWidget {
+class Textdesign extends StatelessWidget {
   final String text;
   final double fontsize;
-  const Textfont(this.text, this.fontsize, {super.key});
+  final Color color;
+  final FontWeight fontWeight;
+  final TextAlign align;
 
-  Color color() {
-    if (fontsize == 25) {
-      return const Color.fromARGB(255, 244, 239, 242);
-    }
-    return Colors.black;
-  }
+  const Textdesign(
+    this.text,
+    this.fontsize, {
+    this.color=Colors.black, // Opsiyonel olarak renk parametresi
+    this.fontWeight = FontWeight.normal, // Varsayılan olarak FontWeight.normal kullanılıyor
+    this.align = TextAlign.left,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
         text,
+        textAlign: align,
         style: GoogleFonts.rubik(
           textStyle: TextStyle(
             fontSize: fontsize,
-            color: color(),
+            fontWeight: fontWeight, // Varsayılan kalınlık normal olarak belirlendi
+            color: color,
           ),
         ),
       ),
     );
   }
 }
-
-// class TitleTextFont extends StatelessWidget {
-//   final String text;
-//   const TitleTextFont(this.text, {super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Text(
-//         text,
-//         style: GoogleFonts.rubik(
-//           textStyle: const TextStyle(
-//             fontSize: 30,
-//             color: Color.fromARGB(255, 244, 239, 242),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

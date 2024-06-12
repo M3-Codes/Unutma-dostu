@@ -24,9 +24,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      title: Textfont(
+      title: Textdesign(
         title,
         25,
+        color: Colors.white,
       ),
       actions: [
         Tooltip(

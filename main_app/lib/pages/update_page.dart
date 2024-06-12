@@ -175,7 +175,7 @@ class _InsertPageState extends State<UpdatePage> {
                       const SizedBox(
                         width: 15,
                       ),
-                      const Textfont("Renk  ", 20),
+                      const Textdesign("Renk  ", 20),
                       const SizedBox(
                         width: 10,
                       ),
@@ -226,7 +226,7 @@ class _InsertPageState extends State<UpdatePage> {
                   Row(
                     children: [
                       const SizedBox(width: 30),
-                      const Textfont("Tarih", 20),
+                      const Textdesign("Tarih", 20),
                       const SizedBox(width: 25),
                       Flexible(
                         flex: 14,

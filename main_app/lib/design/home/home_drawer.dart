@@ -1,6 +1,8 @@
+import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
@@ -162,8 +164,8 @@ class _Drawer_hState extends State<Drawer_h> {
                           googleSignIn.disconnect();
                           await FirebaseAuth.instance.signOut();
                           // ignore: use_build_context_synchronously
-                          Navigator.of(context)
-                              .pushNamedAndRemoveUntil('/', (route) => false);
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              '/welcome', (route) => false);
                         },
                       ),
                     ),
@@ -185,17 +187,166 @@ class _Drawer_hState extends State<Drawer_h> {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: const Text('About us'),
-                                content: const Text('M3 Code sunar'),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: const Text('Ok'),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
+                              return Center(
+                                child: AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
+                                        child: Image.asset(
+                                          'images/info.png',
+                                          width: 30,
+                                          height: 30,
+                                        ), // Buraya logo için path'i verin
+                                      ),
+                                      const Textdesign(
+                                        'About Us',
+                                        25,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xFFC1007F),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                  content: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Textdesign(
+                                        '“Coding Solutions,',
+                                        20,
+                                      ),
+                                      const Textdesign(
+                                        'Empowering Futures”',
+                                        20,
+                                      ),
+                                      const SizedBox(height: 50.0),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Clipboard.setData(
+                                            const ClipboardData(
+                                              text: 'm3-codes@hotmail.com',
+                                            ),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                  'Email copied to clipboard'),
+                                            ),
+                                          );
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 8.0),
+                                              child: Image.asset(
+                                                'images/email.png',
+                                                width: 25,
+                                                height: 25,
+                                              ),
+                                            ),
+                                            const Textdesign(
+                                              'Contact us via email at',
+                                              18,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Clipboard.setData(
+                                            const ClipboardData(
+                                              text: 'm3-codes@hotmail.com',
+                                            ),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                  'Email copied to clipboard'),
+                                            ),
+                                          );
+                                        },
+                                        child: const Textdesign(
+                                          'm3-codes@hotmail.com',
+                                          16,
+                                          align: TextAlign.center,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 30.0),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Clipboard.setData(
+                                            const ClipboardData(
+                                              text: 'https://github.com',
+                                            ),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                  'GitHub link copied to clipboard'),
+                                            ),
+                                          );
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 8.0),
+                                              child: Image.asset(
+                                                'images/github.png',
+                                                width: 25,
+                                                height: 25,
+                                              ),
+                                            ),
+                                            const Textdesign('Our GitHub', 18),
+                                          ],
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Clipboard.setData(
+                                            const ClipboardData(
+                                              text: 'https://github.com',
+                                            ),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                  'GitHub link copied to clipboard'),
+                                            ),
+                                          );
+                                        },
+                                        child: const Textdesign(
+                                          'https://github.com',
+                                          16,
+                                          align: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text('Close'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                ),
                               );
                             },
                           );

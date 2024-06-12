@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:flutter/material.dart';
 
 enum TimeType { hours, minutes, seconds }
@@ -83,7 +84,7 @@ class _RepeatTimeState extends State<RepeatTime> {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       child: Row(
         children: [
-          Text(widget.title, style: const TextStyle(fontSize: 16)),
+          Textdesign(widget.title,20),
           SizedBox(width: widget.title == "  :" ? 10 : 20),
           SizedBox(width: widget.title == "Tekrar" ? 10 : 0),
           GestureDetector(
@@ -113,7 +114,7 @@ class _RepeatTimeState extends State<RepeatTime> {
                     previousValue.toString().padLeft(2, '0'),
                     style: const TextStyle(
                         fontSize: 12,
-                        color: Color.fromARGB(255, 246, 110, 198)),
+                        color: Color(0xFFF66EC6)),
                   ),
                   const SizedBox(height: 4),
                   SizedBox(

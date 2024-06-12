@@ -39,14 +39,14 @@ class _addbarState extends State<addbar> {
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
                 // ignore: prefer_interpolation_to_compose_strings
-                title: Textfont('Hoş Geldin ' + useDataMap['username'], 25),
+                title: Textdesign('Hoş Geldin ' + useDataMap['username'], 25,color: Colors.white,),
                 centerTitle: true,
               );
             } else {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: const Textfont("Hoş Geldin User", 25),
+                title: const Textdesign("Hoş Geldin User", 25),
                 centerTitle: true,
               );
             }
