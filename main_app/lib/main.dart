@@ -15,7 +15,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  //.........
 
   runApp(const MyApp());
 }
@@ -60,7 +59,7 @@ class _MyAppState extends State<MyApp> {
               ? const HomePage()
               : const Welcome(),
       routes: {
-        '/': (context) => const Welcome(),
+        '/welcome': (context) => const Welcome(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
         '/homepage': (context) => const HomePage()
