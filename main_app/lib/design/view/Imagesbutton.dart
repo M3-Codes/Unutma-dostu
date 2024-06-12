@@ -22,7 +22,6 @@ class Imagesbutton extends StatelessWidget {
         final directory = Directory('${appDir.path}/$folderName');
         String imagePath = '${directory.path}/$path';
 
-        // Use default image if path is empty or file does not exist
         if (path.isEmpty || !(await File(imagePath).exists())) {
           imagePath = 'images/nofoto.png';
         }

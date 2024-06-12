@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
               ? const HomePage()
               : const Welcome(),
       routes: {
-        '/welecom': (context) => const Welcome(),
+        '/welcome': (context) => const Welcome(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
         '/homepage': (context) => const HomePage()
