@@ -14,6 +14,9 @@ class addbar extends StatefulWidget {
 
 // ignore: camel_case_types
 class _addbarState extends State<addbar> {
+  final TextEditingController _usernameController = TextEditingController();
+  String? username;
+
   get cuser {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -21,6 +24,38 @@ class _addbarState extends State<addbar> {
     } else {
       log("Yok!!!!");
     }
+  }
+
+  void _showUsernameDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Enter Username'),
+          content: TextField(
+            controller: _usernameController,
+            decoration: const InputDecoration(hintText: "Enter your username"),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                setState(() {
+                  username = _usernameController.text;
+                });
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -42,7 +77,22 @@ class _addbarState extends State<addbar> {
                 title: Textfont('Hoş Geldin ' + useDataMap['username'], 25),
                 centerTitle: true,
               );
+            } else if (username != null && username!.isNotEmpty) {
+              FirebaseFirestore.instance
+                  .collection('Users')
+                  .doc(cuser.email)
+                  .set({'username': username});
+              return AppBar(
+                iconTheme: const IconThemeData(color: Colors.white),
+                backgroundColor: const Color(0xFFC1007F),
+                title: Textfont("Hoş Geldin $username", 25),
+                centerTitle: true,
+              );
             } else {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                _showUsernameDialog(context);
+              });
+
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
