@@ -14,34 +14,41 @@ class Welcome extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           const BG_w(),
-          Flexible(
-              flex: 8,
-              child: Container(
-                height: 240,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 0,
-                  horizontal: 40.0,
-                ),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'Hoşgeldiniz!\n',
-                          style: TextStyle(
-                            fontSize: 45.0,
-                            fontWeight: FontWeight.w600,
-                          )),
-                      TextSpan(
-                          text: '\nKişisel bilgileri çalışan hesabınıza girin',
-                          style: TextStyle(
-                            fontSize: 20,
-                            // height: 0,
-                          ))
-                    ],
-                  ),
-                ),
-              )),
+          Column(
+            children: [
+              const Expanded(flex: 4, child: SizedBox()),
+              Expanded(
+                  flex: 7,
+                  child: SizedBox(
+                      child: Container(
+                    height: 240,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 40.0,
+                    ),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: const TextSpan(
+                        children: [
+                          TextSpan(
+                              text: 'Hoşgeldiniz!\n',
+                              style: TextStyle(
+                                fontSize: 45.0,
+                                fontWeight: FontWeight.w600,
+                              )),
+                          TextSpan(
+                              text:
+                                  '\nKişisel bilgileri çalışan hesabınıza girin',
+                              style: TextStyle(
+                                fontSize: 20,
+                                // height: 0,
+                              ))
+                        ],
+                      ),
+                    ),
+                  )))
+            ],
+          ),
           const Logo_UD(),
           Column(
             children: [
