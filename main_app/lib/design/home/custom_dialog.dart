@@ -10,7 +10,7 @@ class CustomDialog {
       builder: (BuildContext context) {
         return Center(
           child: AlertDialog(
-            contentPadding: const EdgeInsets.all(20), // Dialog boyutunu büyütmek için padding ekledik
+            contentPadding: const EdgeInsets.all(20),  
             title: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,10 +71,10 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.asset(
-      'images/video.mp4', // Video dosyasının yolu
+      'images/video.mp4',  
     )..initialize().then((_) {
-        setState(() {}); // Videonun ilk karesinin gösterilmesini sağlar
-        _controller.play(); // Videoyu otomatik olarak oynat
+        setState(() {});  
+        _controller.play();  
       });
   }
 
