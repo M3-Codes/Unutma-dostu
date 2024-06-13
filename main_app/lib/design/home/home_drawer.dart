@@ -9,6 +9,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
 
+import 'custom_dialog.dart';
+
 class Drawer_h extends StatefulWidget {
   const Drawer_h({super.key});
 
@@ -162,6 +164,25 @@ class _Drawer_hState extends State<Drawer_h> {
 
                           Navigator.of(context).pushNamedAndRemoveUntil(
                               '/welcome', (route) => false);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    const Expanded(flex: 1, child: SizedBox()),
+                    Expanded(
+                      flex: 4,
+                      child: ListTile(
+                        leading: const Icon(Icons.videocam,
+                            color: Colors.white, size: 33),
+                        title: const Text('DEMO',
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.white)),
+                        onTap: () async {
+                          CustomDialog.showCustomDialog(context);
                         },
                       ),
                     ),
