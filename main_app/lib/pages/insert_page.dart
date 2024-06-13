@@ -1,12 +1,12 @@
+import 'package:UnutmaDostu/design/update%20and%20insert/color_picker.dart';
+import 'package:UnutmaDostu/design/update%20and%20insert/custom_appbar.dart';
+import 'package:UnutmaDostu/design/update%20and%20insert/image_info.dart';
+import 'package:UnutmaDostu/design/update%20and%20insert/repeat_time.dart';
+import 'package:UnutmaDostu/design/update%20and%20insert/text_field.dart';
+import 'package:UnutmaDostu/design/update%20and%20insert/use_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:UnutmaDostu/datebase/file_reader.dart';
-import '../design/insert/color_picker.dart';
-import '../design/insert/custom_appbar.dart';
-import '../design/insert/image_info.dart';
-import '../design/insert/repeat_time.dart';
-import '../design/insert/text_field.dart';
-import '../design/insert/use_calendar.dart';
 import '../design/textfont.dart';
 
 class InsertPage extends StatefulWidget {
