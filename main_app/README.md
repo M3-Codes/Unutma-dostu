@@ -1,16 +1,11 @@
-# main_app
+# Unutma Dostu: Memory and Forgetfulness Management Application
 
-A new Flutter project.
+## Project Introduction
+Unutma Dostu is a mobile application specially designed for individuals experiencing forgetfulness and memory issues in their daily lives. In the fast-paced and stressful environment of modern life, it becomes increasingly difficult to remember important items, medications, memories, and appointments. Unutma Dostu aims to ease memory management for users to address this problem.
 
-## Getting Started
+## What is Unutma Dostu?
+Unutma Dostu organizes the information users want to remember into virtual boxes. These virtual boxes help users store and recall important items, medications, memories, and appointments. The application helps users stay more organized in their daily lives. Additionally, users can sign in quickly with Google for a secure and easy account management experience.
 
-This project is a starting point for a Flutter application.
+## Problem Definition
+The fast pace of modern life, increasing stress levels, and constant flow of information cause people to frequently forget important tasks and events. This issue is particularly prevalent among Alzheimer's patients, elderly individuals, and busy professionals. Unutma Dostu is developed to make daily lives more organized and memorable for these groups.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
