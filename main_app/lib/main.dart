@@ -8,6 +8,9 @@ import 'package:UnutmaDostu/pages/login_page.dart';
 import 'package:UnutmaDostu/pages/signup_page.dart';
 import 'package:UnutmaDostu/pages/welcome_page.dart';
 import 'package:UnutmaDostu/services/notification_service.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +52,21 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale?.languageCode &&
+              supportedLocale.countryCode == locale?.countryCode) {
+            return supportedLocale;
+          }
+        }
+      },
       navigatorKey: MyApp.navigatorKey,
       debugShowCheckedModeBanner: false,
       home: _isLoading
