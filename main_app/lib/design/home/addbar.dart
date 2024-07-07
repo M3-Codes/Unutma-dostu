@@ -101,10 +101,9 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: const Textdesign(
-                  "Hoş Geldin User",
-                  25,
-                  color: Colors.white,
+                flexibleSpace: Center(
+                  child: Textdesign("Hoş Geldin $username", 25,
+                      color: Colors.white),
                 ),
                 centerTitle: true,
               );
