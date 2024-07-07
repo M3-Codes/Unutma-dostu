@@ -90,8 +90,10 @@ class _addbarState extends State<addbar> {
               return AppBar(
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                title: Textdesign("Hoş Geldin $username", 25),
-                centerTitle: true,
+                flexibleSpace: Center(
+                  child: Textdesign("Hoş Geldin $username", 25,
+                      color: Colors.white),
+                ),
               );
             } else {
               WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -99,13 +101,14 @@ class _addbarState extends State<addbar> {
               });
 
               return AppBar(
-                iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
-                flexibleSpace: Center(
-                  child: Textdesign("Hoş Geldin $username", 25,
-                      color: Colors.white),
+                flexibleSpace: const Center(
+                  child: Textdesign(
+                    "Hoş Geldin User",
+                    25,
+                    color: Colors.white,
+                  ),
                 ),
-                centerTitle: true,
               );
             }
           } else if (snapshot.hasError) {

@@ -130,16 +130,34 @@ class _Drawer_hState extends State<Drawer_h> {
                   children: [
                     const Expanded(flex: 1, child: SizedBox()),
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: ListTile(
-                        leading: const Icon(Icons.home,
+                        leading: const Icon(Icons.translate_rounded,
                             color: Colors.white, size: 33),
-                        title: const Text('HOME',
+                        title: const Text('Language',
                             style:
                                 TextStyle(fontSize: 20, color: Colors.white)),
-                        onTap: () {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                              '/homepage', (route) => false);
+                        onTap: () async {
+                          CustomDialog.showCustomDialog(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    const Expanded(flex: 1, child: SizedBox()),
+                    Expanded(
+                      flex: 4,
+                      child: ListTile(
+                        leading: const Icon(Icons.videocam,
+                            color: Colors.white, size: 33),
+                        title: const Text('DEMO',
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.white)),
+                        onTap: () async {
+                          CustomDialog.showCustomDialog(context);
                         },
                       ),
                     ),
@@ -164,25 +182,6 @@ class _Drawer_hState extends State<Drawer_h> {
 
                           Navigator.of(context).pushNamedAndRemoveUntil(
                               '/welcome', (route) => false);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    const Expanded(flex: 1, child: SizedBox()),
-                    Expanded(
-                      flex: 4,
-                      child: ListTile(
-                        leading: const Icon(Icons.videocam,
-                            color: Colors.white, size: 33),
-                        title: const Text('DEMO',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
-                        onTap: () async {
-                          CustomDialog.showCustomDialog(context);
                         },
                       ),
                     ),
@@ -304,7 +303,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                         onTap: () {
                                           Clipboard.setData(
                                             const ClipboardData(
-                                              text: 'https://github.com/M3-Codes/M3-Codes',
+                                              text:
+                                                  'https://github.com/M3-Codes/M3-Codes',
                                             ),
                                           );
                                           ScaffoldMessenger.of(context)
@@ -336,7 +336,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                         onTap: () {
                                           Clipboard.setData(
                                             const ClipboardData(
-                                              text: 'https://github.com/M3-Codes',
+                                              text:
+                                                  'https://github.com/M3-Codes',
                                             ),
                                           );
                                           ScaffoldMessenger.of(context)
