@@ -8,7 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/BG_w.dart';
 import 'package:UnutmaDostu/design/welcome_signup_login/logo_M3_CODE.dart';
-
+import 'package:UnutmaDostu/generated/l10n.dart';
+import 'package:provider/provider.dart';
+import '../../language_provider.dart';
 import 'custom_dialog.dart';
 
 class Drawer_h extends StatefulWidget {
@@ -134,11 +136,11 @@ class _Drawer_hState extends State<Drawer_h> {
                       child: ListTile(
                         leading: const Icon(Icons.translate_rounded,
                             color: Colors.white, size: 33),
-                        title: const Text('Language',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
+                        title: Text(S.of(context)!.language,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white)),
                         onTap: () async {
-                          CustomDialog.showCustomDialog(context);
+                          _showLanguageDialog(context);
                         },
                       ),
                     ),
@@ -378,6 +380,46 @@ class _Drawer_hState extends State<Drawer_h> {
           )
         ],
       ),
+    );
+  }
+
+  void _showLanguageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Select Language'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .setLocale(const Locale('en'));
+                  Navigator.of(context).pop();
+                },
+                child: const Text('English'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .setLocale(const Locale('tr'));
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Türkçe'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .setLocale(const Locale('ar'));
+                  Navigator.of(context).pop();
+                },
+                child: const Text('العربية'),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

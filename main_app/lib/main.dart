@@ -9,8 +9,9 @@ import 'package:UnutmaDostu/pages/signup_page.dart';
 import 'package:UnutmaDostu/pages/welcome_page.dart';
 import 'package:UnutmaDostu/services/notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'generated/l10n.dart';
+import 'language_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +32,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isLoading = true;
+  Locale _locale = const Locale('en'); // اللغة الافتراضية
+
+  void _setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
   @override
   void initState() {
     try {
@@ -51,36 +60,40 @@ class _MyAppState extends State<MyApp> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return MaterialApp(
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      localeResolutionCallback: (locale, supportedLocales) {
-        for (var supportedLocale in supportedLocales) {
-          if (supportedLocale.languageCode == locale?.languageCode &&
-              supportedLocale.countryCode == locale?.countryCode) {
-            return supportedLocale;
-          }
-        }
-      },
-      navigatorKey: MyApp.navigatorKey,
-      debugShowCheckedModeBanner: false,
-      home: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : (FirebaseAuth.instance.currentUser != null &&
-                  FirebaseAuth.instance.currentUser!.emailVerified)
-              ? const HomePage()
-              : const Welcome(),
-      routes: {
-        '/welcome': (context) => const Welcome(),
-        '/login': (context) => const Login(),
-        '/signup': (context) => const Signup(),
-        '/homepage': (context) => const HomePage()
-      },
+      child: Consumer<LanguageProvider>(
+        builder: (context, languageProvider, child) {
+          return MaterialApp(
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en', ''), // English
+              Locale('tr', ''), // Turkish
+              Locale('ar', ''), // Arabic
+            ],
+            locale: languageProvider.locale, // Active locale
+            navigatorKey: MyApp.navigatorKey,
+            debugShowCheckedModeBanner: false,
+            home: FirebaseAuth.instance.currentUser != null &&
+                    FirebaseAuth.instance.currentUser!.emailVerified
+                ? const HomePage()
+                : const Welcome(),
+            routes: {
+              '/welcome': (context) => const Welcome(),
+              '/login': (context) => const Login(),
+              '/signup': (context) => const Signup(),
+              '/homepage': (context) => const HomePage(),
+            },
+          );
+        },
+      ),
     );
   }
 }
