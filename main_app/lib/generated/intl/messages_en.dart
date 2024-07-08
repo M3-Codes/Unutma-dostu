@@ -100,6 +100,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome!"),
         "welcome2": MessageLookupByLibrary.simpleMessage("Welcome"),
         "welcometext": MessageLookupByLibrary.simpleMessage(
-            "Enter personal information in your employee account")
+            "Enter personal information in your account")
       };
 }

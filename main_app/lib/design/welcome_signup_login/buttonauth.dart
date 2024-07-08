@@ -1,3 +1,4 @@
+import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:flutter/material.dart';
 
 class ButtonAtuh extends StatelessWidget {
@@ -25,9 +26,10 @@ class ButtonAtuh extends StatelessWidget {
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
       ),
-      child: Text(
+      child: Textdesign(
         title,
-        style: TextStyle(fontSize: 20, color: colorfont),
+        20,
+        color: colorfont,
       ),
     );
   }

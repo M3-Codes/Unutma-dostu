@@ -98,6 +98,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcome": MessageLookupByLibrary.simpleMessage("Hoş geldiniz!"),
         "welcome2": MessageLookupByLibrary.simpleMessage("Hoş geldiniz"),
         "welcometext": MessageLookupByLibrary.simpleMessage(
-            "Çalışan hesabınıza kişisel bilgileri girin")
+            "Hesabınızin kişisel bilgilerini girin")
       };
 }

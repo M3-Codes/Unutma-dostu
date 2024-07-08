@@ -53,45 +53,48 @@ class Welcome extends StatelessWidget {
             ],
           ),
           const Logo_UD(),
-          Column(
-            children: [
-              const SizedBox(
-                height: 520,
-              ),
-              ButtonAtuh(
-                title: " ${S.of(context).login} ",
-                horizontal: 132,
-                colorbackround: const Color(0xFFE0E0E0),
-                colorfont: const Color(0xFF303030),
-                onPressed: () {
-                  Navigator.pushNamed(context, "/login");
-                },
-              ),
-              const SizedBox(
-                height: 22,
-              ),
-              ButtonAtuh(
-                title: S.of(context).signup,
-                horizontal: 130,
-                colorbackround: const Color(0xFFE0E0E0),
-                colorfont: const Color(0xFF303030),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signup');
-                },
-              ),
-              const SizedBox(
-                height: 22,
-              ),
-              ButtonAtuh(
-                title: " ${S.of(context).language} ",
-                horizontal: 132,
-                colorbackround: const Color(0xFFE0E0E0),
-                colorfont: const Color(0xFF303030),
-                onPressed: () {
-                  _showLanguageDialog(context);
-                },
-              ),
-            ],
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 520,
+                ),
+                ButtonAtuh(
+                  title: " ${S.of(context).login} ",
+                  horizontal: 20,
+                  colorbackround: const Color(0xFFE0E0E0),
+                  colorfont: const Color(0xFF303030),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
+                ),
+                const SizedBox(
+                  height: 22,
+                ),
+                ButtonAtuh(
+                  title: S.of(context).signup,
+                  horizontal: 20,
+                  colorbackround: const Color(0xFFE0E0E0),
+                  colorfont: const Color(0xFF303030),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signup');
+                  },
+                ),
+                const SizedBox(
+                  height: 22,
+                ),
+                ButtonAtuh(
+                  title: " ${S.of(context).language} ",
+                  horizontal: 20,
+                  colorbackround: const Color(0xFFE0E0E0),
+                  colorfont: const Color(0xFF303030),
+                  onPressed: () {
+                    _showLanguageDialog(context);
+                  },
+                ),
+              ],
+            ),
           ),
           const Logo_M3_CODE_1(path: "images/ylogo.png")
         ],

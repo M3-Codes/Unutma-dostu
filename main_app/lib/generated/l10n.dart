@@ -100,10 +100,10 @@ class S {
     );
   }
 
-  /// `Enter personal information in your employee account`
+  /// `Enter personal information in your account`
   String get welcometext {
     return Intl.message(
-      'Enter personal information in your employee account',
+      'Enter personal information in your account',
       name: 'welcometext',
       desc: '',
       args: [],
