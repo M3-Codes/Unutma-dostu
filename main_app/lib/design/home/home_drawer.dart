@@ -400,7 +400,7 @@ class _Drawer_hState extends State<Drawer_h> {
                   Navigator.of(context).pop();
                 },
                 child:
-                    const Textdesign('English', color: Color(0xFFc10080), 10),
+                    const Textdesign('English', color: Color(0xFFc10080), 16),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -408,7 +408,7 @@ class _Drawer_hState extends State<Drawer_h> {
                       .setLocale(const Locale('tr'));
                   Navigator.of(context).pop();
                 },
-                child: const Textdesign('Türkçe', color: Color(0xFFc10080), 10),
+                child: const Textdesign('Türkçe', color: Color(0xFFc10080), 16),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -417,7 +417,7 @@ class _Drawer_hState extends State<Drawer_h> {
                   Navigator.of(context).pop();
                 },
                 child:
-                    const Textdesign('العربية', color: Color(0xFFc10080), 10),
+                    const Textdesign('العربية', color: Color(0xFFc10080), 16),
               ),
             ],
           ),
