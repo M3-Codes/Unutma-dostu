@@ -22,6 +22,75 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "language": MessageLookupByLibrary.simpleMessage("Language")
+        "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "Choosecolour": MessageLookupByLibrary.simpleMessage("Choose Colour"),
+        "DeleteDilogText": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this item?"),
+        "Deleted": MessageLookupByLibrary.simpleMessage("Delete item"),
+        "DeletedilogLabel":
+            MessageLookupByLibrary.simpleMessage("Confirm deletion"),
+        "Demo": MessageLookupByLibrary.simpleMessage("Demo"),
+        "Done": MessageLookupByLibrary.simpleMessage("Done"),
+        "No": MessageLookupByLibrary.simpleMessage("No"),
+        "Picturetook": MessageLookupByLibrary.simpleMessage("Picture you took"),
+        "Save": MessageLookupByLibrary.simpleMessage("Save"),
+        "SaveText": MessageLookupByLibrary.simpleMessage("Successfully Save"),
+        "Selectdate": MessageLookupByLibrary.simpleMessage("Select Date"),
+        "Yes": MessageLookupByLibrary.simpleMessage("Yes"),
+        "about": MessageLookupByLibrary.simpleMessage("About us"),
+        "aboutus1": MessageLookupByLibrary.simpleMessage("“Coding Solutions,"),
+        "aboutus2": MessageLookupByLibrary.simpleMessage("Empowering Futures”"),
+        "aboutus3":
+            MessageLookupByLibrary.simpleMessage("Email copied to clipboard"),
+        "aboutus4":
+            MessageLookupByLibrary.simpleMessage("Contact us via email at"),
+        "aboutus5": MessageLookupByLibrary.simpleMessage(
+            "“GitHub link copied to clipboard"),
+        "aboutus6": MessageLookupByLibrary.simpleMessage("Our GitHub"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "deleteText":
+            MessageLookupByLibrary.simpleMessage("successfully deleted"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "entername": MessageLookupByLibrary.simpleMessage("Enter Name"),
+        "enternameH": MessageLookupByLibrary.simpleMessage("Enter your Name.."),
+        "exit":
+            MessageLookupByLibrary.simpleMessage("Press back again to exit"),
+        "filed":
+            MessageLookupByLibrary.simpleMessage("Pleace fill out this field"),
+        "forget": MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+        "itemAttach": MessageLookupByLibrary.simpleMessage("item"),
+        "itemDes": MessageLookupByLibrary.simpleMessage("Description"),
+        "itemDesH":
+            MessageLookupByLibrary.simpleMessage("Enter the Description..."),
+        "itemName": MessageLookupByLibrary.simpleMessage("Name"),
+        "itemNameH":
+            MessageLookupByLibrary.simpleMessage("Enter the item name ..."),
+        "label": MessageLookupByLibrary.simpleMessage("Label"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logindivider": MessageLookupByLibrary.simpleMessage("Or Login With "),
+        "newitem": MessageLookupByLibrary.simpleMessage("New item"),
+        "pageswitchL":
+            MessageLookupByLibrary.simpleMessage("Do Not Have An Account ?"),
+        "pageswitchS":
+            MessageLookupByLibrary.simpleMessage("Already Have An Account ?"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "place": MessageLookupByLibrary.simpleMessage("Yer"),
+        "placeAttach": MessageLookupByLibrary.simpleMessage("Place"),
+        "placeAttachH":
+            MessageLookupByLibrary.simpleMessage("Enter the Place..."),
+        "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
+        "selectlan": MessageLookupByLibrary.simpleMessage("Select Language"),
+        "signout": MessageLookupByLibrary.simpleMessage("Sign out"),
+        "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "update": MessageLookupByLibrary.simpleMessage("Update item"),
+        "username": MessageLookupByLibrary.simpleMessage("Username"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome!"),
+        "welcome2": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "welcometext": MessageLookupByLibrary.simpleMessage(
+            "Enter personal information in your employee account")
       };
 }

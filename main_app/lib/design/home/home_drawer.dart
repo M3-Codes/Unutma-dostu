@@ -136,7 +136,7 @@ class _Drawer_hState extends State<Drawer_h> {
                       child: ListTile(
                         leading: const Icon(Icons.translate_rounded,
                             color: Colors.white, size: 33),
-                        title: Text(S.of(context)!.language,
+                        title: Text(S.of(context).language,
                             style: const TextStyle(
                                 fontSize: 20, color: Colors.white)),
                         onTap: () async {
@@ -155,9 +155,9 @@ class _Drawer_hState extends State<Drawer_h> {
                       child: ListTile(
                         leading: const Icon(Icons.videocam,
                             color: Colors.white, size: 33),
-                        title: const Text('DEMO',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
+                        title: Text(S.of(context).Demo,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white)),
                         onTap: () async {
                           CustomDialog.showCustomDialog(context);
                         },
@@ -174,9 +174,9 @@ class _Drawer_hState extends State<Drawer_h> {
                       child: ListTile(
                         leading: const Icon(Icons.logout_rounded,
                             color: Colors.white, size: 33),
-                        title: const Text('SIGN OUT',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
+                        title: Text(S.of(context).signout,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white)),
                         onTap: () async {
                           GoogleSignIn googleSignIn = GoogleSignIn();
                           googleSignIn.disconnect();
@@ -198,9 +198,9 @@ class _Drawer_hState extends State<Drawer_h> {
                       child: ListTile(
                         leading: const Icon(Icons.info_outline,
                             color: Colors.white, size: 33),
-                        title: const Text('ABOUT US',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
+                        title: Text(S.of(context).about,
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white)),
                         onTap: () {
                           showDialog(
                             context: context,

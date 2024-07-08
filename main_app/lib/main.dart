@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:UnutmaDostu/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ import 'package:UnutmaDostu/pages/welcome_page.dart';
 import 'package:UnutmaDostu/services/notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'generated/l10n.dart';
+
 import 'language_provider.dart';
 
 void main() async {
@@ -32,8 +33,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isLoading = true;
-  Locale _locale = const Locale('en'); // اللغة الافتراضية
-
+  Locale _locale = const Locale('en');
   void _setLocale(Locale locale) {
     setState(() {
       _locale = locale;
