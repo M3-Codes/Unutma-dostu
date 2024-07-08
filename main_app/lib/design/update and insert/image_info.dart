@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, avoid_print
+// ignore_for_file: library_private_types_in_public_api, avoid_print, depend_on_referenced_packages
 
 import 'dart:developer';
 import 'dart:io';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:path_provider/path_provider.dart';
-
+import 'package:intl/intl.dart';
 import '../../generated/l10n.dart';
 
 class ImageInfos extends StatefulWidget {
@@ -106,11 +106,13 @@ class _ImageInfosState extends State<ImageInfos> {
 
   @override
   Widget build(BuildContext context) {
+    final currentLocale = Intl.getCurrentLocale();
+    final isArabic = currentLocale == 'ar';
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         children: [
-          Textdesign(widget.title, 20),
+          Textdesign(widget.title, isArabic ? 16 : 20),
           const SizedBox(width: 10),
           GestureDetector(
             onTap: _getImage,
