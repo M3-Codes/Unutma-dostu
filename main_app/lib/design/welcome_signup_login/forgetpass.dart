@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 // ignore: camel_case_types
 class forgetpass extends StatelessWidget {
   const forgetpass({
@@ -11,9 +13,9 @@ class forgetpass extends StatelessWidget {
     return Container(
         margin: const EdgeInsets.only(top: 8),
         alignment: Alignment.centerRight,
-        child: const Text(
-          "Forget Password ?",
-          style: TextStyle(fontSize: 15),
+        child: Text(
+          S.of(context).forget,
+          style: const TextStyle(fontSize: 15),
         ));
   }
 }

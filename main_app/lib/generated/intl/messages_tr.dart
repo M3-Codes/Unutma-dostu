@@ -30,12 +30,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "DeletedilogLabel": MessageLookupByLibrary.simpleMessage("Silme onayı"),
         "Demo": MessageLookupByLibrary.simpleMessage("Demo"),
         "Done": MessageLookupByLibrary.simpleMessage("Tamam"),
+        "Error": MessageLookupByLibrary.simpleMessage(
+            "Lütfen e-postanızı girin ve ardından Şifremi Unuttum a tıklayın"),
+        "Error1": MessageLookupByLibrary.simpleMessage(
+            "Lütfen girdiğiniz e-postanın doğru olduğundan emin olun"),
+        "INFO": MessageLookupByLibrary.simpleMessage(
+            "Lütfen e-postanıza gönderdiğimiz aktivasyon linkine tıklayın"),
         "No": MessageLookupByLibrary.simpleMessage("Hayır"),
         "Picturetook": MessageLookupByLibrary.simpleMessage("Çektiğiniz resim"),
         "Save": MessageLookupByLibrary.simpleMessage("Kaydet"),
         "SaveText":
             MessageLookupByLibrary.simpleMessage("Başarıyla kaydedildi"),
         "Selectdate": MessageLookupByLibrary.simpleMessage("Tarih Seç"),
+        "Success": MessageLookupByLibrary.simpleMessage(
+            "Şifrenizi sıfırlamak için bir bağlantı e-postanıza gönderildi"),
         "Yes": MessageLookupByLibrary.simpleMessage("Evet"),
         "about": MessageLookupByLibrary.simpleMessage("Hakkımızda"),
         "aboutus1": MessageLookupByLibrary.simpleMessage("“Kodlama Çözümleri,"),
@@ -49,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "GitHub bağlantısı panoya kopyalandı"),
         "aboutus6": MessageLookupByLibrary.simpleMessage("GitHubımız"),
         "back": MessageLookupByLibrary.simpleMessage("Geri"),
+        "checkit": MessageLookupByLibrary.simpleMessage("Göz Atın"),
         "close": MessageLookupByLibrary.simpleMessage("Kapat"),
         "color": MessageLookupByLibrary.simpleMessage("Renk"),
         "date": MessageLookupByLibrary.simpleMessage("Tarih"),
@@ -56,15 +65,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("E-posta"),
         "entername": MessageLookupByLibrary.simpleMessage("İsim giriniz"),
         "enternameH": MessageLookupByLibrary.simpleMessage("Adınızı girin.."),
-        "exit":
-            MessageLookupByLibrary.simpleMessage("Press back again to exit"),
+        "exit": MessageLookupByLibrary.simpleMessage(
+            "Çıkmak için tekrar geri tuşuna basın"),
         "filed":
             MessageLookupByLibrary.simpleMessage("Lütfen bu alanı doldurun"),
         "forget": MessageLookupByLibrary.simpleMessage("Şifremi Unuttum ?"),
         "itemAttach": MessageLookupByLibrary.simpleMessage("Öğe Eki"),
         "itemDes": MessageLookupByLibrary.simpleMessage("Açıklama"),
         "itemDesH": MessageLookupByLibrary.simpleMessage("Açıklamayı girin..."),
-        "itemName": MessageLookupByLibrary.simpleMessage("Öğe Adı"),
+        "itemName": MessageLookupByLibrary.simpleMessage("Öğe Adı "),
         "itemNameH":
             MessageLookupByLibrary.simpleMessage("Öğe adını girin ..."),
         "label": MessageLookupByLibrary.simpleMessage("Etiket"),
@@ -77,10 +86,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pageswitchS":
             MessageLookupByLibrary.simpleMessage("Zaten hesabınız var mı?"),
         "password": MessageLookupByLibrary.simpleMessage("Şifre"),
-        "place": MessageLookupByLibrary.simpleMessage("Yer"),
+        "place": MessageLookupByLibrary.simpleMessage("Yer         "),
         "placeAttach": MessageLookupByLibrary.simpleMessage("Yer Eki"),
         "placeAttachH": MessageLookupByLibrary.simpleMessage("Yeri girin..."),
-        "repeat": MessageLookupByLibrary.simpleMessage("Tekrarla"),
+        "repeat": MessageLookupByLibrary.simpleMessage("Tekrar"),
         "selectlan": MessageLookupByLibrary.simpleMessage("Dil Seçin"),
         "signout": MessageLookupByLibrary.simpleMessage("Çıkış yap"),
         "signup": MessageLookupByLibrary.simpleMessage("Kaydol"),

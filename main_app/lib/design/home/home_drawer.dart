@@ -219,11 +219,11 @@ class _Drawer_hState extends State<Drawer_h> {
                                           height: 30,
                                         ),
                                       ),
-                                      const Textdesign(
-                                        'About Us',
+                                      Textdesign(
+                                        S.of(context).about,
                                         25,
                                         fontWeight: FontWeight.w500,
-                                        color: Color(0xFFC1007F),
+                                        color: const Color(0xFFC1007F),
                                       ),
                                     ],
                                   ),
@@ -235,12 +235,12 @@ class _Drawer_hState extends State<Drawer_h> {
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      const Textdesign(
-                                        '“Coding Solutions,',
+                                      Textdesign(
+                                        S.of(context).aboutus1,
                                         20,
                                       ),
-                                      const Textdesign(
-                                        'Empowering Futures”',
+                                      Textdesign(
+                                        S.of(context).aboutus2,
                                         20,
                                       ),
                                       const SizedBox(height: 50.0),
@@ -253,9 +253,9 @@ class _Drawer_hState extends State<Drawer_h> {
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                  'Email copied to clipboard'),
+                                            SnackBar(
+                                              content:
+                                                  Text(S.of(context).aboutus3),
                                             ),
                                           );
                                         },
@@ -272,8 +272,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                                 height: 25,
                                               ),
                                             ),
-                                            const Textdesign(
-                                              'Contact us via email at',
+                                            Textdesign(
+                                              S.of(context).aboutus4,
                                               18,
                                             ),
                                           ],
@@ -288,9 +288,9 @@ class _Drawer_hState extends State<Drawer_h> {
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                  'Email copied to clipboard'),
+                                            SnackBar(
+                                              content:
+                                                  Text(S.of(context).aboutus3),
                                             ),
                                           );
                                         },
@@ -311,9 +311,9 @@ class _Drawer_hState extends State<Drawer_h> {
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                  'GitHub link copied to clipboard'),
+                                            SnackBar(
+                                              content:
+                                                  Text(S.of(context).aboutus5),
                                             ),
                                           );
                                         },
@@ -330,7 +330,8 @@ class _Drawer_hState extends State<Drawer_h> {
                                                 height: 25,
                                               ),
                                             ),
-                                            const Textdesign('Our GitHub', 18),
+                                            Textdesign(
+                                                S.of(context).aboutus6, 18),
                                           ],
                                         ),
                                       ),
@@ -344,9 +345,9 @@ class _Drawer_hState extends State<Drawer_h> {
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                  'GitHub link copied to clipboard'),
+                                            SnackBar(
+                                              content:
+                                                  Text(S.of(context).aboutus5),
                                             ),
                                           );
                                         },
@@ -360,7 +361,7 @@ class _Drawer_hState extends State<Drawer_h> {
                                   ),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: const Text('Close'),
+                                      child: Text(S.of(context).close),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -388,7 +389,7 @@ class _Drawer_hState extends State<Drawer_h> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Language'),
+          title: Text(S.of(context).selectlan),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

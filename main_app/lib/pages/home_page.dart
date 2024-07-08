@@ -5,6 +5,7 @@ import '../design/home/addbar.dart';
 import '../design/home/addbutton.dart';
 import '../design/home/divider.dart';
 import '../design/home/imageswitcher.dart';
+import '../generated/l10n.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,10 +27,10 @@ class _HomePageState extends State<HomePage> {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Çıkmak için tekrar geri tuşuna basın'),
-        duration: Duration(seconds: 2),
-        backgroundColor: Color(0xFFC1007F),
+      SnackBar(
+        content: Text(S.of(context).exit),
+        duration: const Duration(seconds: 2),
+        backgroundColor: const Color(0xFFC1007F),
       ),
     );
 

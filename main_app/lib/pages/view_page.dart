@@ -7,6 +7,7 @@ import '../design/view/daydate.dart';
 import '../design/view/labelcolor.dart';
 import '../design/view/readingboxes.dart';
 import '../design/view/view_addbar.dart';
+import '../generated/l10n.dart';
 
 class ViewPage extends StatefulWidget {
   final int index;
@@ -75,23 +76,25 @@ class _ViewPageState extends State<ViewPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Imagesbutton(
-                        text: 'Ürün eki', path: database[widget.index][7]),
+                        text: S.of(context).itemAttach,
+                        path: database[widget.index][7]),
                     const SizedBox(width: 25),
                     Imagesbutton(
-                        text: 'Yer eki', path: database[widget.index][8]),
+                        text: S.of(context).placeAttach,
+                        path: database[widget.index][8]),
                   ],
                 ),
                 Masafe_H(),
                 const SizedBox(width: 10),
                 readingboxes(
                     hintText: database[widget.index][0].toString(),
-                    title: 'Ürün Adı '),
+                    title: '${S.of(context).itemName} '),
                 readingboxes(
                     hintText: database[widget.index][1].toString(),
-                    title: 'Açıklama'),
+                    title: S.of(context).itemDes),
                 readingboxes(
                     hintText: database[widget.index][2].toString(),
-                    title: 'Yer           '),
+                    title: '${S.of(context).place} '),
                 labelColor(
                     color: Color(database[widget.index][4]),
                     text: database[widget.index][3].toString()),

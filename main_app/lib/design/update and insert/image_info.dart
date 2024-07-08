@@ -8,6 +8,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../generated/l10n.dart';
+
 class ImageInfos extends StatefulWidget {
   final String title;
   final Color color;
@@ -37,7 +39,7 @@ class _ImageInfosState extends State<ImageInfos> {
         _image = File(pickedImage.path);
         _showImageDialog();
       } else {
-        print('Resim seçilmedi');
+        log("no photo");
       }
     });
   }
@@ -60,7 +62,6 @@ class _ImageInfosState extends State<ImageInfos> {
       await directory.create(recursive: true);
     }
 
-    // تقليل حجم الصورة
     final bytes = await _image!.readAsBytes();
     final img.Image? image = img.decodeImage(bytes);
     if (image != null) {
@@ -79,7 +80,7 @@ class _ImageInfosState extends State<ImageInfos> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Çektiğiniz Resim'),
+          title: Text(S.of(context).Picturetook),
           content: _image != null
               ? Image.file(_image!)
               : const Text('Uygun Resim Yoktur'),
@@ -91,11 +92,11 @@ class _ImageInfosState extends State<ImageInfos> {
                 // ignore: use_build_context_synchronously
                 Navigator.of(context).pop();
               },
-              child: const Text('Kaydet'),
+              child: Text(S.of(context).Save),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Geri'),
+              child: Text(S.of(context).back),
             ),
           ],
         );

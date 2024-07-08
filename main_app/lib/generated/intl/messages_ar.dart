@@ -30,24 +30,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "DeletedilogLabel": MessageLookupByLibrary.simpleMessage("تأكيد الحذف"),
         "Demo": MessageLookupByLibrary.simpleMessage("تجريبي"),
         "Done": MessageLookupByLibrary.simpleMessage("تم"),
+        "Error": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال البريد الإلكتروني الخاص بك ثم النقر فوق نسيت كلمة المرور"),
+        "Error1": MessageLookupByLibrary.simpleMessage(
+            "يُرجى التأكد من صحة البريد الإلكتروني الذي أدخلته"),
+        "INFO": MessageLookupByLibrary.simpleMessage(
+            "الرجاء النقر على رابط التفعيل الذي أرسلناه إلى بريدك الإلكتروني"),
         "No": MessageLookupByLibrary.simpleMessage("لا"),
         "Picturetook":
             MessageLookupByLibrary.simpleMessage("الصورة التي التقطتها"),
         "Save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "SaveText": MessageLookupByLibrary.simpleMessage("تم الحفظ بنجاح"),
         "Selectdate": MessageLookupByLibrary.simpleMessage("اختر التاريخ"),
+        "Success": MessageLookupByLibrary.simpleMessage(
+            "تم إرسال رابط لإعادة تعيين كلمة المرور الخاصة بك إلى بريدك الإلكتروني"),
         "Yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "about": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
         "aboutus1": MessageLookupByLibrary.simpleMessage("“حلول البرمجة،"),
         "aboutus2": MessageLookupByLibrary.simpleMessage("تمكين المستقبل”"),
         "aboutus3": MessageLookupByLibrary.simpleMessage(
             "تم نسخ البريد الإلكتروني إلى الحافظة"),
-        "aboutus4": MessageLookupByLibrary.simpleMessage(
-            "تواصل معنا عبر البريد الإلكتروني على"),
+        "aboutus4":
+            MessageLookupByLibrary.simpleMessage("تواصل معنا عبر الايميل "),
         "aboutus5": MessageLookupByLibrary.simpleMessage(
             "تم نسخ رابط GitHub إلى الحافظة"),
         "aboutus6": MessageLookupByLibrary.simpleMessage("GitHub الخاص بنا"),
         "back": MessageLookupByLibrary.simpleMessage("عودة"),
+        "checkit": MessageLookupByLibrary.simpleMessage("القِ نظرة"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
         "color": MessageLookupByLibrary.simpleMessage("اللون"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
@@ -56,7 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "entername": MessageLookupByLibrary.simpleMessage("أدخل الاسم"),
         "enternameH": MessageLookupByLibrary.simpleMessage("أدخل اسمك.."),
         "exit":
-            MessageLookupByLibrary.simpleMessage("اضغط مرتين من اجل الخروج"),
+            MessageLookupByLibrary.simpleMessage("ارجع مرتين من اجل الخروج"),
         "filed": MessageLookupByLibrary.simpleMessage("يرجى ملء هذا الحقل"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور ؟"),
         "itemAttach": MessageLookupByLibrary.simpleMessage("صورة العنصر"),
@@ -65,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "itemName": MessageLookupByLibrary.simpleMessage("الاسم"),
         "itemNameH":
             MessageLookupByLibrary.simpleMessage("أدخل اسم العنصر ..."),
-        "label": MessageLookupByLibrary.simpleMessage("ملصق"),
+        "label": MessageLookupByLibrary.simpleMessage("الوسم"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "logindivider":
@@ -87,6 +96,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا!"),
         "welcome2": MessageLookupByLibrary.simpleMessage("مرحبًا"),
         "welcometext": MessageLookupByLibrary.simpleMessage(
-            "أدخل المعلومات الشخصية في حساب الموظف الخاص بك")
+            "أدخل المعلومات الشخصية في الحساب الخاص بك")
       };
 }

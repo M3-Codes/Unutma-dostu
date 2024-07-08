@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 // ignore: camel_case_types
 class TextForm_Password extends StatefulWidget {
   final TextEditingController ccontroller;
@@ -29,7 +31,7 @@ class _TextForm_PasswordState extends State<TextForm_Password> {
               EdgeInsets.symmetric(vertical: 16, horizontal: 10), //*** */
           filled: true,
           fillColor: Colors.white,
-          labelText: "Password",
+          labelText: S.of(context).password,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(color: Color(0xFF4F3145))),

@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+import '../../generated/l10n.dart';
+
 class ColorButton extends StatefulWidget {
   final ValueChanged<Color> onColorSelected;
   const ColorButton({super.key, required this.onColorSelected});
@@ -20,7 +22,7 @@ class _ColorButtonState extends State<ColorButton> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Renk seçin'),
+          title: Text(S.of(context).Choosecolour),
           content: SingleChildScrollView(
             child: BlockPicker(
               pickerColor: _buttonColor,
@@ -33,7 +35,7 @@ class _ColorButtonState extends State<ColorButton> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Tamam'),
+              child: Text(S.of(context).Done),
               onPressed: () {
                 setState(() {
                   _buttonColor = selectedColor;

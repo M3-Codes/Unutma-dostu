@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../generated/l10n.dart';
 import '../textfont.dart';
 
 class Imagesbutton extends StatelessWidget {
@@ -50,7 +51,7 @@ void _showImage(BuildContext context, String imagePath, String text) {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Kapat'),
+          child: Text(S.of(context).close),
         ),
       ],
     ),

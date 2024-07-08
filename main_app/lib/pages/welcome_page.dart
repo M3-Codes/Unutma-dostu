@@ -3,6 +3,7 @@ import '../design/welcome_signup_login/BG_w.dart';
 import '../design/welcome_signup_login/buttonauth.dart';
 import '../design/welcome_signup_login/logo_M3_CODE.dart';
 import '../design/welcome_signup_login/logo_UD.dart';
+import '../generated/l10n.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -28,18 +29,17 @@ class Welcome extends StatelessWidget {
                     ),
                     child: RichText(
                       textAlign: TextAlign.center,
-                      text: const TextSpan(
+                      text: TextSpan(
                         children: [
                           TextSpan(
-                              text: 'Hoşgeldiniz!\n',
-                              style: TextStyle(
+                              text: '${S.of(context).welcome}\n',
+                              style: const TextStyle(
                                 fontSize: 45.0,
                                 fontWeight: FontWeight.w600,
                               )),
                           TextSpan(
-                              text:
-                                  '\nKişisel bilgileri çalışan hesabınıza girin',
-                              style: TextStyle(
+                              text: '\n${S.of(context).welcometext}',
+                              style: const TextStyle(
                                 fontSize: 20,
                                 // height: 0,
                               ))
@@ -56,7 +56,7 @@ class Welcome extends StatelessWidget {
                 height: 520,
               ),
               ButtonAtuh(
-                title: " Login ",
+                title: " ${S.of(context).login} ",
                 horizontal: 132,
                 colorbackround: const Color(0xFFE0E0E0),
                 colorfont: const Color(0xFF303030),
@@ -68,7 +68,7 @@ class Welcome extends StatelessWidget {
                 height: 22,
               ),
               ButtonAtuh(
-                title: "SignUp",
+                title: S.of(context).signup,
                 horizontal: 130,
                 colorbackround: const Color(0xFFE0E0E0),
                 colorfont: const Color(0xFF303030),

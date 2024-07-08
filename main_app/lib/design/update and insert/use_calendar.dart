@@ -1,8 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+
+import '../../generated/l10n.dart';
 
 class DateButton extends StatefulWidget {
   final ValueChanged<DateTime> onDateSelected;
@@ -21,9 +23,9 @@ class _DateButtonState extends State<DateButton> {
       initialDate: _selectedDate,
       firstDate: DateTime(2020),
       lastDate: DateTime(2027),
-      cancelText: 'Geri',
-      confirmText: 'Tamam',
-      helpText: 'Tarih Seç',
+      cancelText: S.of(context).back,
+      confirmText: S.of(context).Done,
+      helpText: S.of(context).Selectdate,
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {

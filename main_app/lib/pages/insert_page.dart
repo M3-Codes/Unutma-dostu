@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:UnutmaDostu/design/update%20and%20insert/color_picker.dart';
 import 'package:UnutmaDostu/design/update%20and%20insert/custom_appbar.dart';
 import 'package:UnutmaDostu/design/update%20and%20insert/image_info.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/textfont.dart';
+import '../generated/l10n.dart';
 
 class InsertPage extends StatefulWidget {
   const InsertPage({super.key});
@@ -73,7 +76,7 @@ class _InsertPageState extends State<InsertPage> {
             onpressed: () {
               _saveData();
             },
-            title: "Yeni Ürün",
+            title: S.of(context).newitem,
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
@@ -91,7 +94,7 @@ class _InsertPageState extends State<InsertPage> {
                       Expanded(
                           flex: 17,
                           child: ImageInfos(
-                              title: 'Ürün Eki',
+                              title: S.of(context).itemAttach,
                               color: const Color(0xFFC1007F),
                               onImageSaved: (fileName) =>
                                   _onImageSaved(fileName, 0))),
@@ -99,7 +102,7 @@ class _InsertPageState extends State<InsertPage> {
                       Expanded(
                           flex: 17,
                           child: ImageInfos(
-                              title: 'Yer Eki',
+                              title: S.of(context).placeAttach,
                               color: const Color(0xFFC1007F),
                               onImageSaved: (fileName) =>
                                   _onImageSaved(fileName, 1))),
@@ -107,8 +110,8 @@ class _InsertPageState extends State<InsertPage> {
                   ),
                   const SizedBox(height: 20),
                   TextFieldWidget(
-                    title: 'Ürün Adı',
-                    hintText: 'Ürünün Adını Yazınız...',
+                    title: S.of(context).itemName,
+                    hintText: S.of(context).itemNameH,
                     onChanged: (value) {
                       setState(() {
                         _productName = value;
@@ -117,8 +120,8 @@ class _InsertPageState extends State<InsertPage> {
                   ),
                   const SizedBox(height: 10),
                   TextFieldWidget(
-                    title: 'Açıklama',
-                    hintText: 'Açıklama Yazınız...',
+                    title: S.of(context).itemDes,
+                    hintText: S.of(context).itemDesH,
                     onChanged: (value) {
                       setState(() {
                         _description = value;
@@ -127,8 +130,8 @@ class _InsertPageState extends State<InsertPage> {
                   ),
                   const SizedBox(height: 10),
                   TextFieldWidget(
-                    title: 'Yer',
-                    hintText: 'Yeri Yazınız...',
+                    title: S.of(context).place,
+                    hintText: S.of(context).placeAttachH,
                     onChanged: (value) {
                       setState(() {
                         _place = value;
@@ -141,7 +144,7 @@ class _InsertPageState extends State<InsertPage> {
                       Flexible(
                         flex: 5,
                         child: TextFieldWidget(
-                          title: 'Etiket',
+                          title: S.of(context).label,
                           hintText: '',
                           onChanged: (value) {
                             setState(() {
@@ -153,7 +156,7 @@ class _InsertPageState extends State<InsertPage> {
                       const SizedBox(
                         width: 15,
                       ),
-                      const Textdesign("Renk  ", 20),
+                      Textdesign("${S.of(context).color}  ", 20),
                       const SizedBox(
                         width: 10,
                       ),
@@ -173,7 +176,7 @@ class _InsertPageState extends State<InsertPage> {
                       const SizedBox(width: 30),
                       RepeatTime(
                         timeType: TimeType.hours,
-                        title: 'Tekrar',
+                        title: S.of(context).repeat,
                         onTextChanged: (value) {
                           _hour = value;
                           _updateTekrar();
@@ -204,7 +207,7 @@ class _InsertPageState extends State<InsertPage> {
                   Row(
                     children: [
                       const SizedBox(width: 30),
-                      const Textdesign("Tarih", 20),
+                      Textdesign(S.of(context).date, 20),
                       const SizedBox(width: 25),
                       Flexible(
                         flex: 14,

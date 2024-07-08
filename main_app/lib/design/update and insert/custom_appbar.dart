@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
@@ -12,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: const Color(0xFFC1007F),
       leading: Tooltip(
-        message: 'Geri',
+        message: S.of(context).back,
         child: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -31,16 +32,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         Tooltip(
-          message: 'Kaydet',
+          message: S.of(context).Save,
           child: IconButton(
             icon: const Icon(Icons.save, color: Colors.white),
             onPressed: () {
               onpressed();
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Başarıyla kaydedildi'),
-                  duration: Duration(seconds: 3),
-                  backgroundColor: Color(0xFFC1007F),
+                SnackBar(
+                  content: Text(S.of(context).SaveText),
+                  duration: const Duration(seconds: 3),
+                  backgroundColor: const Color(0xFFC1007F),
                 ),
               );
               Future.delayed(const Duration(seconds: 2), () {
@@ -60,7 +61,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
-// This is a placeholder for the new page you want to navigate to.
-// Replace this with your actual new page widget.
-

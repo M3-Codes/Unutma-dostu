@@ -4,6 +4,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../datebase/file_reader.dart';
+import '../../generated/l10n.dart';
 import '../../pages/view_page.dart';
 import '../../services/notification_service.dart';
 
@@ -85,7 +86,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
         actionButtons: [
           NotificationActionButton(
             key: 'check',
-            label: 'Göz Atın',
+            label: S.of(context).checkit,
             actionType: ActionType.SilentAction,
             color: list[(widget.index) - 1]
                 ? Color(database[widget.index][4])

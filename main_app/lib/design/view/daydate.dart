@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../generated/l10n.dart';
 import '../textfont.dart';
 
 class DayDate extends StatelessWidget {
@@ -12,12 +13,12 @@ class DayDate extends StatelessWidget {
       {required this.month, required this.day, required this.year, super.key});
 
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
         child: Row(children: [
           const Icon(Icons.calendar_month),
-          const Textdesign("Tarih  ", 20),
+          Textdesign("${S.of(context).date}  ", 20),
           const SizedBox(
             width: 10,
           ),

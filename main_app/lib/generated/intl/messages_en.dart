@@ -31,11 +31,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm deletion"),
         "Demo": MessageLookupByLibrary.simpleMessage("Demo"),
         "Done": MessageLookupByLibrary.simpleMessage("Done"),
+        "Error": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email and then click Forgot Password"),
+        "Error1": MessageLookupByLibrary.simpleMessage(
+            "Please make sure that the email you entered is correct"),
+        "INFO": MessageLookupByLibrary.simpleMessage(
+            "Please click the activation link we sent to your email"),
         "No": MessageLookupByLibrary.simpleMessage("No"),
         "Picturetook": MessageLookupByLibrary.simpleMessage("Picture you took"),
         "Save": MessageLookupByLibrary.simpleMessage("Save"),
         "SaveText": MessageLookupByLibrary.simpleMessage("Successfully Save"),
         "Selectdate": MessageLookupByLibrary.simpleMessage("Select Date"),
+        "Success": MessageLookupByLibrary.simpleMessage(
+            "A link to reset your password has been sent to your email"),
         "Yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "about": MessageLookupByLibrary.simpleMessage("About us"),
         "aboutus1": MessageLookupByLibrary.simpleMessage("“Coding Solutions,"),
@@ -48,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "“GitHub link copied to clipboard"),
         "aboutus6": MessageLookupByLibrary.simpleMessage("Our GitHub"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "checkit": MessageLookupByLibrary.simpleMessage("Check it"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
@@ -61,8 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "filed":
             MessageLookupByLibrary.simpleMessage("Pleace fill out this field"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password ?"),
-        "itemAttach": MessageLookupByLibrary.simpleMessage("item"),
-        "itemDes": MessageLookupByLibrary.simpleMessage("Description"),
+        "itemAttach": MessageLookupByLibrary.simpleMessage("Item"),
+        "itemDes": MessageLookupByLibrary.simpleMessage("Descr"),
         "itemDesH":
             MessageLookupByLibrary.simpleMessage("Enter the Description..."),
         "itemName": MessageLookupByLibrary.simpleMessage("Name"),
@@ -78,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pageswitchS":
             MessageLookupByLibrary.simpleMessage("Already Have An Account ?"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "place": MessageLookupByLibrary.simpleMessage("Yer"),
+        "place": MessageLookupByLibrary.simpleMessage("Place"),
         "placeAttach": MessageLookupByLibrary.simpleMessage("Place"),
         "placeAttachH":
             MessageLookupByLibrary.simpleMessage("Enter the Place..."),

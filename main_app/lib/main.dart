@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, unused_element
+
 import 'dart:developer';
 import 'package:UnutmaDostu/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -18,12 +18,12 @@
   "welcome2": "Hoş geldiniz",
   "itemAttach": "Öğe Eki",
   "placeAttach": "Yer Eki",
-  "place":"Yer",
-  "itemName": "Öğe Adı",
+  "place":"Yer         ",
+  "itemName": "Öğe Adı ",
   "itemDes": "Açıklama",
   "label": "Etiket",
   "color": "Renk",
-  "repeat": "Tekrarla",
+  "repeat": "Tekrar",
   "date": "Tarih",
   "itemNameH": "Öğe adını girin ...",
   "itemDesH": "Açıklamayı girin...",
@@ -54,6 +54,11 @@
   "Cancel": "İptal",
   "entername": "İsim giriniz",
   "enternameH": "Adınızı girin..",
-  "exit":"Press back again to exit"
-  
+  "exit":"Çıkmak için tekrar geri tuşuna basın",
+  "checkit":"Göz Atın",
+  "Error":"Lütfen e-postanızı girin ve ardından Şifremi Unuttum a tıklayın",
+  "Error1":"Lütfen girdiğiniz e-postanın doğru olduğundan emin olun",
+  "INFO": "Lütfen e-postanıza gönderdiğimiz aktivasyon linkine tıklayın",
+  "Success":"Şifrenizi sıfırlamak için bir bağlantı e-postanıza gönderildi"
+
 }

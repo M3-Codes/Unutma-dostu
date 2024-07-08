@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LanguageProvider extends ChangeNotifier {
-  Locale _locale = const Locale('en'); // اللغة الافتراضية
+  Locale _locale = const Locale('en');
 
   Locale get locale => _locale;
 
@@ -12,7 +12,7 @@ class LanguageProvider extends ChangeNotifier {
   }
 
   void clearLocale() {
-    _locale = const Locale('en'); // إعادة تعيين اللغة الافتراضية
+    _locale = const Locale('en');
     notifyListeners();
   }
 }

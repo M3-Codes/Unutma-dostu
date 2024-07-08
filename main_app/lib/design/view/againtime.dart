@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../generated/l10n.dart';
 import '../textfont.dart';
 
 class AgainTime extends StatelessWidget {
@@ -15,14 +15,14 @@ class AgainTime extends StatelessWidget {
       super.key});
 
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
         child: Row(children: [
           Row(
             children: [
               const Icon(Icons.alarm),
-              const Textdesign("Tekrar", 20),
+              Textdesign(S.of(context).repeat, 20),
               const SizedBox(
                 width: 10,
               ),

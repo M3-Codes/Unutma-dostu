@@ -13,6 +13,7 @@ import '../design/welcome_signup_login/logo_M3_CODE.dart';
 import '../design/welcome_signup_login/logo_UD.dart';
 import '../design/welcome_signup_login/textform.dart';
 import '../design/welcome_signup_login/textformpassword.dart';
+import '../generated/l10n.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -93,12 +94,12 @@ class _LoginState extends State<Login> {
                             Column(
                               children: [
                                 TextForm(
-                                    hinttext: "Email",
+                                    hinttext: S.of(context).email,
                                     ccontroller: email,
                                     icon: Icons.email,
                                     validator: (val) {
                                       if (val == "") {
-                                        return "Please fill out this field";
+                                        return S.of(context).filed;
                                       }
                                       return null;
                                     }),
@@ -107,7 +108,7 @@ class _LoginState extends State<Login> {
                                     ccontroller: password,
                                     validator: (val) {
                                       if (val == "") {
-                                        return "Please fill out this field";
+                                        return S.of(context).filed;
                                       }
                                       return null;
                                     }),
@@ -119,8 +120,7 @@ class _LoginState extends State<Login> {
                                           dialogType: DialogType.error,
                                           animType: AnimType.rightSlide,
                                           title: 'ُError',
-                                          desc:
-                                              'Please enter your email and then click Forgot Password',
+                                          desc: S.of(context).Error,
                                           btnOkOnPress: () {},
                                         ).show();
                                         return;
@@ -136,7 +136,8 @@ class _LoginState extends State<Login> {
                                           animType: AnimType.rightSlide,
                                           title: 'Success',
                                           desc:
-                                              'A link to reset your password has been sent to your email',
+                                              // ignore: use_build_context_synchronously
+                                              S.of(context).Success,
                                           btnOkOnPress: () {},
                                         ).show();
                                       } catch (e) {
@@ -146,8 +147,8 @@ class _LoginState extends State<Login> {
                                           dialogType: DialogType.error,
                                           animType: AnimType.rightSlide,
                                           title: 'Error',
-                                          desc:
-                                              'Please make sure that the email you entered is correct',
+                                          // ignore: use_build_context_synchronously
+                                          desc: S.of(context).Error1,
                                           btnOkOnPress: () {},
                                         ).show();
                                       }
@@ -157,7 +158,7 @@ class _LoginState extends State<Login> {
                               ],
                             ),
                             ButtonAtuh(
-                              title: "  Login  ",
+                              title: "  ${S.of(context).login}  ",
                               horizontal: 0,
                               colorbackround:
                                   const Color.fromARGB(255, 97, 4, 66),
@@ -187,7 +188,8 @@ class _LoginState extends State<Login> {
                                         animType: AnimType.rightSlide,
                                         title: 'INFO',
                                         desc:
-                                            'Please click the activation link we sent to your email',
+                                            // ignore: use_build_context_synchronously
+                                            S.of(context).INFO,
                                         //btnCancelOnPress: () {},
                                         btnOkOnPress: () {},
                                       ).show();
@@ -233,10 +235,10 @@ class _LoginState extends State<Login> {
                                   Image.asset("images/google.png", width: 30),
                             ),
                             const SizedBox(height: 19),
-                            const ChangePage(
+                            ChangePage(
                                 path: '/signup',
-                                firstText: "Don't Have An Account ? ",
-                                lastText: "Sign Up")
+                                firstText: S.of(context).pageswitchL,
+                                lastText: S.of(context).signup)
                           ],
                         )),
                   ],

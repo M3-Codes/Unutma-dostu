@@ -14,6 +14,7 @@ import '../design/welcome_signup_login/logo_M3_CODE.dart';
 import '../design/welcome_signup_login/logo_UD.dart';
 import '../design/welcome_signup_login/textform.dart';
 import '../design/welcome_signup_login/textformpassword.dart';
+import '../generated/l10n.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -55,23 +56,23 @@ class _SignupState extends State<Signup> {
                         Container(height: 43),
                         Column(children: [
                           TextForm(
-                              hinttext: "Username",
+                              hinttext: S.of(context).username,
                               ccontroller: username,
                               icon: Icons.person,
                               validator: (val) {
                                 if (val == "") {
-                                  return "Please fill out this field";
+                                  return S.of(context).filed;
                                 }
                                 return null;
                               }),
                           const SizedBox(height: 18),
                           TextForm(
-                              hinttext: "Email",
+                              hinttext: S.of(context).email,
                               ccontroller: email,
                               icon: Icons.email,
                               validator: (val) {
                                 if (val == "") {
-                                  return "Please fill out this field";
+                                  return S.of(context).filed;
                                 }
                                 return null;
                               }),
@@ -80,14 +81,14 @@ class _SignupState extends State<Signup> {
                               ccontroller: password,
                               validator: (val) {
                                 if (val == "") {
-                                  return "Please fill out this field";
+                                  return S.of(context).filed;
                                 }
                                 return null;
                               }),
                           const SizedBox(height: 43),
                         ]),
                         ButtonAtuh(
-                          title: "  SignUp  ",
+                          title: "  ${S.of(context).signup}  ",
                           horizontal: 0,
                           colorbackround: const Color.fromARGB(255, 97, 4, 66),
                           colorfont: const Color.fromARGB(255, 255, 255, 255),
@@ -107,13 +108,11 @@ class _SignupState extends State<Signup> {
                                 FirebaseAuth.instance.currentUser!
                                     .sendEmailVerification();
                                 AwesomeDialog(
-                                
                                   context: context,
                                   dialogType: DialogType.infoReverse,
                                   animType: AnimType.rightSlide,
                                   title: 'INFO',
-                                  desc:
-                                      'Please click the activation link we sent to your email',
+                                  desc: S.of(context).INFO,
                                   btnOkOnPress: () {
                                     Navigator.of(context)
                                         .pushReplacementNamed("/login");
@@ -121,16 +120,13 @@ class _SignupState extends State<Signup> {
                                 ).show();
                               } on FirebaseAuthException catch (e) {
                                 AwesomeDialog(
-                                  
                                   context: context,
                                   dialogType: DialogType.error,
                                   animType: AnimType.rightSlide,
                                   title: 'Error',
                                   desc: e.code,
-                            
                                   btnOkOnPress: () {},
                                 ).show();
-                               
                               } catch (e) {
                                 log(e.toString());
                               }
@@ -138,10 +134,10 @@ class _SignupState extends State<Signup> {
                           },
                         ),
                         const SizedBox(height: 19),
-                        const ChangePage(
+                        ChangePage(
                             path: '/login',
-                            firstText: "Already Have An Account ? ",
-                            lastText: "Login")
+                            firstText: S.of(context).pageswitchS,
+                            lastText: S.of(context).login)
                       ],
                     )),
               ]),

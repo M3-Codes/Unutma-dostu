@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/textfont.dart';
 import '../design/update and insert/custom_appbar.dart';
+import '../generated/l10n.dart';
 
 class UpdatePage extends StatefulWidget {
   final List<dynamic> database;
@@ -95,7 +96,7 @@ class _InsertPageState extends State<UpdatePage> {
               await Future.delayed(const Duration(seconds: 2));
               _saveData();
             },
-            title: "Ürün güncellemesi",
+            title: S.of(context).update,
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
@@ -113,7 +114,7 @@ class _InsertPageState extends State<UpdatePage> {
                       Expanded(
                           flex: 17,
                           child: ImageInfos(
-                              title: 'Ürün Eki',
+                              title: S.of(context).itemAttach,
                               color: const Color(0xFFC1007F),
                               onImageSaved: (fileName) =>
                                   _onImageSaved(fileName, 0))),
@@ -121,7 +122,7 @@ class _InsertPageState extends State<UpdatePage> {
                       Expanded(
                           flex: 17,
                           child: ImageInfos(
-                              title: 'Yer Eki',
+                              title: S.of(context).placeAttach,
                               color: const Color(0xFFC1007F),
                               onImageSaved: (fileName) =>
                                   _onImageSaved(fileName, 1))),
@@ -129,7 +130,7 @@ class _InsertPageState extends State<UpdatePage> {
                   ),
                   const SizedBox(height: 20),
                   TextFieldWidget(
-                    title: 'Ürün Adı',
+                    title: S.of(context).itemName,
                     hintText: _productName,
                     onChanged: (value) {
                       setState(() {
@@ -139,7 +140,7 @@ class _InsertPageState extends State<UpdatePage> {
                   ),
                   const SizedBox(height: 10),
                   TextFieldWidget(
-                    title: 'Açıklama',
+                    title: S.of(context).itemDes,
                     hintText: _description,
                     onChanged: (value) {
                       setState(() {
@@ -149,7 +150,7 @@ class _InsertPageState extends State<UpdatePage> {
                   ),
                   const SizedBox(height: 10),
                   TextFieldWidget(
-                    title: 'Yer',
+                    title: S.of(context).place,
                     hintText: _place,
                     onChanged: (value) {
                       setState(() {
@@ -163,7 +164,7 @@ class _InsertPageState extends State<UpdatePage> {
                       Flexible(
                         flex: 5,
                         child: TextFieldWidget(
-                          title: 'Etiket',
+                          title: S.of(context).label,
                           hintText: _etkit,
                           onChanged: (value) {
                             setState(() {
@@ -175,7 +176,7 @@ class _InsertPageState extends State<UpdatePage> {
                       const SizedBox(
                         width: 15,
                       ),
-                      const Textdesign("Renk  ", 20),
+                      Textdesign("${S.of(context).color}  ", 20),
                       const SizedBox(
                         width: 10,
                       ),
@@ -195,7 +196,7 @@ class _InsertPageState extends State<UpdatePage> {
                       const SizedBox(width: 30),
                       RepeatTime(
                         timeType: TimeType.hours,
-                        title: 'Tekrar',
+                        title: S.of(context).repeat,
                         onTextChanged: (value) {
                           _hour = value;
                           _updateTekrar();
@@ -226,7 +227,7 @@ class _InsertPageState extends State<UpdatePage> {
                   Row(
                     children: [
                       const SizedBox(width: 30),
-                      const Textdesign("Tarih", 20),
+                      Textdesign(S.of(context).date, 20),
                       const SizedBox(width: 25),
                       Flexible(
                         flex: 14,

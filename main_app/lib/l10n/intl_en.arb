@@ -16,11 +16,11 @@
   "pageswitchS": "Already Have An Account ?",
   "newitem": "New item",
   "welcome2": "Welcome",
-  "itemAttach": "item",
+  "itemAttach": "Item",
   "placeAttach": "Place",
-  "place":"Yer",
+  "place":"Place",
   "itemName": "Name",
-  "itemDes": "Description",
+  "itemDes": "Descr",
   "label": "Label",
   "color": "Color",
   "repeat": "Repeat",
@@ -54,7 +54,12 @@
   "Cancel":"Cancel",
   "entername":"Enter Name",
   "enternameH":"Enter your Name..",
-  "exit":"Press back again to exit"
+  "exit":"Press back again to exit",
+  "checkit":"Check it",
+  "Error":"Please enter your email and then click Forgot Password",
+  "Error1":"Please make sure that the email you entered is correct",
+  "INFO":"Please click the activation link we sent to your email",
+  "Success":"A link to reset your password has been sent to your email"
   
 }
 

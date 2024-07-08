@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../generated/l10n.dart';
 import '../textfont.dart';
 
 // ignore: camel_case_types
@@ -15,7 +16,7 @@ class labelColor extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
       child: Row(
         children: [
-          const Textdesign("Etiket     ", 20),
+          Textdesign("${S.of(context).label}     ", 20),
           const SizedBox(
             width: 10,
           ),
@@ -41,7 +42,7 @@ class labelColor extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          const Textdesign("Renk", 20),
+          Textdesign(S.of(context).color, 20),
           const SizedBox(width: 10),
           CircleAvatar(
             radius: 25,

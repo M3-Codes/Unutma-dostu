@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomDialog {
   static void showCustomDialog(BuildContext context) {
     showDialog(
@@ -10,11 +12,11 @@ class CustomDialog {
       builder: (BuildContext context) {
         return Center(
           child: AlertDialog(
-            contentPadding: const EdgeInsets.all(20),  
-            title: const Row(
+            contentPadding: const EdgeInsets.all(20),
+            title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(right: 8.0),
                   child: Icon(
                     Icons.play_circle_fill,
@@ -23,8 +25,8 @@ class CustomDialog {
                   ),
                 ),
                 Text(
-                  'DEMO',
-                  style: TextStyle(
+                  S.of(context).Demo,
+                  style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFFC1007F),
@@ -48,7 +50,7 @@ class CustomDialog {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text('Close'),
+                child: Text(S.of(context).close),
               ),
             ],
           ),
@@ -57,6 +59,7 @@ class CustomDialog {
     );
   }
 }
+
 class VideoPlayerDialog extends StatefulWidget {
   const VideoPlayerDialog({super.key});
 
@@ -71,10 +74,10 @@ class _VideoPlayerDialogState extends State<VideoPlayerDialog> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.asset(
-      'images/video.mp4',  
+      'images/video.mp4',
     )..initialize().then((_) {
-        setState(() {});  
-        _controller.play();  
+        setState(() {});
+        _controller.play();
       });
   }
 

@@ -220,10 +220,10 @@ class S {
     );
   }
 
-  /// `item`
+  /// `Item`
   String get itemAttach {
     return Intl.message(
-      'item',
+      'Item',
       name: 'itemAttach',
       desc: '',
       args: [],
@@ -240,10 +240,10 @@ class S {
     );
   }
 
-  /// `Yer`
+  /// `Place`
   String get place {
     return Intl.message(
-      'Yer',
+      'Place',
       name: 'place',
       desc: '',
       args: [],
@@ -260,10 +260,10 @@ class S {
     );
   }
 
-  /// `Description`
+  /// `Descr`
   String get itemDes {
     return Intl.message(
-      'Description',
+      'Descr',
       name: 'itemDes',
       desc: '',
       args: [],
@@ -605,6 +605,56 @@ class S {
     return Intl.message(
       'Press back again to exit',
       name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check it`
+  String get checkit {
+    return Intl.message(
+      'Check it',
+      name: 'checkit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email and then click Forgot Password`
+  String get Error {
+    return Intl.message(
+      'Please enter your email and then click Forgot Password',
+      name: 'Error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please make sure that the email you entered is correct`
+  String get Error1 {
+    return Intl.message(
+      'Please make sure that the email you entered is correct',
+      name: 'Error1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please click the activation link we sent to your email`
+  String get INFO {
+    return Intl.message(
+      'Please click the activation link we sent to your email',
+      name: 'INFO',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A link to reset your password has been sent to your email`
+  String get Success {
+    return Intl.message(
+      'A link to reset your password has been sent to your email',
+      name: 'Success',
       desc: '',
       args: [],
     );

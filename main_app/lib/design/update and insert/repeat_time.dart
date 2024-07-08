@@ -3,6 +3,8 @@
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 enum TimeType { hours, minutes, seconds }
 
 class RepeatTime extends StatefulWidget {
@@ -84,9 +86,9 @@ class _RepeatTimeState extends State<RepeatTime> {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       child: Row(
         children: [
-          Textdesign(widget.title,20),
+          Textdesign(widget.title, 20),
           SizedBox(width: widget.title == "  :" ? 10 : 20),
-          SizedBox(width: widget.title == "Tekrar" ? 10 : 0),
+          SizedBox(width: widget.title == S.of(context).repeat ? 10 : 0),
           GestureDetector(
             onVerticalDragUpdate: (details) {
               _cumulativeDrag += details.delta.dy;
@@ -112,9 +114,8 @@ class _RepeatTimeState extends State<RepeatTime> {
                 children: [
                   Text(
                     previousValue.toString().padLeft(2, '0'),
-                    style: const TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFFF66EC6)),
+                    style:
+                        const TextStyle(fontSize: 12, color: Color(0xFFF66EC6)),
                   ),
                   const SizedBox(height: 4),
                   SizedBox(

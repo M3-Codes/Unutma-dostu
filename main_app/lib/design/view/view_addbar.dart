@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:UnutmaDostu/pages/update_page.dart';
+import '../../generated/l10n.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
 
@@ -18,7 +19,11 @@ class Addbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFFC1007F),
-      title: Textdesign(title, 25,color: Colors.white,),
+      title: Textdesign(
+        title,
+        25,
+        color: Colors.white,
+      ),
       leading: BackButton(
         color: Colors.white,
         onPressed: () => Navigator.pushReplacementNamed(context, '/homepage'),
@@ -28,13 +33,13 @@ class Addbar extends StatelessWidget {
           iconColor: Colors.white,
           itemBuilder: (BuildContext context) {
             return [
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'delete',
-                child: Textdesign('Delete item', 20),
+                child: Textdesign(S.of(context).Deleted, 20),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: 'edit',
-                child: Textdesign('Update item', 20),
+                child: Textdesign(S.of(context).update, 20),
               ),
             ];
           },
@@ -61,23 +66,23 @@ class Addbar extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Confirm deletion"),
-          content: const Text("Are you sure you want to delete this item?"),
+          title: Text(S.of(context).DeletedilogLabel),
+          content: Text(S.of(context).DeleteDilogText),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: const Text("NO"),
+              child: Text(S.of(context).No),
             ),
             TextButton(
               onPressed: () {
                 onpressed();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Başarıyla silindi'),
-                    duration: Duration(seconds: 3),
-                    backgroundColor: Color(0xFFC1007F),
+                  SnackBar(
+                    content: Text(S.of(context).deleteText),
+                    duration: const Duration(seconds: 3),
+                    backgroundColor: const Color(0xFFC1007F),
                   ),
                 );
                 Future.delayed(const Duration(seconds: 1), () {
@@ -87,7 +92,7 @@ class Addbar extends StatelessWidget {
                   );
                 });
               },
-              child: const Text("Yes"),
+              child: Text(S.of(context).Yes),
             ),
           ],
         );

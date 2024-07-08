@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
 import 'dart:developer';
+import 'package:UnutmaDostu/generated/l10n.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -33,20 +34,20 @@ class _addbarState extends State<addbar> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Textdesign('Enter Username', 20),
+          title: Textdesign(S.of(context).entername, 20),
           content: TextField(
             controller: _usernameController,
-            decoration: const InputDecoration(hintText: "Enter your username"),
+            decoration: InputDecoration(hintText: S.of(context).enternameH),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel'),
+              child: Text(S.of(context).Cancel),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('OK'),
+              child: Text(S.of(context).Done),
               onPressed: () {
                 setState(() {
                   username = _usernameController.text;
@@ -76,7 +77,7 @@ class _addbarState extends State<addbar> {
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
                 title: Textdesign(
-                  'Hoş Geldin ' + useDataMap['username'],
+                  '${S.of(context).welcome2} ' + useDataMap['username'],
                   25,
                   color: Colors.white,
                 ),
@@ -91,7 +92,7 @@ class _addbarState extends State<addbar> {
                 iconTheme: const IconThemeData(color: Colors.white),
                 backgroundColor: const Color(0xFFC1007F),
                 flexibleSpace: Center(
-                  child: Textdesign("Hoş Geldin $username", 25,
+                  child: Textdesign("${S.of(context).welcome2} $username", 25,
                       color: Colors.white),
                 ),
               );
@@ -102,9 +103,9 @@ class _addbarState extends State<addbar> {
 
               return AppBar(
                 backgroundColor: const Color(0xFFC1007F),
-                flexibleSpace: const Center(
+                flexibleSpace: Center(
                   child: Textdesign(
-                    "Hoş Geldin User",
+                    "${S.of(context).welcome2} User",
                     25,
                     color: Colors.white,
                   ),
