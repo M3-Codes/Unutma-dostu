@@ -21,9 +21,6 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   late List<String> etkitlist = [];
   late List database = [];
   late List<String> time1;
-  late List<String> time2;
-  late List<String> tarih;
-  late List<dynamic> data;
 
   AssetImage firstImage = const AssetImage('images/box2.jpg');
   AssetImage secondImage = const AssetImage('images/box1.jpg');
@@ -46,8 +43,6 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
       etkitlist = etkit;
       if (list[(widget.index) - 1]) {
         time1 = database[widget.index][5].toString().split(':');
-        tarih = database[widget.index][6].toString().split('/');
-        data = database[widget.index];
       }
     });
 
