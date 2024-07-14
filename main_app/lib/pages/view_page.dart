@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../datebase/file_reader.dart';
+import '../datebase/file_manager.dart';
 import '../design/view/Imagesbutton.dart';
 import '../design/view/againtime.dart';
 import '../design/view/daydate.dart';
@@ -32,7 +32,7 @@ class _ViewPageState extends State<ViewPage> {
     _loadData();
   }
 
-  FileReader reader = FileReader();
+  FileManager reader = FileManager();
   Future<void> _loadData() async {
     setState(() {
       _loading = true;

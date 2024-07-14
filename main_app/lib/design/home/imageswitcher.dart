@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../../datebase/file_reader.dart';
+import '../../datebase/file_manager.dart';
 import '../../pages/view_page.dart';
 import '../textfont.dart';
 
@@ -32,7 +32,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   }
 
   void fetchData() async {
-    FileReader fileReader = FileReader();
+    FileManager fileReader = FileManager();
     List<bool> fetchedList = await fileReader.Isfull();
     List<String> etkit = await fileReader.tags();
     database = await fileReader.readFromNewFile();

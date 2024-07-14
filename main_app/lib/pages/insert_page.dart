@@ -2,7 +2,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:UnutmaDostu/datebase/file_reader.dart';
+import 'package:UnutmaDostu/datebase/file_manager.dart';
 import '../design/textfont.dart';
 import '../design/update and insert/color_picker.dart';
 import '../design/update and insert/custom_appbar.dart';
@@ -22,7 +22,7 @@ class InsertPage extends StatefulWidget {
 }
 
 class _InsertPageState extends State<InsertPage> {
-  FileReader writer = FileReader();
+  FileManager writer = FileManager();
   String _productName = '';
   String _description = '';
   String _place = '';

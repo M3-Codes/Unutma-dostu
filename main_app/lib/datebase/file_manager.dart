@@ -10,7 +10,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:path_provider/path_provider.dart';
 
-class FileReader {
+class FileManager {
   final List<String> _uploadQueue = [];
 
   Timer? _connectivityTimer;
