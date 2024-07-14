@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../datebase/file_reader.dart';
+// import '../datebase/file_manager.dart';
+import '../datebase/CsvManager.dart';
+import '../datebase/UserManager.dart';
 import '../design/view/Imagesbutton.dart';
 import '../design/view/againtime.dart';
 import '../design/view/daydate.dart';
@@ -32,13 +34,13 @@ class _ViewPageState extends State<ViewPage> {
     _loadData();
   }
 
-  FileReader reader = FileReader();
+  CsvManager reader = CsvManager();
   Future<void> _loadData() async {
     setState(() {
       _loading = true;
     });
 
-    database = await reader.readFromNewFile();
+    database = await reader.readFromNewFile(UserManager().clientName());
     setState(() {
       time = database[widget.index][5].toString().split(':');
       tarih = database[widget.index][6].toString().split('/');
@@ -73,12 +75,12 @@ class _ViewPageState extends State<ViewPage> {
                   title: database[widget.index][0].toString(),
                   onpressed: () {
                     reader.deleteRow(
-                        database[widget.index][0],
-                        database[widget.index][1],
+                        database[widget.index][9],
                         database[widget.index][7].toString(),
                         database[widget.index][8].toString(),
                         "",
-                        "");
+                        "",
+                        UserManager().clientName());
                   },
                   data: data,
                 ),

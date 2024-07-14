@@ -1,13 +1,15 @@
-import 'package:UnutmaDostu/design/update%20and%20insert/color_picker.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/image_info.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/repeat_time.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/text_field.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/use_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:UnutmaDostu/datebase/file_reader.dart';
+// import 'package:UnutmaDostu/datebase/file_manager.dart';
+import '../datebase/CsvManager.dart';
+import '../datebase/UserManager.dart';
 import '../design/textfont.dart';
+import '../design/update and insert/color_picker.dart';
 import '../design/update and insert/custom_appbar.dart';
+import '../design/update and insert/image_info.dart';
+import '../design/update and insert/repeat_time.dart';
+import '../design/update and insert/text_field.dart';
+import '../design/update and insert/use_calendar.dart';
 import '../generated/l10n.dart';
 import '../services/notification_settings.dart';
 
@@ -20,7 +22,7 @@ class UpdatePage extends StatefulWidget {
 }
 
 class _InsertPageState extends State<UpdatePage> {
-  FileReader writer = FileReader();
+  CsvManager writer = CsvManager();
   late String _productName;
   late String _description;
   late String _place;
@@ -55,8 +57,8 @@ class _InsertPageState extends State<UpdatePage> {
   }
 
   void _deleterow() {
-    writer.deleteRow(widget.database[0], widget.database[1], widget.database[7],
-        widget.database[8], _path1, _path2);
+    writer.deleteRow(widget.database[9], widget.database[7], widget.database[8],
+        _path1, _path2, UserManager().clientName());
   }
 
   void _saveData() {
@@ -64,14 +66,15 @@ class _InsertPageState extends State<UpdatePage> {
       _productName.toString(),
       _description.toString(),
       _place.toString(),
-      "#$_etkit",
+      _etkit[0] == "#" ? _etkit : "#$_etkit",
       _color.value.toString(),
       _tekrar.toString(),
       DateFormat('dd/MM/yyyy/HH:mm:ss').format(_date).toString(),
       _path1,
-      _path2
+      _path2,
+      widget.database[9]
     ];
-    writer.writeToFile(row);
+    writer.writeToFile(row, UserManager().clientName());
   }
 
   void _onImageSaved(String fileName, int index) {
