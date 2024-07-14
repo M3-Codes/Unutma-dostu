@@ -6,11 +6,14 @@ import 'package:UnutmaDostu/design/update%20and%20insert/image_info.dart';
 import 'package:UnutmaDostu/design/update%20and%20insert/repeat_time.dart';
 import 'package:UnutmaDostu/design/update%20and%20insert/text_field.dart';
 import 'package:UnutmaDostu/design/update%20and%20insert/use_calendar.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/textfont.dart';
 import '../generated/l10n.dart';
+import '../services/notification_service.dart';
+import '../services/notification_settings.dart';
 
 class InsertPage extends StatefulWidget {
   const InsertPage({super.key});
@@ -55,6 +58,41 @@ class _InsertPageState extends State<InsertPage> {
     writer.writeToFile(row);
   }
 
+  int _interval = 0;
+
+  int _calculateInterval() {
+    int hours = int.parse(_hour);
+    int minutes = int.parse(_minute);
+    int seconds = int.parse(_second);
+    if (seconds < 5) {
+      seconds = 5;
+    }
+
+    setState(() {
+      _interval = (hours * 3600) + (minutes * 60) + seconds;
+    });
+    return _interval;
+  }
+
+  void _scheduleNotificationIfNeeded() {
+    _calculateInterval();
+    NotificationService.showNotification(
+      title: _productName,
+      body: _etkit,
+      scheduled: true,
+      interval: _interval,
+      payload: {"navigate": "true"},
+      actionButtons: [
+        NotificationActionButton(
+          key: 'check',
+          label: S.of(context).checkit,
+          actionType: ActionType.SilentAction,
+          color: _color,
+        ),
+      ],
+    );
+  }
+
   void _onImageSaved(String fileName, int index) {
     setState(() {
       if (index == 0) {
@@ -74,6 +112,15 @@ class _InsertPageState extends State<InsertPage> {
         return Scaffold(
           appBar: CustomAppBar(
             onpressed: () {
+              NotificationSettings(
+                productName: _productName,
+                etkit: _etkit,
+                color: _color,
+                hour: _hour,
+                minute: _minute,
+                second: _second,
+                context: context,
+              ).scheduleNotification();
               _saveData();
             },
             title: S.of(context).newitem,
