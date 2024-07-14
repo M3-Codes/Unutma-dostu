@@ -33,8 +33,8 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
 
   void fetchData() async {
     FileReader fileReader = FileReader();
-    List<bool> fetchedList = await fileReader.doluMU();
-    List<String> etkit = await fileReader.etiktler();
+    List<bool> fetchedList = await fileReader.Isfull();
+    List<String> etkit = await fileReader.tags();
     database = await fileReader.readFromNewFile();
     setState(() {
       list = fetchedList;

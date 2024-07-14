@@ -1,72 +1,20 @@
-// ignore_for_file: non_constant_identifier_names
-
-import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:path/path.dart';
+
+import 'package:UnutmaDostu/datebase/FileUploaderFactory%20.dart';
+import 'package:UnutmaDostu/datebase/immediate_upload_strategy.dart';
+import 'package:UnutmaDostu/datebase/queued_upload_strategy%20.dart';
+import 'package:UnutmaDostu/datebase/uploadstrategy.dart';
 import 'package:csv/csv.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-class FileReader {
-  final List<String> _uploadQueue = [];
-
-  Timer? _connectivityTimer;
-
-  void _startConnectivityCheck() {
-    _connectivityTimer?.cancel();
-    _connectivityTimer =
-        Timer.periodic(const Duration(seconds: 10), (timer) async {
-      if (await isConnectedToInternet()) {
-        await _processUploadQueue();
-      }
-    });
-  }
-
-  Future<void> _processUploadQueue() async {
-    while (_uploadQueue.isNotEmpty) {
-      String filePath = _uploadQueue.removeAt(0);
-      File file = File(filePath);
-      String client = clientName();
-      await uploadFileToFirebaseStorage(file, client, skipQueue: true);
-    }
-  }
-
-  Future<void> uploadFileToFirebaseStorage(File file, String clientName,
-      {bool skipQueue = false}) async {
-    if (await isConnectedToInternet() || skipQueue) {
-      final Reference storageRef = FirebaseStorage.instance
-          .ref()
-          .child('$clientName/${basename(file.path)}');
-      await storageRef.putFile(file);
-    } else {
-      log('No internet connection. File not uploaded.');
-      _uploadQueue.add(file.path);
-      _startConnectivityCheck();
-    }
-  }
-
-  String clientName() {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      return user.email!;
-    } else {
-      log("User not found!!!!");
-    }
-    return "MyDate";
-  }
-
-  Future<bool> isConnectedToInternet() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    return connectivityResult != ConnectivityResult.none;
-  }
-
+class FileManager {
   Future<void> writeToFile(List<dynamic> row) async {
-    String clinet = clientName();
+    String client = clientName();
     final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/$clinet.csv');
+    final file = File('${directory.path}/$client.csv');
 
     List<List<dynamic>> csvData = await readFromNewFile();
     csvData.add(row);
@@ -74,26 +22,26 @@ class FileReader {
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
 
-    await uploadFileToFirebaseStorage(file, clinet);
-    await uploadFolderToFirebaseStorage(clinet);
+    final fileUploader = FileUploaderFactory.createFileUploader();
+    fileUploader.setStrategy(QueuedUploadStrategy() as UploadStrategy);
+    await fileUploader.uploadFile(file, client);
+    await uploadFolderToFirebaseStorage(client);
 
     log('No internet connection. Changes saved locally.');
   }
 
   Future<List<List<dynamic>>> readFromNewFile() async {
-    String clinet = clientName();
+    String client = clientName();
     final directory = await getApplicationDocumentsDirectory();
-    final localFile = File('${directory.path}/$clinet.csv');
+    final localFile = File('${directory.path}/$client.csv');
 
     if (!await localFile.exists()) {
-      // Check if the file exists in Firebase Storage
-
       try {
         final storageRef =
-            FirebaseStorage.instance.ref().child('$clinet/$clinet.csv');
+            FirebaseStorage.instance.ref().child('$client/$client.csv');
         await storageRef.getDownloadURL();
         await storageRef.writeToFile(localFile);
-        await downloadFolderFromFirebaseStorage(clinet);
+        await downloadFolderFromFirebaseStorage(client);
         await Future.delayed(const Duration(seconds: 3));
       } catch (e) {
         if (!await localFile.exists()) {
@@ -113,14 +61,14 @@ class FileReader {
         } else {
           try {
             final storageRef =
-                FirebaseStorage.instance.ref().child('$clinet/$clinet.csv');
+                FirebaseStorage.instance.ref().child('$client/$client.csv');
             final metadata = await storageRef.getMetadata();
             final localFileStat = await localFile.stat();
 
             if (metadata.updated != null &&
                 metadata.updated!.isAfter(localFileStat.modified)) {
               await storageRef.writeToFile(localFile);
-              await downloadFolderFromFirebaseStorage(clinet);
+              await downloadFolderFromFirebaseStorage(client);
               log('File updated from Firebase Storage.');
             }
           } catch (e) {
@@ -134,13 +82,6 @@ class FileReader {
       String contents = await localFile.readAsString();
       List<List<dynamic>> csvData =
           const CsvToListConverter().convert(contents);
-
-      // List<String> csvImageFileNames = [];
-      // for (var row in csvData) {
-      //   csvImageFileNames.addAll([row[7], row[8]]);
-      // }
-      // await deleteNonExistentImages(csvImageFileNames);
-
       return csvData;
     } else {
       throw const FileSystemException('File not found');
@@ -154,13 +95,12 @@ class FileReader {
       String oldPath2,
       String newPath1,
       String newPath2) async {
-    String? clinet = clientName();
+    String? client = clientName();
     final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/$clinet.csv');
+    final file = File('${directory.path}/$client.csv');
 
     List<List<dynamic>> csvData = await readFromNewFile();
 
-    // Assume the columns we are checking are the first (index 0) and second (index 1)
     csvData.removeWhere((row) =>
         row[0] == firstColumnValue &&
         row[1] == secondColumnValue &&
@@ -169,19 +109,20 @@ class FileReader {
 
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
-    await uploadFileToFirebaseStorage(file, clinet);
+    final fileUploader = FileUploaderFactory.createFileUploader();
+    fileUploader.setStrategy(ImmediateUploadStrategy());
+    await fileUploader.uploadFile(file, client);
 
-    // Delete images if paths are not the same
     if (oldPath1 != newPath1) {
-      await deleteImage(clinet, oldPath1);
+      await deleteImage(client, oldPath1);
     }
     if (oldPath2 != newPath2) {
-      await deleteImage(clinet, oldPath2);
+      await deleteImage(client, oldPath2);
     }
   }
 
-  List<bool> myList = List.filled(21, false);
-  Future<List<bool>> Isfull() async {
+  Future<List<bool>> doluMU() async {
+    List<bool> myList = List.filled(21, false);
     List<List<dynamic>> csvData = await readFromNewFile();
     for (var i = 0; i < csvData.length - 1; i++) {
       myList[i] = true;
@@ -189,7 +130,7 @@ class FileReader {
     return myList;
   }
 
-  Future<List<String>> tags() async {
+  Future<List<String>> etiktler() async {
     List<List<dynamic>> csvData = await readFromNewFile();
     int listlength = csvData.length;
     List<String> list = List<String>.filled(listlength, "");
@@ -198,15 +139,6 @@ class FileReader {
       list[i - 1] = csvData[i][3];
     }
     return list;
-  }
-
-  // Create folder for client in Firebase Storage
-  Future<void> createClientFolderInFirebaseStorage(String clientName) async {
-    final Reference storageRef =
-        FirebaseStorage.instance.ref().child('$clientName/');
-    await storageRef
-        .child('placeholder.txt')
-        .putString('This is a placeholder file');
   }
 
   Future<void> uploadFolderToFirebaseStorage(String client) async {
@@ -275,46 +207,28 @@ class FileReader {
     }
   }
 
-  Future<void> deleteImage(String client, String path) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    const folderName = 'my_image';
-    final directory = Directory('${appDir.path}/$folderName');
-
-    final localFile = File('${directory.path}/$path');
-    if (await localFile.exists()) {
-      await localFile.delete();
-      log('Deleted local file: ${localFile.path}');
-    } else {
-      log('Local file not found: ${localFile.path}');
-    }
-
+  Future<void> deleteImage(String client, String imagePath) async {
     try {
-      final storageRef =
-          FirebaseStorage.instance.ref().child('$client/$folderName/$path');
+      final Reference storageRef =
+          FirebaseStorage.instance.ref().child('$client/my_image/$imagePath');
       await storageRef.delete();
-      log('Deleted file from Firebase Storage: $path');
+      log('Deleted image from Firebase Storage: $imagePath');
     } catch (e) {
-      log('Error deleting file from Firebase Storage: $e');
+      log('Error deleting image: $e');
     }
   }
 
-  Future<void> deleteNonExistentImages(List<String> csvImageFileNames) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    const folderName = 'my_image';
-    final directory = Directory('${appDir.path}/$folderName');
-
-    if (await directory.exists()) {
-      final List<File> localFiles =
-          directory.listSync().whereType<File>().toList();
-
-      for (File localFile in localFiles) {
-        final String fileName = basename(localFile.path);
-
-        if (!csvImageFileNames.contains(fileName)) {
-          await localFile.delete();
-          log('Deleted local file: ${localFile.path}');
-        }
-      }
+  String clientName() {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      return user.email!;
+    } else {
+      log("User not found!!!!");
     }
+    return "MyDate";
+  }
+
+  void log(String message) {
+    print(message);
   }
 }
