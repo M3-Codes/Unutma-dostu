@@ -8,6 +8,7 @@ import '../design/view/labelcolor.dart';
 import '../design/view/readingboxes.dart';
 import '../design/view/view_addbar.dart';
 import '../generated/l10n.dart';
+import '../services/notification_settings.dart';
 
 class ViewPage extends StatefulWidget {
   final int index;
@@ -27,6 +28,7 @@ class _ViewPageState extends State<ViewPage> {
   @override
   void initState() {
     super.initState();
+
     _loadData();
   }
 
@@ -43,6 +45,15 @@ class _ViewPageState extends State<ViewPage> {
       data = database[widget.index];
       _loading = false;
     });
+    NotificationSettings(
+      productName: database[widget.index][0].toString(),
+      etkit: database[widget.index][3].toString(),
+      color: Color(database[widget.index][4]),
+      hour: time[0],
+      minute: time[1],
+      second: time[2],
+      context: context,
+    ).scheduleNotification();
   }
 
   @override

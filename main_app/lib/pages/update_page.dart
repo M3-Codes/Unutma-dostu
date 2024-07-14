@@ -9,6 +9,7 @@ import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/textfont.dart';
 import '../design/update and insert/custom_appbar.dart';
 import '../generated/l10n.dart';
+import '../services/notification_settings.dart';
 
 class UpdatePage extends StatefulWidget {
   final List<dynamic> database;
@@ -94,6 +95,15 @@ class _InsertPageState extends State<UpdatePage> {
             onpressed: () async {
               _deleterow();
               await Future.delayed(const Duration(seconds: 2));
+              NotificationSettings(
+                productName: _productName,
+                etkit: _etkit,
+                color: _color,
+                hour: _hour,
+                minute: _minute,
+                second: _second,
+                context: context,
+              ).scheduleNotification();
               _saveData();
             },
             title: S.of(context).update,
