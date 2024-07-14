@@ -49,16 +49,11 @@ class FileReader {
     return await csvManager.readFromNewFile(client);
   }
 
-  Future<void> deleteRow(
-      dynamic firstColumnValue,
-      dynamic secondColumnValue,
-      String oldPath1,
-      String oldPath2,
-      String newPath1,
-      String newPath2) async {
+  Future<void> deleteRow(String kodu, String oldPath1, String oldPath2,
+      String newPath1, String newPath2) async {
     String client = userManager.clientName();
-    await csvManager.deleteRow(firstColumnValue, secondColumnValue, oldPath1,
-        oldPath2, newPath1, newPath2, client);
+    await csvManager.deleteRow(
+        kodu, oldPath1, oldPath2, newPath1, newPath2, client);
     await fileUploader.deleteImage(client, oldPath1);
     await fileUploader.deleteImage(client, oldPath2);
   }

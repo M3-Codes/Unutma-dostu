@@ -59,7 +59,6 @@ flutter:
   assets:
     - images/
     - images/door_sound.mp3
-    - lib/datebase/output.csv
     - images/boxload.json
 flutter_intl:
   enabled: true

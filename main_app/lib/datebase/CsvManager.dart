@@ -19,7 +19,7 @@ class CsvManager implements ICsvManager {
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
     await FileUploader().uploadFileToFirebaseStorage(file, client);
-    log('No internet connection. Changes saved locally.');
+    await FileUploader().uploadFolderToFirebaseStorage(client);
   }
 
   @override
@@ -47,7 +47,8 @@ class CsvManager implements ICsvManager {
             'Tekrar',
             'Tarih',
             'ürün eki',
-            'Yer eki'
+            'Yer eki',
+            'kodu'
           ];
           await writeToFile(row, client);
         } else {
@@ -81,23 +82,14 @@ class CsvManager implements ICsvManager {
   }
 
   @override
-  Future<void> deleteRow(
-      dynamic firstColumnValue,
-      dynamic secondColumnValue,
-      String oldPath1,
-      String oldPath2,
-      String newPath1,
-      String newPath2,
-      String client) async {
+  Future<void> deleteRow(String kodu, String oldPath1, String oldPath2,
+      String newPath1, String newPath2, String client) async {
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/$client.csv');
     List<List<dynamic>> csvData = await readFromNewFile(client);
 
-    csvData.removeWhere((row) =>
-        row[0] == firstColumnValue &&
-        row[1] == secondColumnValue &&
-        row[7] == oldPath1 &&
-        row[8] == oldPath2);
+    csvData.removeWhere(
+        (row) => row[9] == kodu && row[7] == oldPath1 && row[8] == oldPath2);
     String csv = const ListToCsvConverter().convert(csvData);
     await file.writeAsString(csv);
     await FileUploader().uploadFileToFirebaseStorage(file, client);

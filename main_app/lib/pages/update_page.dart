@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:UnutmaDostu/datebase/file_manager.dart';
+// import 'package:UnutmaDostu/datebase/file_manager.dart';
+import '../datebase/CsvManager.dart';
+import '../datebase/UserManager.dart';
 import '../design/textfont.dart';
 import '../design/update and insert/color_picker.dart';
 import '../design/update and insert/custom_appbar.dart';
@@ -20,7 +22,7 @@ class UpdatePage extends StatefulWidget {
 }
 
 class _InsertPageState extends State<UpdatePage> {
-  FileManager writer = FileManager();
+  CsvManager writer = CsvManager();
   late String _productName;
   late String _description;
   late String _place;
@@ -55,8 +57,8 @@ class _InsertPageState extends State<UpdatePage> {
   }
 
   void _deleterow() {
-    writer.deleteRow(widget.database[0], widget.database[1], widget.database[7],
-        widget.database[8], _path1, _path2);
+    writer.deleteRow(widget.database[9], widget.database[7], widget.database[8],
+        _path1, _path2, UserManager().clientName());
   }
 
   void _saveData() {
@@ -64,14 +66,15 @@ class _InsertPageState extends State<UpdatePage> {
       _productName.toString(),
       _description.toString(),
       _place.toString(),
-      "#$_etkit",
+      _etkit[0] == "#" ? _etkit : "#$_etkit",
       _color.value.toString(),
       _tekrar.toString(),
       DateFormat('dd/MM/yyyy/HH:mm:ss').format(_date).toString(),
       _path1,
-      _path2
+      _path2,
+      widget.database[9]
     ];
-    writer.writeToFile(row);
+    writer.writeToFile(row, UserManager().clientName());
   }
 
   void _onImageSaved(String fileName, int index) {

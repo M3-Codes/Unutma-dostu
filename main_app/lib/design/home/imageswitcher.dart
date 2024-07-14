@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../../datebase/file_manager.dart';
+import '../../datebase/CsvManager.dart';
+import '../../datebase/UserManager.dart';
+// import '../../datebase/file_manager.dart';
 import '../../pages/view_page.dart';
 import '../textfont.dart';
 
@@ -32,10 +34,11 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
   }
 
   void fetchData() async {
-    FileManager fileReader = FileManager();
-    List<bool> fetchedList = await fileReader.Isfull();
+    String clinet = UserManager().clientName();
+    CsvManager fileReader = CsvManager();
+    List<bool> fetchedList = await fileReader.isFull();
     List<String> etkit = await fileReader.tags();
-    database = await fileReader.readFromNewFile();
+    database = await fileReader.readFromNewFile(clinet);
     setState(() {
       list = fetchedList;
       etkitlist = etkit;
