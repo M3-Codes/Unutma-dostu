@@ -42,52 +42,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
         time1 = database[widget.index][5].toString().split(':');
       }
     });
-
-    // _scheduleNotificationIfNeeded();
   }
-
-  // int _interval = 0;
-
-  // int _calculateInterval() {
-  //   int hours = int.parse(time1[0]);
-  //   int minutes = int.parse(time1[1]);
-  //   int seconds = int.parse(time1[2]);
-  //   if (seconds < 5) {
-  //     seconds = 5;
-  //   }
-
-  //   setState(() {
-  //     _interval = (hours * 3600) + (minutes * 60) + seconds;
-  //   });
-  //   return _interval;
-  // }
-
-  // void _scheduleNotificationIfNeeded() {
-  //   if (list.isNotEmpty && list[widget.index - 1]) {
-  //     _calculateInterval();
-  //     NotificationService.showNotification(
-  //       title: list[(widget.index) - 1]
-  //           ? database[widget.index][0].toString()
-  //           : "ürün",
-  //       body: list[(widget.index) - 1]
-  //           ? database[widget.index][3].toString()
-  //           : "ürün",
-  //       scheduled: true,
-  //       // interval: _interval,
-  //       payload: {"navigate": "true"},
-  //       actionButtons: [
-  //         NotificationActionButton(
-  //           key: 'check',
-  //           label: S.of(context).checkit,
-  //           actionType: ActionType.SilentAction,
-  //           color: list[(widget.index) - 1]
-  //               ? Color(database[widget.index][4])
-  //               : Colors.green,
-  //         ),
-  //       ],
-  //     );
-  //   }
-  // }
 
   void switchImage() {
     if (list[widget.index - 1]) {
