@@ -1,9 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
-import 'package:UnutmaDostu/design/textfont.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../datebase/file_reader.dart';
 import '../../pages/view_page.dart';
+import '../textfont.dart';
 
 class ImageSwitcher extends StatefulWidget {
   final int index;
