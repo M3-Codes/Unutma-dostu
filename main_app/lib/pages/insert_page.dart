@@ -1,16 +1,15 @@
 // ignore_for_file: depend_on_referenced_packages
-
-import 'package:UnutmaDostu/design/update%20and%20insert/color_picker.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/custom_appbar.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/image_info.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/repeat_time.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/text_field.dart';
-import 'package:UnutmaDostu/design/update%20and%20insert/use_calendar.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:UnutmaDostu/datebase/file_reader.dart';
 import '../design/textfont.dart';
+import '../design/update and insert/color_picker.dart';
+import '../design/update and insert/custom_appbar.dart';
+import '../design/update and insert/image_info.dart';
+import '../design/update and insert/repeat_time.dart';
+import '../design/update and insert/text_field.dart';
+import '../design/update and insert/use_calendar.dart';
 import '../generated/l10n.dart';
 import '../services/notification_service.dart';
 import '../services/notification_settings.dart';
