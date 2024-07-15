@@ -1,10 +1,8 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:csv/csv.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'FileUploader.dart';
 import 'ICsvManager.dart';
 import 'UserManager.dart';
@@ -125,5 +123,16 @@ class CsvManager implements ICsvManager {
       list[i - 1] = csvData[i][3];
     }
     return list;
+  }
+
+  Future<int> findIndex(String value) async {
+    String client = UserManager().clientName();
+    List<List<dynamic>> csvData = await readFromNewFile(client);
+    for (int i = 0; i < csvData.length; i++) {
+      if (csvData[i].contains(value)) {
+        return i;
+      }
+    }
+    return -1;
   }
 }
