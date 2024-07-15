@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../design/drawer/DrawerWidget .dart';
 import '../design/home/addbar.dart';
 import '../design/home/addbutton.dart';
 import '../design/home/divider.dart';
-import '../design/home/home_drawer.dart';
+// import '../design/home/home_drawer.dart';
 import '../design/home/imageswitcher.dart';
 import '../generated/l10n.dart';
 
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: const Drawer_h(),
+        drawer: DrawerWidget(),
         body: RefreshIndicator(
           onRefresh: _refreshPage,
           child: Column(
