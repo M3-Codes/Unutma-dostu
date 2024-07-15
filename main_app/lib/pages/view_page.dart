@@ -30,7 +30,6 @@ class _ViewPageState extends State<ViewPage> {
   @override
   void initState() {
     super.initState();
-
     _loadData();
   }
 
