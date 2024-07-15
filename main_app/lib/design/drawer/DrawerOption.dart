@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DrawerMenuItem extends StatelessWidget {
+class DrawerOption extends StatelessWidget {
   final IconData icon;
-  final String text;
+  final String title;
   final VoidCallback onTap;
 
-  const DrawerMenuItem({
-    Key? key,
+  const DrawerOption({
     required this.icon,
-    required this.text,
+    required this.title,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class DrawerMenuItem extends StatelessWidget {
           flex: 4,
           child: ListTile(
             leading: Icon(icon, color: Colors.white, size: 33),
-            title: Text(text,
+            title: Text(title,
                 style: const TextStyle(fontSize: 20, color: Colors.white)),
             onTap: onTap,
           ),
