@@ -659,6 +659,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Red`
+  String get red {
+    return Intl.message(
+      'Red',
+      name: 'red',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blue`
+  String get blue {
+    return Intl.message(
+      'Blue',
+      name: 'blue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cyan`
+  String get cyan {
+    return Intl.message(
+      'Cyan',
+      name: 'cyan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Green`
+  String get green {
+    return Intl.message(
+      'Green',
+      name: 'green',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purple`
+  String get purple {
+    return Intl.message(
+      'Purple',
+      name: 'purple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fuchsia`
+  String get fuchsia {
+    return Intl.message(
+      'Fuchsia',
+      name: 'fuchsia',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
