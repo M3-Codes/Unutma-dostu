@@ -142,29 +142,29 @@ class _addbarState extends State<addbar> {
         Provider.of<ColorProvider>(context, listen: false).updateColor(color);
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Color>>[
-        const PopupMenuItem<Color>(
-          value: Color(0xFFD32F2F),
-          child: Text("Red"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFFD32F2F),
+          child: Text(S.of(context).red),
         ),
-        const PopupMenuItem<Color>(
-          value: Color(0xFF4CAF50),
-          child: Text("Green"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFF4CAF50),
+          child: Text(S.of(context).green),
         ),
-        const PopupMenuItem<Color>(
-          value: Color(0xFF2196F3),
-          child: Text("Blue"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFF2196F3),
+          child: Text(S.of(context).blue),
         ),
-        const PopupMenuItem<Color>(
-          value: Color(0xFF00BCD4),
-          child: Text("Cyan"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFF00BCD4),
+          child: Text(S.of(context).cyan),
         ),
-        const PopupMenuItem<Color>(
-          value: Color(0xFF9C27B0),
-          child: Text("Purple"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFF9C27B0),
+          child: Text(S.of(context).purple),
         ),
-        const PopupMenuItem<Color>(
-          value: Color(0xFFC1007F),
-          child: Text("Fuchsia"),
+        PopupMenuItem<Color>(
+          value: const Color(0xFFC1007F),
+          child: Text(S.of(context).fuchsia),
         ),
       ],
     );
