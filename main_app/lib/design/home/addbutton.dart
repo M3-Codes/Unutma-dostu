@@ -1,6 +1,8 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../pages/insert_page.dart';
 
 class addbutton extends StatelessWidget {
@@ -10,6 +12,7 @@ class addbutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return ElevatedButton(
       onPressed: () {
         Navigator.push(
@@ -20,7 +23,7 @@ class addbutton extends StatelessWidget {
         );
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFC1007F),
+          backgroundColor: appColor,
           fixedSize: const Size(100, 100),
           shape: const CircleBorder(
               side: BorderSide(color: Colors.black87, width: 3))),

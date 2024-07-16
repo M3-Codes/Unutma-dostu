@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 class DateButton extends StatefulWidget {
@@ -37,14 +39,15 @@ class _DateButtonState extends State<DateButton> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return ElevatedButton(
       onPressed: () => _selectDate(context),
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFC1007F),
+        backgroundColor: appColor,
         padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: const BorderSide(color: Color(0xFFC1007F), width: 1),
+          side: BorderSide(color: appColor, width: 1),
         ),
       ),
       child: Row(

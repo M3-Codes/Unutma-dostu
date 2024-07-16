@@ -14,6 +14,7 @@ import 'package:UnutmaDostu/services/notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'color_options.dart';
 import 'language_provider.dart';
 
 void main() async {
@@ -65,9 +66,11 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
+        ChangeNotifierProvider(
+            create: (_) => ColorProvider()), // Add ColorProvider
       ],
-      child: Consumer<LanguageProvider>(
-        builder: (context, languageProvider, child) {
+      child: Consumer2<LanguageProvider, ColorProvider>(
+        builder: (context, languageProvider, colorProvider, child) {
           return MaterialApp(
             localizationsDelegates: const [
               S.delegate,
@@ -83,6 +86,12 @@ class _MyAppState extends State<MyApp> {
             locale: languageProvider.locale, // Active locale
             navigatorKey: MyApp.navigatorKey,
             debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primaryColor: colorProvider.appColor,
+              appBarTheme: AppBarTheme(
+                backgroundColor: colorProvider.appColor,
+              ),
+            ),
             home: FirebaseAuth.instance.currentUser != null &&
                     FirebaseAuth.instance.currentUser!.emailVerified
                 ? const HomePage()

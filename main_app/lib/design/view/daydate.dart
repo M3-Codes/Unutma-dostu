@@ -8,9 +8,14 @@ class DayDate extends StatelessWidget {
   final String day;
   final String month;
   final String year;
+  final Color color;
 
   const DayDate(
-      {required this.month, required this.day, required this.year, super.key});
+      {required this.month,
+      required this.color,
+      required this.day,
+      required this.year,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +52,10 @@ class DayDate extends StatelessWidget {
           contentPadding:
               const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
           filled: true,
-          fillColor: const Color(0xFFC1007F),
+          fillColor: color,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(color: Color(0xFFC1007F), width: 1)),
+              borderSide: BorderSide(color: color, width: 1)),
         ),
       ),
     );

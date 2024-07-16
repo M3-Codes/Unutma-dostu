@@ -1,6 +1,7 @@
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../color_options.dart';
 import '../design/welcome_signup_login/BG_w.dart';
 import '../design/welcome_signup_login/buttonauth.dart';
 import '../design/welcome_signup_login/logo_M3_CODE.dart';
@@ -104,6 +105,7 @@ class Welcome extends StatelessWidget {
 }
 
 void _showLanguageDialog(BuildContext context) {
+  final appColor = Provider.of<ColorProvider>(context).appColor;
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -118,7 +120,7 @@ void _showLanguageDialog(BuildContext context) {
                     .setLocale(const Locale('en'));
                 Navigator.of(context).pop();
               },
-              child: const Textdesign('English', color: Color(0xFFc10080), 16),
+              child: Textdesign('English', color: appColor, 16),
             ),
             ElevatedButton(
               onPressed: () {
@@ -126,7 +128,7 @@ void _showLanguageDialog(BuildContext context) {
                     .setLocale(const Locale('tr'));
                 Navigator.of(context).pop();
               },
-              child: const Textdesign('Türkçe', color: Color(0xFFc10080), 16),
+              child: Textdesign('Türkçe', color: appColor, 16),
             ),
             ElevatedButton(
               onPressed: () {
@@ -134,7 +136,7 @@ void _showLanguageDialog(BuildContext context) {
                     .setLocale(const Locale('ar'));
                 Navigator.of(context).pop();
               },
-              child: const Textdesign('العربية', color: Color(0xFFc10080), 16),
+              child: Textdesign('العربية', color: appColor, 16),
             ),
           ],
         ),

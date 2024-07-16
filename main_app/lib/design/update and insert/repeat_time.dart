@@ -2,7 +2,9 @@
 
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 enum TimeType { hours, minutes, seconds }
@@ -77,6 +79,7 @@ class _RepeatTimeState extends State<RepeatTime> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     int currentValue = int.tryParse(_controller.text) ?? minValue;
     int previousValue =
         (currentValue - 1 < minValue) ? maxValue : currentValue - 1;
@@ -107,15 +110,15 @@ class _RepeatTimeState extends State<RepeatTime> {
               decoration: BoxDecoration(
                 color: const Color(0x00FFFFFF),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: const Color(0xFFC1007F), width: 1),
+                border: Border.all(color: appColor, width: 1),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     previousValue.toString().padLeft(2, '0'),
-                    style:
-                        const TextStyle(fontSize: 12, color: Color(0xFFF66EC6)),
+                    style: TextStyle(
+                        fontSize: 12, color: (appColor.withOpacity(0.5))),
                   ),
                   const SizedBox(height: 4),
                   SizedBox(
@@ -128,18 +131,17 @@ class _RepeatTimeState extends State<RepeatTime> {
                         border: InputBorder.none,
                       ),
                       enabled: false,
-                      style: const TextStyle(
+                      style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFC1007F)),
+                          color: appColor),
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     nextValue.toString().padLeft(2, '0'),
-                    style: const TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 246, 110, 198)),
+                    style: TextStyle(
+                        fontSize: 12, color: appColor.withOpacity(0.5)),
                   ),
                 ],
               ),

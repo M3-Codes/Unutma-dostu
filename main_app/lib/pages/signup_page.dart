@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import '../color_options.dart';
 import '../design/welcome_signup_login/BG_sl.dart';
 import '../design/welcome_signup_login/BG_text.dart';
 import '../design/welcome_signup_login/buttonauth.dart';
@@ -31,6 +33,7 @@ class _SignupState extends State<Signup> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -90,7 +93,8 @@ class _SignupState extends State<Signup> {
                         ButtonAtuh(
                           title: "  ${S.of(context).signup}  ",
                           horizontal: 0,
-                          colorbackround: const Color.fromARGB(255, 97, 4, 66),
+                          colorbackround: Color.alphaBlend(
+                              Colors.black.withOpacity(0.5), appColor),
                           colorfont: const Color.fromARGB(255, 255, 255, 255),
                           onPressed: () async {
                             if (formState.currentState!.validate()) {

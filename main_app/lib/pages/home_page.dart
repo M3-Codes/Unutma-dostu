@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import '../color_options.dart';
 import '../design/drawer/Drawer_h.dart';
 import '../design/home/addbar.dart';
 import '../design/home/addbutton.dart';
@@ -31,7 +33,8 @@ class _HomePageState extends State<HomePage> {
       SnackBar(
         content: Text(S.of(context).exit),
         duration: const Duration(seconds: 2),
-        backgroundColor: const Color(0xFFC1007F),
+        backgroundColor:
+            Provider.of<ColorProvider>(context, listen: false).appColor,
       ),
     );
 
@@ -52,6 +55,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: _onWillPop,
@@ -66,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               Masafe_H(),
               Expanded(
                 child: RawScrollbar(
-                  thumbColor: const Color(0xFFC1007F),
+                  thumbColor: appColor,
                   radius: const Radius.circular(5),
                   thickness: 9.0,
                   thumbVisibility: true,

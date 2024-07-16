@@ -6,9 +6,14 @@ import '../textfont.dart';
 
 // ignore: camel_case_types
 class labelColor extends StatelessWidget {
+  final Color colorlabel;
   final Color color;
   final String text;
-  const labelColor({required this.text, required this.color, super.key});
+  const labelColor(
+      {required this.text,
+      required this.color,
+      required this.colorlabel,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +40,7 @@ class labelColor extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
-                  borderSide:
-                      const BorderSide(color: Color(0xFFC1007F), width: 1),
+                  borderSide: BorderSide(color: color, width: 1),
                 ),
               ),
             ),
@@ -46,7 +50,7 @@ class labelColor extends StatelessWidget {
           const SizedBox(width: 10),
           CircleAvatar(
             radius: 25,
-            backgroundColor: color,
+            backgroundColor: colorlabel,
           ),
         ],
       ),

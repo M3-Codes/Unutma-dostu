@@ -1,12 +1,16 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 class CustomDialog {
   static void showCustomDialog(BuildContext context) {
+    final appColor =
+        Provider.of<ColorProvider>(context, listen: false).appColor;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -16,20 +20,20 @@ class CustomDialog {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(right: 8.0),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
                   child: Icon(
                     Icons.play_circle_fill,
-                    color: Color(0xFFC1007F),
+                    color: appColor,
                     size: 33,
                   ),
                 ),
                 Text(
                   S.of(context).Demo,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFFC1007F),
+                    color: appColor,
                   ),
                 ),
               ],

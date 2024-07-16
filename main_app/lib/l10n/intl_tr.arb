@@ -1,4 +1,4 @@
-{
+{"@@locale": "tr",
   "language": "Dil",
   "Demo": "Demo",
   "signout": "Çıkış yap",
@@ -59,6 +59,11 @@
   "Error":"Lütfen e-postanızı girin ve ardından Şifremi Unuttum a tıklayın",
   "Error1":"Lütfen girdiğiniz e-postanın doğru olduğundan emin olun",
   "INFO": "Lütfen e-postanıza gönderdiğimiz aktivasyon linkine tıklayın",
-  "Success":"Şifrenizi sıfırlamak için bir bağlantı e-postanıza gönderildi"
-
+  "Success":"Şifrenizi sıfırlamak için bir bağlantı e-postanıza gönderildi",
+  "red":"Kırmızı",
+  "cyan":"camgöbeği",
+  "blue":"Mavi",
+  "green":"Yeşil",
+  "purple":"Mor",
+  "fuchsia":"الزهري"
 }

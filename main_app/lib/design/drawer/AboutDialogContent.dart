@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 import '../textfont.dart';
 import 'ContactInfoRow.dart';
@@ -8,6 +10,7 @@ import 'ContactInfoRow.dart';
 class AboutDialogContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return AlertDialog(
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +20,7 @@ class AboutDialogContent extends StatelessWidget {
             child: Image.asset('images/info.png', width: 30, height: 30),
           ),
           Textdesign(S.of(context).about, 25,
-              fontWeight: FontWeight.w500, color: const Color(0xFFC1007F)),
+              fontWeight: FontWeight.w500, color: appColor),
         ],
       ),
       content: Column(

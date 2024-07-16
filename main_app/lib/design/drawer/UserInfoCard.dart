@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../color_options.dart';
 import 'DefaultUserInfo.dart';
 
 class UserInfoCard extends StatelessWidget {
@@ -50,11 +52,25 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
+    String colorName = 'Fuchsia'; // Default color name
+    if (appColor == const Color(0xFFd32f2f)) {
+      colorName = 'Red';
+    } else if (appColor == Colors.green) {
+      colorName = 'Green';
+    } else if (appColor == Colors.blue) {
+      colorName = 'Blue';
+    } else if (appColor == Colors.cyan) {
+      colorName = 'Cyan';
+    } else if (appColor == Colors.purple) {
+      colorName = 'Purple';
+    } else if (appColor == const Color(0xFFC1007F)) {
+      colorName = 'Fuchsia';
+    }
     return Column(
       children: [
         const SizedBox(height: 20),
-        const Icon(Icons.person,
-            color: Color.fromARGB(255, 147, 1, 98), size: 80),
+        Icon(Icons.person, color: appColor, size: 80),
         Text(useDataMap['username'],
             style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         SizedBox(
@@ -70,11 +86,8 @@ class UserInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        const SizedBox(
-            width: 250,
-            child:
-                Divider(thickness: 1, color: Color.fromARGB(255, 147, 1, 98))),
-        Image.asset('images/Logo.png'),
+        SizedBox(width: 250, child: Divider(thickness: 1, color: appColor)),
+        Image.asset('images/Logo$colorName.png'),
       ],
     );
   }

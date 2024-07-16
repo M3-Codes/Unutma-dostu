@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 import '../../language_provider.dart';
 import '../textfont.dart';
@@ -8,6 +9,7 @@ import '../textfont.dart';
 class LanguageSelectionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return AlertDialog(
       title: Text(S.of(context).selectlan),
       content: Column(
@@ -19,7 +21,7 @@ class LanguageSelectionDialog extends StatelessWidget {
                   .setLocale(const Locale('en'));
               Navigator.of(context).pop();
             },
-            child: const Textdesign('English', color: Color(0xFFc10080), 16),
+            child: Textdesign('English', color: appColor, 16),
           ),
           ElevatedButton(
             onPressed: () {
@@ -27,7 +29,7 @@ class LanguageSelectionDialog extends StatelessWidget {
                   .setLocale(const Locale('tr'));
               Navigator.of(context).pop();
             },
-            child: const Textdesign('Türkçe', color: Color(0xFFc10080), 16),
+            child: Textdesign('Türkçe', color: appColor, 16),
           ),
           ElevatedButton(
             onPressed: () {
@@ -35,7 +37,7 @@ class LanguageSelectionDialog extends StatelessWidget {
                   .setLocale(const Locale('ar'));
               Navigator.of(context).pop();
             },
-            child: const Textdesign('العربية', color: Color(0xFFc10080), 16),
+            child: Textdesign('العربية', color: appColor, 16),
           ),
         ],
       ),

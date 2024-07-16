@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../color_options.dart';
 
 class ChangePage extends StatelessWidget {
   final String path;
@@ -12,6 +15,7 @@ class ChangePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return InkWell(
       onTap: () {
         Navigator.pushReplacementNamed(context, path);
@@ -21,10 +25,8 @@ class ChangePage extends StatelessWidget {
           TextSpan(text: firstText, style: const TextStyle(fontSize: 16)),
           TextSpan(
               text: lastText,
-              style: const TextStyle(
-                  color: Color(0xFFc10080),
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold)),
+              style: TextStyle(
+                  color: appColor, fontSize: 15, fontWeight: FontWeight.bold)),
         ])),
       ),
     );

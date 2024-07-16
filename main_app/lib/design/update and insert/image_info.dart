@@ -8,6 +8,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:UnutmaDostu/design/textfont.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 class ImageInfos extends StatefulWidget {
@@ -106,6 +108,7 @@ class _ImageInfosState extends State<ImageInfos> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     final currentLocale = Intl.getCurrentLocale();
     final isArabic = currentLocale == 'ar';
     return Padding(
@@ -125,7 +128,7 @@ class _ImageInfosState extends State<ImageInfos> {
                 border: Border.all(color: Colors.black, width: 1),
               ),
               child: Icon(Icons.add_a_photo,
-                  color: imageIsEmpty ? Colors.white : const Color(0xFFC1007F)),
+                  color: imageIsEmpty ? Colors.white : appColor),
             ),
           ),
         ],

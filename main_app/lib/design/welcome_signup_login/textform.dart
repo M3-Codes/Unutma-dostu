@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../color_options.dart';
 
 class TextForm extends StatelessWidget {
   final String hinttext;
@@ -16,6 +19,7 @@ class TextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return TextFormField(
       validator: validator,
       controller: ccontroller,
@@ -28,10 +32,10 @@ class TextForm extends StatelessWidget {
         labelText: hinttext,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: Color(0xFF4F3145))),
+            borderSide: BorderSide(color: appColor)),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: Color(0xFF4F3145))),
+            borderSide: BorderSide(color: appColor)),
         prefixIcon: Icon(icon),
       ),
     );

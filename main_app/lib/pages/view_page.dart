@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:provider/provider.dart';
 // import '../datebase/file_manager.dart';
+import '../color_options.dart';
 import '../datebase/CsvManager.dart';
 import '../datebase/UserManager.dart';
 import '../design/view/Imagesbutton.dart';
@@ -59,6 +61,7 @@ class _ViewPageState extends State<ViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     if (database.isEmpty || time.isEmpty || tarih.isEmpty) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -71,6 +74,7 @@ class _ViewPageState extends State<ViewPage> {
             Column(
               children: [
                 Addbar(
+                  color: appColor,
                   title: database[widget.index][0].toString(),
                   onpressed: () {
                     reader.deleteRow(
@@ -108,10 +112,21 @@ class _ViewPageState extends State<ViewPage> {
                     hintText: database[widget.index][2].toString(),
                     title: '${S.of(context).place} '),
                 labelColor(
-                    color: Color(database[widget.index][4]),
+                    color: appColor,
+                    colorlabel: Color(database[widget.index][4]),
                     text: database[widget.index][3].toString()),
-                AgainTime(hour: time[0], minute: time[1], second: time[2]),
-                DayDate(month: tarih[0], day: tarih[1], year: tarih[2]),
+                AgainTime(
+                  hour: time[0],
+                  minute: time[1],
+                  second: time[2],
+                  color: appColor,
+                ),
+                DayDate(
+                  month: tarih[0],
+                  day: tarih[1],
+                  year: tarih[2],
+                  color: appColor,
+                ),
               ],
             ),
             Positioned(

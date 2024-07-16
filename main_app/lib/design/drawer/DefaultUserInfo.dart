@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../color_options.dart';
 
 class DefaultUserInfo extends StatelessWidget {
   final String userEmail;
@@ -7,11 +10,11 @@ class DefaultUserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return Column(
       children: [
         const SizedBox(height: 20),
-        const Icon(Icons.person,
-            color: Color.fromARGB(255, 147, 1, 98), size: 80),
+        Icon(Icons.person, color: appColor, size: 80),
         const Text('User',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         SizedBox(
@@ -27,10 +30,7 @@ class DefaultUserInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        const SizedBox(
-            width: 250,
-            child:
-                Divider(thickness: 1, color: Color.fromARGB(255, 147, 1, 98))),
+        SizedBox(width: 250, child: Divider(thickness: 1, color: appColor)),
         Image.asset('images/Logo.png'),
       ],
     );

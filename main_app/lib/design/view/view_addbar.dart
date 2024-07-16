@@ -9,8 +9,10 @@ class Addbar extends StatelessWidget {
   final String title;
   final List<dynamic> data;
   final VoidCallback onpressed;
+  final Color color;
   const Addbar(
       {required this.title,
+      required this.color,
       required this.data,
       required this.onpressed,
       super.key});
@@ -18,7 +20,7 @@ class Addbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFFC1007F),
+      backgroundColor: color,
       title: Textdesign(
         title,
         25,
@@ -82,7 +84,7 @@ class Addbar extends StatelessWidget {
                   SnackBar(
                     content: Text(S.of(context).deleteText),
                     duration: const Duration(seconds: 3),
-                    backgroundColor: const Color(0xFFC1007F),
+                    backgroundColor: color,
                   ),
                 );
                 Future.delayed(const Duration(seconds: 1), () {

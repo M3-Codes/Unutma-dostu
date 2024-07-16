@@ -3,6 +3,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import '../color_options.dart';
 import '../design/welcome_signup_login/BG_sl.dart';
 import '../design/welcome_signup_login/BG_text.dart';
 import '../design/welcome_signup_login/buttonauth.dart';
@@ -65,6 +67,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return ModalProgressHUD(
       inAsyncCall: _loading,
       child: Scaffold(
@@ -160,8 +163,8 @@ class _LoginState extends State<Login> {
                             ButtonAtuh(
                               title: "  ${S.of(context).login}  ",
                               horizontal: 0,
-                              colorbackround:
-                                  const Color.fromARGB(255, 97, 4, 66),
+                              colorbackround: Color.alphaBlend(
+                                  Colors.black.withOpacity(0.5), appColor),
                               colorfont:
                                   const Color.fromARGB(255, 255, 255, 255),
                               onPressed: () async {
@@ -222,7 +225,9 @@ class _LoginState extends State<Login> {
                               },
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                    const Color.fromARGB(255, 97, 4, 66)),
+                                    Color.alphaBlend(
+                                        Colors.black.withOpacity(0.5),
+                                        appColor)),
                                 padding: MaterialStateProperty.all(
                                     const EdgeInsets.symmetric(
                                         horizontal: 155, vertical: 10)),

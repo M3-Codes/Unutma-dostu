@@ -5,13 +5,13 @@ import 'notification_service.dart';
 
 class NotificationSettings {
   int _interval = 0;
-  String _productName;
-  String _etkit;
-  Color _color;
-  String _hour;
-  String _minute;
-  String _second;
-  BuildContext _context;
+  final String _productName;
+  final String _etkit;
+  final Color _color;
+  final String _hour;
+  final String _minute;
+  final String _second;
+  final BuildContext _context;
 
   NotificationSettings({
     required String productName,

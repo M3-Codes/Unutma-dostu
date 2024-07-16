@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 class Divider_login extends StatelessWidget {
@@ -9,18 +11,17 @@ class Divider_login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return SizedBox(
       width: 322,
       child: Row(
         children: [
-          const Expanded(
-              child: Divider(thickness: 1, color: Color(0xFFc10080))),
+          Expanded(child: Divider(thickness: 1, color: appColor)),
           Text(
             " ${S.of(context).logindivider} ",
-            style: const TextStyle(fontSize: 14, color: Color(0xFFc10080)),
+            style: TextStyle(fontSize: 14, color: appColor),
           ),
-          const Expanded(
-              child: Divider(thickness: 1, color: Color(0xFFc10080))),
+          Expanded(child: Divider(thickness: 1, color: appColor)),
         ],
       ),
     );

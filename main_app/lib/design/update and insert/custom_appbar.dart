@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 import '../../pages/home_page.dart';
 import '../textfont.dart';
@@ -10,8 +12,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return AppBar(
-      backgroundColor: const Color(0xFFC1007F),
+      backgroundColor: appColor,
       leading: Tooltip(
         message: S.of(context).back,
         child: IconButton(
@@ -41,7 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 SnackBar(
                   content: Text(S.of(context).SaveText),
                   duration: const Duration(seconds: 3),
-                  backgroundColor: const Color(0xFFC1007F),
+                  backgroundColor: appColor,
                 ),
               );
               Future.delayed(const Duration(seconds: 2), () {

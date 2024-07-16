@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../color_options.dart';
 import '../../generated/l10n.dart';
 
 // ignore: camel_case_types
@@ -21,6 +23,7 @@ class _TextForm_PasswordState extends State<TextForm_Password> {
   bool _hpass = true;
   @override
   Widget build(BuildContext context) {
+    final appColor = Provider.of<ColorProvider>(context).appColor;
     return TextFormField(
       validator: widget.validator,
       controller: widget.ccontroller,
@@ -34,10 +37,10 @@ class _TextForm_PasswordState extends State<TextForm_Password> {
           labelText: S.of(context).password,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: Color(0xFF4F3145))),
+              borderSide: BorderSide(color: appColor)),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: Color(0xFF4F3145))),
+              borderSide: BorderSide(color: appColor)),
           prefixIcon: Icon(Icons.lock),
           suffixIcon: togglePassword()),
     );
