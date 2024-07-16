@@ -56,9 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "“GitHub link copied to clipboard"),
         "aboutus6": MessageLookupByLibrary.simpleMessage("Our GitHub"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "blue": MessageLookupByLibrary.simpleMessage("Blue"),
         "checkit": MessageLookupByLibrary.simpleMessage("Check it"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "cyan": MessageLookupByLibrary.simpleMessage("Cyan"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "deleteText":
             MessageLookupByLibrary.simpleMessage("successfully deleted"),
@@ -70,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "filed":
             MessageLookupByLibrary.simpleMessage("Pleace fill out this field"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+        "fuchsia": MessageLookupByLibrary.simpleMessage("Fuchsia"),
+        "green": MessageLookupByLibrary.simpleMessage("Green"),
         "itemAttach": MessageLookupByLibrary.simpleMessage("Item"),
         "itemDes": MessageLookupByLibrary.simpleMessage("Descr"),
         "itemDesH":
@@ -91,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeAttach": MessageLookupByLibrary.simpleMessage("Place"),
         "placeAttachH":
             MessageLookupByLibrary.simpleMessage("Enter the Place..."),
+        "purple": MessageLookupByLibrary.simpleMessage("Purple"),
+        "red": MessageLookupByLibrary.simpleMessage("Red"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "selectlan": MessageLookupByLibrary.simpleMessage("Select Language"),
         "signout": MessageLookupByLibrary.simpleMessage("Sign out"),

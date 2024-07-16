@@ -59,7 +59,13 @@
   "Error":"Please enter your email and then click Forgot Password",
   "Error1":"Please make sure that the email you entered is correct",
   "INFO":"Please click the activation link we sent to your email",
-  "Success":"A link to reset your password has been sent to your email"
+  "Success":"A link to reset your password has been sent to your email",
+  "red": "Red",
+  "blue": "Blue",
+  "cyan": "Cyan",
+  "green": "Green",
+  "purple": "Purple",
+  "fuchsia": "Fuchsia"
   
 }
 
