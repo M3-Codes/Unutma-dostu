@@ -11,6 +11,20 @@ class DefaultUserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColor = Provider.of<ColorProvider>(context).appColor;
+    String colorName = 'Fuchsia'; // Default color name
+    if (appColor == const Color(0xFFd32f2f)) {
+      colorName = 'Red';
+    } else if (appColor == const Color(0xFF4CAF50)) {
+      colorName = 'Green';
+    } else if (appColor == const Color(0xFF2196F3)) {
+      colorName = 'Blue';
+    } else if (appColor == const Color(0xFF00BCD4)) {
+      colorName = 'Cyan';
+    } else if (appColor == const Color(0xFF9C27B0)) {
+      colorName = 'Purple';
+    } else if (appColor == const Color(0xFFC1007F)) {
+      colorName = 'Fuchsia';
+    }
     return Column(
       children: [
         const SizedBox(height: 20),
@@ -31,7 +45,7 @@ class DefaultUserInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         SizedBox(width: 250, child: Divider(thickness: 1, color: appColor)),
-        Image.asset('images/Logo.png'),
+        Image.asset('images/Logo$colorName.png'),
       ],
     );
   }

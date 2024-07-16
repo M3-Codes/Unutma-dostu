@@ -66,15 +66,15 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
     String colorName = 'Fuchsia'; // Default color name
     if (appColor == const Color(0xFFd32f2f)) {
       colorName = 'Red';
-    } else if (appColor == Colors.green) {
+    } else if (appColor == const Color(0xFF4CAF50)) {
       colorName = 'Green';
-    } else if (appColor == Colors.blue) {
+    } else if (appColor == const Color(0xFF2196F3)) {
       colorName = 'Blue';
-    } else if (appColor == Colors.cyan) {
+    } else if (appColor == const Color(0xFF00BCD4)) {
       colorName = 'Cyan';
-    } else if (appColor == Colors.purple) {
+    } else if (appColor == const Color(0xFF9C27B0)) {
       colorName = 'Purple';
-    } else if (appColor == Color(0xFFC1007F)) {
+    } else if (appColor == const Color(0xFFC1007F)) {
       colorName = 'Fuchsia';
     }
 
