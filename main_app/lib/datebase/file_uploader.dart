@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'ConnectivityChecker.dart';
-import 'IFileUploader.dart';
+import 'connectivity_checker.dart';
+import 'ifile_uploader.dart';
 
 class FileUploader implements IFileUploader {
   @override

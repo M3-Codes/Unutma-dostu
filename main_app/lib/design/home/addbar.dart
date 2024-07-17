@@ -144,27 +144,27 @@ class _addbarState extends State<addbar> {
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Color>>[
         PopupMenuItem<Color>(
           value: const Color(0xFFD32F2F),
-          child: Text(S.of(context).red),
+          child: Textdesign(S.of(context).red, 14),
         ),
         PopupMenuItem<Color>(
           value: const Color(0xFF4CAF50),
-          child: Text(S.of(context).green),
+          child: Textdesign(S.of(context).green, 14),
         ),
         PopupMenuItem<Color>(
           value: const Color(0xFF2196F3),
-          child: Text(S.of(context).blue),
+          child: Textdesign(S.of(context).blue, 14),
         ),
         PopupMenuItem<Color>(
           value: const Color(0xFF00BCD4),
-          child: Text(S.of(context).cyan),
+          child: Textdesign(S.of(context).cyan, 14),
         ),
         PopupMenuItem<Color>(
           value: const Color(0xFF9C27B0),
-          child: Text(S.of(context).purple),
+          child: Textdesign(S.of(context).purple, 14),
         ),
         PopupMenuItem<Color>(
           value: const Color(0xFFC1007F),
-          child: Text(S.of(context).fuchsia),
+          child: Textdesign(S.of(context).fuchsia, 14),
         ),
       ],
     );

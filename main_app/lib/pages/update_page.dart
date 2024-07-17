@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 // import 'package:UnutmaDostu/datebase/file_manager.dart';
-import '../datebase/CsvManager.dart';
-import '../datebase/UserManager.dart';
+import '../datebase/csv_manager.dart';
+import '../datebase/user_manager.dart';
 import '../design/textfont.dart';
 import '../design/update and insert/color_picker.dart';
 import '../design/update and insert/custom_appbar.dart';

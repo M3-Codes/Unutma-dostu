@@ -59,6 +59,5 @@ flutter:
   assets:
     - images/
     - images/door_sound.mp3
-    - images/boxload.json
 flutter_intl:
   enabled: true

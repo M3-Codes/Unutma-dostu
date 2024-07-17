@@ -1,8 +1,6 @@
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'IUserManager.dart';
+import 'iuser_manager.dart';
 
 class UserManager implements IUserManager {
   @override

@@ -85,14 +85,30 @@ class Welcome extends StatelessWidget {
                 const SizedBox(
                   height: 22,
                 ),
-                ButtonAtuh(
-                  title: " ${S.of(context).language} ",
-                  horizontal: 20,
-                  colorbackround: const Color(0xFFE0E0E0),
-                  colorfont: const Color(0xFF303030),
-                  onPressed: () {
-                    _showLanguageDialog(context);
-                  },
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Icons.language,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          _showLanguageDialog(context);
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.color_lens,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          _showColorDialog(context);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -105,7 +121,7 @@ class Welcome extends StatelessWidget {
 }
 
 void _showLanguageDialog(BuildContext context) {
-  final appColor = Provider.of<ColorProvider>(context).appColor;
+  final appColor = Provider.of<ColorProvider>(context, listen: false).appColor;
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -137,6 +153,71 @@ void _showLanguageDialog(BuildContext context) {
                 Navigator.of(context).pop();
               },
               child: Textdesign('العربية', color: appColor, 16),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+void _showColorDialog(BuildContext context) {
+  final appColor = Provider.of<ColorProvider>(context, listen: false).appColor;
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(S.of(context).Choosecolour),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFFD32F2F));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).red, color: appColor, 16),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFF4CAF50));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).green, color: appColor, 16),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFF2196F3));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).blue, color: appColor, 16),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFF00BCD4));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).cyan, color: appColor, 16),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFF9C27B0));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).purple, color: appColor, 16),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ColorProvider>(context, listen: false)
+                    .updateColor(const Color(0xFFC1007F));
+                Navigator.of(context).pop();
+              },
+              child: Textdesign(S.of(context).fuchsia, color: appColor, 16),
             ),
           ],
         ),

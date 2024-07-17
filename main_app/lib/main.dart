@@ -13,7 +13,6 @@ import 'package:UnutmaDostu/pages/welcome_page.dart';
 import 'package:UnutmaDostu/services/notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-
 import 'color_options.dart';
 import 'language_provider.dart';
 

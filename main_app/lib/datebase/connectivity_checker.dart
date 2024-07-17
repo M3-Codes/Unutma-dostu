@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'IConnectivityChecker.dart';
+import 'iconnectivity_checker.dart';
 
 class Connectivitychecker implements IConnectivityChecker {
   @override

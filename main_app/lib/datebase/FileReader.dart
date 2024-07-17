@@ -1,10 +1,12 @@
+// ignore_for_file: unused_element
+
 import 'dart:async';
 import 'dart:io';
 
-import 'IConnectivityChecker.dart';
-import 'ICsvManager.dart';
-import 'IFileUploader.dart';
-import 'IUserManager.dart';
+import 'iconnectivity_checker.dart';
+import 'icsv_manager.dart';
+import 'ifile_uploader.dart';
+import 'iuser_manager.dart';
 
 class FileReader {
   final List<String> _uploadQueue = [];

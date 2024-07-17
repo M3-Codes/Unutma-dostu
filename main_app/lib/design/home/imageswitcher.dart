@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../color_options.dart';
-import '../../datebase/CsvManager.dart';
-import '../../datebase/UserManager.dart';
+import '../../datebase/csv_manager.dart';
+import '../../datebase/user_manager.dart';
 // import '../../datebase/file_manager.dart';
 import '../../pages/view_page.dart';
 import '../textfont.dart';
@@ -83,7 +83,7 @@ class _ImageSwitcherState extends State<ImageSwitcher> {
 
     if (list.isEmpty || widget.index - 1 >= list.length) {
       return Lottie.asset(
-        'images/boxload.json',
+        'images/boxload$colorName.json',
         width: 80,
         height: 80,
         fit: BoxFit.cover,

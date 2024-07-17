@@ -91,7 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "place": MessageLookupByLibrary.simpleMessage("المكان"),
         "placeAttach": MessageLookupByLibrary.simpleMessage(" صورة المكان"),
         "placeAttachH": MessageLookupByLibrary.simpleMessage("أدخل المكان..."),
-        "purple": MessageLookupByLibrary.simpleMessage("النفسجي"),
+        "purple": MessageLookupByLibrary.simpleMessage("البنفسجي"),
         "red": MessageLookupByLibrary.simpleMessage("الأحمر"),
         "repeat": MessageLookupByLibrary.simpleMessage("التكرار"),
         "selectlan": MessageLookupByLibrary.simpleMessage("اختر اللغة"),

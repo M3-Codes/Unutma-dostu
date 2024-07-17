@@ -8,6 +8,8 @@ import '../textfont.dart';
 import 'ContactInfoRow.dart';
 
 class AboutDialogContent extends StatelessWidget {
+  const AboutDialogContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     final appColor = Provider.of<ColorProvider>(context).appColor;
@@ -39,7 +41,7 @@ class AboutDialogContent extends StatelessWidget {
           const SizedBox(height: 30.0),
           ContactInfoRow(
             iconPath: 'images/github.png',
-            text: 'https://github.com/M3-Codes/M3-Codes',
+            text: ('https://github.com/\nM3-Codes/M3-Codes'),
             snackBarMessage: S.of(context).aboutus5,
           ),
           GestureDetector(
